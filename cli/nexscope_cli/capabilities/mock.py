@@ -39,7 +39,7 @@ class MockTransport:
             if self.scenario == 'partial' and body['asins'] == 'B000000002':
                 return 200, {'code': 0, 'data': {'products': []}}
             index = sum(map(ord, body['asins'])) % len(rows)
-            row = rows[index]
+            row = next((row for row in rows if row['asin'] == body['asins']), rows[index])
             row['asin'] = body['asins']
             row['link'] = 'https://example.invalid/product/' + body['asins']
             rows = [row]

@@ -373,7 +373,7 @@ wheels = [
 
 [[package]]
 name = "nexscope-cli"
-version = "0.1.2.dev9"
+version = "0.1.2.dev11"
 source = { editable = "." }
 dependencies = [
     { name = "keyring" },

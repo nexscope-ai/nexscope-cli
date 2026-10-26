@@ -114,7 +114,12 @@ class DatasetTests(unittest.TestCase):
         result = compare(path, output, dry_run=True)
         self.assertEqual(result['networkCalls'], 0)
         self.assertFalse(output.exists())
+        with self.assertRaises(NotADirectoryError):
+            compare(path, self.root / 'missing' / 'report.html', dry_run=True)
+        self.assertFalse((self.root / 'missing').exists())
         output.write_text('keep')
+        with self.assertRaises(FileExistsError):
+            compare(path, output, dry_run=True)
         with self.assertRaises(FileExistsError):
             compare(path, output)
         self.assertEqual(output.read_text(), 'keep')

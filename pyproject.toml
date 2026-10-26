@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "nexscope-cli"
-version = "0.1.2.dev9"
+version = "0.1.2.dev11"
 description = "Offline product comparison reports and bounded Nexscope ecommerce data workflows"
 readme = "README.md"
 requires-python = ">=3.11"

@@ -60,7 +60,8 @@ def main():
         work = Path(temporary)
         assert not work.resolve().is_relative_to(root)
         target = work / 'environment'
-        venv.EnvBuilder(with_pip=pip_wheel is None).create(target)
+        # Match `python -m venv`: copied macOS interpreters can lose libpython's relative path.
+        venv.EnvBuilder(with_pip=pip_wheel is None, symlinks=os.name != 'nt').create(target)
         python = target / ('Scripts/python.exe' if os.name == 'nt' else 'bin/python')
         entry = target / ('Scripts/nexscope.exe' if os.name == 'nt' else 'bin/nexscope')
         install = [python, '-I', '-m', 'pip', 'install', '--no-index', '--no-deps', '--force-reinstall']

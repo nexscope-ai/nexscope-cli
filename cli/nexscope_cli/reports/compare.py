@@ -85,11 +85,13 @@ def compare(input_path, output_path, dry_run=False, format='html'):
     evidence = output.with_name(output.name + '.evidence')
     if format not in FORMATS or output.suffix.lower() != FORMATS[format]:
         raise ValueError('Report format must match its .html, .csv or .md output suffix.')
+    if not output.parent.is_dir():
+        raise NotADirectoryError('Report parent must be an existing directory.')
+    if output.exists() or evidence.exists():
+        raise FileExistsError('Choose a new report path; report or evidence already exists.')
     if dry_run:
         return {'status': 'PLAN_READY', 'rows': len(dataset['products']), 'networkCalls': 0,
                 'output': str(output), 'evidence': str(evidence), 'sourceType': dataset['sourceType'], 'format': format}
-    if output.exists() or evidence.exists():
-        raise FileExistsError('Choose a new report path; report or evidence already exists.')
     # Exclusive creation prevents replacement of either the input or existing outputs.
     artifacts = Artifacts(evidence)
     created = []

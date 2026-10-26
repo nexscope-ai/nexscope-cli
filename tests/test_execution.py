@@ -12,6 +12,14 @@ from nexscope_cli.core.transport import HttpTransport, decode
 
 
 class ExecutionTests(unittest.TestCase):
+    def test_mock_details_keep_the_selected_search_product(self):
+        transport = MockTransport()
+        _, search = transport.send(None, '/amazon/search', {'keyword': 'lamp'})
+        for candidate in search['data']['products']:
+            with self.subTest(asin=candidate['asin']):
+                _, detail = transport.send(None, '/amazon/product/detail', {'asins': candidate['asin']})
+                self.assertEqual(detail['data']['products'], [candidate])
+
     def test_auth_sources_never_fall_back_or_read_the_other_source(self):
         environment = {'NEXSCOPE_API_KEY': 'env-fixture', 'NEXSCOPE_PROXY_BASE': 'https://env.invalid'}
         browser = resolve_auth('browser-account', environment=environment, credential_loader=lambda: {'apiKey': 'browser-fixture'})

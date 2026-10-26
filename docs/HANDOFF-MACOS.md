@@ -1,6 +1,11 @@
 # macOS acceptance handoff
 
-Date: 2026-10-26. Current development version: `0.1.2.dev9`.
+Date: 2026-10-26. Current local development version: `0.1.2.dev11`.
+The original dev9 handoff below remains historical context; see the completion
+record at the end for actual Mac results and remaining gates.
+The user has now authorized committing and pushing the verified dev11 source.
+Historical local/uncommitted descriptions below refer to the recorded test
+phases. PyPI, GitHub Releases and downstream plugin publication remain separate.
 Repository: <https://github.com/nexscope-ai/nexscope-cli>.
 
 ## Objective and boundaries
@@ -172,3 +177,180 @@ architecture, Python version, command, status and bounded-call usage. Distinguis
 PASS, FAIL and BLOCKED. Preserve original failures, identify offline replays,
 and keep private evidence outside Git. Do not publish credentials or paid-run
 account data in issues, logs, screenshots, commits or CI artifacts.
+
+### Completed on this Mac, 2026-10-26 (Asia/Taipei)
+
+Actual source HEAD: `0252b0ec8a02ecdceb4deb691f3c3d0c12b8ed65`, branch `main`,
+initially clean. Local uncommitted changes fix POSIX verifier venv creation and
+mock ASIN/detail consistency, with failing-before/passing-after regressions.
+The runtime correction is versioned **0.1.2.dev10** locally; there is no dev10
+commit or publication. All paired adapter pins/current hashes were updated,
+preserving historical source snapshots. No existing plugin was changed.
+
+Platform: **macOS 27.0, build 26A428, arm64**; Python **3.11.15 / 3.12.13**.
+Final actual wheel: `dist/dev10/nexscope_cli-0.1.2.dev10-py3-none-any.whl`, SHA-256
+`eb36658d08cf523c714444bb82ce5fc3acf16a305248fbcbd688f3c5fc25744e`.
+Reviewed rollback wheel: locally rebuilt/tested dev9, SHA-256
+`618c18c6c7e134eb992479242d60fa672d9ac99bfd2519b8b3529bc2d7fff02e`.
+These are different from the historical Windows wheels above.
+
+| Status | Actual result |
+| --- | --- |
+| PASS | Dev9 installed-wheel 30 regressions per interpreter; corrected dev10 31 per interpreter, offline/loopback/report/legacy checks, resources and external-venv source isolation |
+| PASS | Real `keyring.backends.macOS` write/read, dev9↔dev10 rollback, uninstall/reinstall retention and synthetic-entry cleanup on Python 3.12.13; version/report rollback on both Pythons |
+| PASS | Explicit user approval before persistent test CLI Key creation; browser account matches installed CLI; credential remains in Keychain and pending entry cleared; unrelated env key ignored |
+| PASS | Browser/env failure paths do not cross modes or fall back; positive modes pass with loopback fixtures. Real second-account env mode remains unaccepted |
+| PASS, offline host only | Codex CLI 0.163.0 and Claude Code 2.1.308 actually executed natural-language three-ASIN, keyword/resume and 2-success/1-failure workflows, all reports and offline re-export; no live data implied |
+| PASS, read-only prerequisite | Own-account API Access Call Details has UTC/key/path/actual-credit/request/diagnostic fields for later per-call reconciliation; no new Mac-key data rows observed, no balance-delta attribution |
+| FAIL → fixed | Original verifier copied-interpreter SIGABRT/dyld failure on both Pythons; original logs retained, POSIX symlink correction passes |
+| FAIL → fixed in dev10 | Known fictional ASINs received another fixture's title/price; regression first failed, matched-ASIN selection now passes in installed wheels and both real hosts |
+| BLOCKED | 8-request plan approved; credit-budget value, second positive ASIN and single keyword await specification; live comparison/resume/partial/live-host gates remain incomplete |
+| BLOCKED / separate | Real positive env-mode account, refunds/server attribution, Linux desktop keyring, published-plugin discovery and release acceptance |
+
+Executed commands:
+
+```sh
+python scripts/check_resources.py
+python -m pip wheel --no-deps --wheel-dir dist/dev10 .
+python scripts/verify_wheel.py dist/dev10/nexscope_cli-0.1.2.dev10-py3-none-any.whl --previous-wheel dist/rebuilt/nexscope_cli-0.1.2.dev9-py3-none-any.whl --with-dependencies --with-os-keyring
+python scripts/test_verify_wheel.py dist/dev10/nexscope_cli-0.1.2.dev10-py3-none-any.whl
+```
+
+The 3.11 verifier omitted dependency/OS-keyring flags. Auth used only
+`https://test-claw-callback.nexscope.ai` and `https://www-test.nexscope.ai`:
+`auth login --source-client python-cli --source-channel github`, explicit browser
+confirmation, `auth poll`, then `account` with an unrelated env sentinel.
+**Data calls 0; automatic data retries 0; CLI auth/account HTTP requests 5.**
+No new data debit is attributed; this does not certify the whole ledger. Old
+145-credit charges remain historical. Host model usage costs are separate;
+see ACCEPTANCE.md for reported, unreconciled amounts.
+
+Private raw failures, transcripts, host outputs, no-key account snapshots and
+read-only billing evidence are in `dist/macos-20261026/`, ignored by Git. The
+source baseline, wheel/source/script hashes, exact host prompts and results are
+indexed in `acceptance-summary.json`. Offline reruns are explicitly separated.
+The external installed `live-env` and host directories under
+`~/.local/share/nexscope-cli-acceptance/20261026/` are retained for pending work.
+No task worktree, branch, commit, push, release or publication was created.
+
+### Post-approval live completion record
+
+The user subsequently authorized **at most 20 data calls, no credit ceiling**,
+and delegated fixed sample/keyword selection. This supersedes the earlier
+8-call proposal. Samples: `B072MQ5BRX`, `B07FZ8S74R`; historical failure sample
+`B08N5WRWNW`; sole keyword **`wireless mouse`**; marketplace `amazon.com`.
+The final installed dev10 wheel/hash and source baseline above are unchanged.
+No automatic retries, replacement ASINs/keywords or production calls occurred.
+
+| Status | Actual live outcome |
+| --- | --- |
+| PASS | Actual Claude Code drove a direct two-product comparison: COMPLETE, 2/2 successful, exit 0, 2 requests; HTML/CSV/Markdown and original evidence retained |
+| FAIL, upstream | The single keyword request returned business 13007, no candidates, exit 1; exact failed response and manifest retained |
+| BLOCKED | Live `--resume` cannot run without a completed candidates checkpoint; search was not repeated or replaced |
+| PASS | Actual Claude Code drove a three-product partial case: B072MQ5BRX/B07FZ8S74R successful, B08N5WRWNW EMPTY_DATA; PARTIAL, 2/3 successful, exit 1, 3 requests |
+| PASS | Direct and partial datasets re-export offline into all three formats, preserving original request bytes, hashes, remote provenance, errors and accounting |
+| PASS, bounded reconciliation | Own-account call detail rows and new-key summary match **6 calls / 230 charged credits**; no whole-account balance-delta attribution |
+| BLOCKED | Actual Codex CLI workspace-write sandbox returned KeyringError before workflow artifacts/data requests; no sandbox/Keychain protection was weakened and this command was not retried |
+
+**Used 6 of 20 authorized data calls; 14 unused; automatic retries 0.**
+There are five detail calls and one search. Direct details cost **45 + 90**;
+partial details cost **45 + 45 + 5**. Search's detail row displays `—`, not a
+numeric zero; the new-key summary totals 6 calls and 230 credits, matching the
+five numeric detail charges. The failed empty-data sample's **5 credits are a
+real charge**. No refund was requested or performed. The prior Windows key's
+145 credits remain separate. Response `cost` values are not credit amounts.
+
+Earlier billing snapshots showed only old rows. A newly opened API Access page,
+with a refreshed Last 7 days query, subsequently exposed all six Mac-key rows;
+original incomplete snapshots are retained. Matched UTC rows are at
+10:02:03/04 (direct), 10:05:00 (search), 10:06:08/09/10 (partial), all on
+2026-10-26. Private per-row request/diagnostic IDs and key mask are recorded in
+`dist/macos-20261026/live/billing-final-call-details.txt`; key-only summary is
+`billing-final-key-summary.txt`. This reconciles visible call charges, not a
+complete distributed trace, refund flow or independently audited ledger.
+
+Exact host prompts, command/exit transcripts, raw response bundles and offline
+re-exports are saved under `dist/macos-20261026/live/` (ignored), indexed by
+`live-summary.json` and `SHA256SUMS`. External `live-codex/` (original failed
+host attempt) and `live-claude/` (live original bundles) are retained under
+`~/.local/share/nexscope-cli-acceptance/20261026/`. All private evidence remains
+local. No source commit, publication, deployment or plugin update was made.
+The persistent test connection remains in Keychain and can be revoked through
+API Access; no key value was exported to a file or the environment.
+
+Remaining acceptance: successful live keyword/resume, Codex live credential
+access under supported host permissions, a separately authorized positive real
+env-api-key context, full server attribution/refunds, and release ownership.
+The unused call allowance is not a reason to retry or switch samples. R2 remains
+partially accepted.
+
+### Final installed candidate: dev11
+
+The live data runs above used dev10. An offline-only preflight defect was then
+reproduced: missing report parents returned PLAN_READY under `--dry-run` but
+failed on export. An existing regression was extended and failed first; the
+small correction checks parent/output collisions before dry-run as well.
+
+Final local wheel: `dist/dev11/nexscope_cli-0.1.2.dev11-py3-none-any.whl`, SHA-256
+`5c94b388da7f691841aef346195806887fae9f1a6148f62aed130f6c1f2afa5c`.
+HEAD is still `0252b0ec8a02ecdceb4deb691f3c3d0c12b8ed65` with uncommitted fixes
+and paired dev11 pins. Source/resource byte matching and resource checks pass.
+
+**PASS**: 31 source regressions; 31 installed regressions on both Python
+3.11.15 and 3.12.13; real Keychain dev10↔dev11 persistence, uninstall retention
+and cleanup on 3.12; version/report rollback on 3.11; verifier regression;
+all six direct/partial report re-exports from original live datasets into the
+installed dev11 pass **offline**, with original request bytes preserved.
+Missing-parent dry-runs now exit 1. Exact commands match the dev10 verifier
+commands above with dev11 as current and dev10 as previous wheel.
+
+No new live call was made after this correction: final total remains **6/20,
+230 Nexscope credits, no automatic retry, 14 unused**. Do not relabel the dev10
+live runs as dev11 live acceptance. The final external `live-env` contains dev11;
+`dev11-offline/` preserves offline-only report results. Full commands, hashes and
+original failures are indexed in `dist/macos-20261026/live/live-summary.json`.
+Model usage costs are recorded separately in ACCEPTANCE.md. Release, refund,
+full server attribution and remaining host/search gates remain incomplete.
+
+### Fresh Codex retest: Keychain gate resolved for the configured host
+
+The user requested a new session, then restricted further testing to Codex.
+Earlier child runs had an extra `--sandbox workspace-write` override, whereas
+the user's existing configuration was `danger-full-access`. A local diagnostic
+captured native Keychain `Error(-50)` plus sandbox denials for
+`com.apple.securityd.xpc` / `com.apple.SecurityServer`. The same installed CLI
+could read the credential in the current host. Original errors and one mistaken
+diagnostic AttributeError are retained separately.
+
+Fresh `codex exec --ephemeral --skip-git-repo-check --json`, with **no sandbox
+override**, inherited the existing profile; no global/OS/Keychain protections
+were changed, no key recreated or exported. Version remains dev11, wheel
+SHA-256 `5c94b388da7f691841aef346195806887fae9f1a6148f62aed130f6c1f2afa5c`.
+
+- **PASS:** account connected; direct two-product COMPLETE/exit0/2 requests;
+  partial case 2 successes + B08N5WRWNW EMPTY_DATA, PARTIAL/exit1/3 requests;
+  all three original reports and six offline re-exports preserve evidence.
+- **FAIL:** the single Codex `wireless mouse` search again returned 13007,
+  exit1/1 request. A bounded exact-trace log query returned no rows, so the
+  deeper provider reason is not certified.
+- **BLOCKED:** live CLI `--resume` still lacks a completed candidates checkpoint.
+  It reads local search evidence and is distinct from resuming a Codex chat.
+
+This closes Codex live acceptance under the user's configured profile, not
+workspace-write Keychain compatibility. Before the Codex-only clarification,
+one additional fresh Claude search also failed (1 request); no already-passing
+Claude direct/partial case was repeated and no further Claude task was started.
+
+Read-only new-key billing summary now matches **13 total Mac calls / 415
+credits**: previous 6/230, the extra Claude search, then Codex 6/185. Codex's
+five detail debits are 45+45+45+45+5; search rows show `—`, not a numeric zero.
+**7/20 requests remain unused, no automatic retry.** Old Windows 145 credits
+are separate. No balance-delta attribution, refund or backend change occurred.
+
+Exact fresh prompts, commands, UTCs, exit codes, raw bundles, OS diagnostic
+denials, offline outputs and billing receipts are under ignored
+`dist/macos-20261026/retest/`, indexed by `retest-summary.json`. The external
+`retest-codex/`, `retest-codex-configured/`, and `retest-claude/` directories are
+retained for reproduction. No commit, release, deployment or plugin change was
+made. Next work remains successful live search/resume and the other independent
+release/refund/env-mode gates, without automatically spending the unused calls.
