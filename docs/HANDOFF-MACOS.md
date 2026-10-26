@@ -25,12 +25,21 @@ deployments, package releases and plugin uploads need their own authorized scope
 
 ## What is already verified
 
+Source publication is complete: the repository is public and `main` contains
+the implementation. The initial runtime commit is
+`d5ed885ef87a248f82827a8c6252760e340d7a7a`. Its
+[installed-wheel CI run](https://github.com/nexscope-ai/nexscope-cli/actions/runs/40296830306)
+passed all six Windows/Ubuntu/macOS × Python 3.11/3.12 jobs. Later documentation
+commits retain that runtime; inspect the actual checks on the commit you use.
+The hosted Mac jobs do not establish local Keychain persistence or live login.
+
 | Area | Evidence and limits |
 | --- | --- |
 | Windows Python 3.12.14 | 30 installed-wheel regressions, offline reports/plans, loopback dual-auth, compatibility adapters and browser runner |
 | Ubuntu WSL2 Python 3.12.3 | The same 30 installed-wheel cases; source imports excluded; native macOS is still a separate check |
 | Windows credential store | Real OS-store write/read, dev8↔dev9 persistence, uninstall/reinstall persistence and cleanup using an isolated synthetic entry |
 | Windows/WSL upgrade and rollback | dev8↔dev9 executable versions and preservation of user reports |
+| Hosted CI from the immutable initial commit | All six installed-wheel jobs passed on Windows, Ubuntu and macOS with Python 3.11/3.12; no paid queries were made |
 | Real existing-account browser connection | Approved test user matched the CLI account; credentials stayed in the OS store |
 | Live dev9 detail | `B072MQ5BRX`, Amazon US: COMPLETE / SUCCESS, exit 0, one product |
 | Actual billing sample | Four data calls, no CLI retries; three ledger debits total 145 credits (90 + 10 + 45); failed search cost 0 |

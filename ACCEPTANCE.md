@@ -117,6 +117,22 @@ empty. Mock/replay checks do not substitute for those missing live outcomes.
   and test environment-key sentinels survive. This does not test real OS-keyring
   credential persistence across installer operations.
 
+## Public source and hosted CI
+
+The repository is public at <https://github.com/nexscope-ai/nexscope-cli> and the
+initial implementation was pushed to `main` as commit
+`d5ed885ef87a248f82827a8c6252760e340d7a7a`. Its
+[installed-wheel workflow](https://github.com/nexscope-ai/nexscope-cli/actions/runs/40296830306)
+completed successfully on Windows, Ubuntu and macOS with Python 3.11 and 3.12:
+all six jobs passed. These are builds from an immutable Git commit. Private
+live-test artifacts and credentials were excluded from the commit and push.
+
+This closes the corresponding hosted installation/offline/loopback matrix,
+including Windows Python 3.11. It does not certify a local Mac's Keychain,
+real-account connection, real comparison workflows, Linux desktop credential
+services, refunds or host integrations. No package release, tag or plugin upload
+was made. See `docs/HANDOFF-MACOS.md` for the remaining Mac work.
+
 ## Additional executable acceptance, 2026-10-26
 
 The same wheel was tested again, without changing its runtime code:
@@ -179,7 +195,7 @@ still requires review and verification from an immutable source commit.
 | Real Nexscope login and valid test-account calls | PASS for an existing logged-in test account, approved CLI connection, and one successful dev9 live detail; new-user registration is not tested |
 | Linux WSL2 install, offline, loopback and upgrade/rollback | Verified locally on Ubuntu Python 3.12.3; does not certify all Linux hosts |
 | Linux Secret Service/KWallet | BLOCKED on this headless WSL2 host: `keyring.backends.fail`, fail-closed rejection verified; no desktop-store persistence acceptance |
-| macOS install, OS keyring and upgrade/rollback | No available macOS executor; CI configured, no passing run claimed |
+| macOS install, OS keyring and upgrade/rollback | Hosted macOS/Python 3.11 and 3.12 installed-wheel jobs pass; local Keychain persistence, previous-wheel rollback and real browser connection still require the local Mac |
 | Real search/detail response shapes, balance, pricing, billed/refund outcomes | PARTIAL: search upstream failure, detail/empty cases and 145-credit ledger reconciliation observed; fixed currency adapter passes live detail. Refunds and complete live comparison remain untested; future-call cost is still unknown |
 | Codex/Claude Code natural-language three-ASIN, keyword and partial tasks | Not tested in real hosts |
 | Registration → effective call → payment/refund server attribution | Existing CLI metadata only; backend/web chain not implemented or certified here |
