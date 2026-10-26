@@ -1,0 +1,22 @@
+name: Test installed wheel
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  installed-wheel:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python: ['3.11', '3.12']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python scripts/check_resources.py
+      - run: python -m pip wheel --no-deps --wheel-dir dist .
+      - run: python scripts/verify_wheel.py dist/nexscope_cli-0.1.2.dev9-py3-none-any.whl --with-dependencies
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wheel-${{ matrix.os }}-${{ matrix.python }}
+          path: dist/*.whl

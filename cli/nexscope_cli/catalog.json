@@ -1,0 +1,67 @@
+{
+  "source": "https://github.com/nexscope-ai/nexscope-ecommerce-skills",
+  "revision": "cd532d33ce21a643f9945e05ca556b5ba890813d",
+  "skills": {
+    "amazon-search": {
+      "source": "ecommerce-amazon-search",
+      "description": "Search Amazon products.",
+      "scripts": [
+        "scripts/amazon_search.py"
+      ],
+      "files": {
+        "SKILL.md": "e41f10ad974df5138ea32fdd6022527b0deaab8b556a06ece1fd1d2b8b9f2660",
+        "references/api.md": "ac2f6764ddafbd4ab0e19cb5f3cfe37838ebd76879c604ad62c40a4dcd6e77ea",
+        "requirements.txt": "e6f6d29a5211105d80a54a105148ba6b27591e02b8ba4de4ba415515fcdaf6c5",
+        "scripts/amazon_search.py": "c6c2e7b71868ad8c784ced225618545a69c2be971013ee33172908706044ed74"
+      },
+      "available": true,
+      "sourceRevision": "742ccef80fc605842b0249864051e4f690adcabb",
+      "sourceSnapshot": {
+        "state": "local-candidate-not-a-release",
+        "manifestSha256": "939192eb79d205008548d54397efe2be63bcfcb32811c414ddf5af68dfc83dd3",
+        "files": {
+          "SKILL.md": "d4f3cde82fcb8855d2167633764bd3c765ed3b6ad824116b9ee0a7d05254f3d7",
+          "references/api.md": "ac2f6764ddafbd4ab0e19cb5f3cfe37838ebd76879c604ad62c40a4dcd6e77ea",
+          "requirements.txt": "5d007fcd9e56e8319c5eddb055bddffe26305dac70d771526a130ac8ae17d3a8",
+          "scripts/amazon_search.py": "5036600ddc06ed2a333fb2e8b6b76b84d7968ba109dcedd4a3c1bd4ce46d174b"
+        }
+      },
+      "distributionTransforms": [
+        "Nexscope copyright and Apache-2.0 SPDX headers added for approved data-only distribution",
+        "Standalone CLI 0.1.2.dev8 adapter version and installation instructions; historical sourceSnapshot unchanged",
+        "Standalone CLI 0.1.2.dev9 pins; unqualified currency symbols retained as unresolved metadata without inferring an ISO code"
+      ]
+    },
+    "amazon-product-detail": {
+      "source": "ecommerce-amazon-product-detail",
+      "description": "Retrieve Amazon product details.",
+      "scripts": [
+        "scripts/amazon_product_detail.py"
+      ],
+      "files": {
+        "SKILL.md": "16af9edeafc36b7890c529cc5aea41d1b0ce8b7d9e3260847ce6c1745538e5d0",
+        "references/api.md": "2ad537d7861e650a1ec195791e7aa488614132e1305473c53af0c7a63f4d0d59",
+        "requirements.txt": "e6f6d29a5211105d80a54a105148ba6b27591e02b8ba4de4ba415515fcdaf6c5",
+        "scripts/amazon_product_detail.py": "773e1b76eab17d735b04c694dfa3104ccb1413b509f4aace4af4d1a551b575f0"
+      },
+      "available": true,
+      "sourceRevision": "742ccef80fc605842b0249864051e4f690adcabb",
+      "sourceSnapshot": {
+        "state": "local-candidate-not-a-release",
+        "manifestSha256": "b688700d08cec44ab8fb1d6b9692e2a974dbb02412aad128bf49deefb493ec22",
+        "files": {
+          "SKILL.md": "69958b1b48ad00cb6061ab0084bec6f27e1ae62e242db4da6768f567efc849d9",
+          "references/api.md": "2ad537d7861e650a1ec195791e7aa488614132e1305473c53af0c7a63f4d0d59",
+          "requirements.txt": "5d007fcd9e56e8319c5eddb055bddffe26305dac70d771526a130ac8ae17d3a8",
+          "scripts/amazon_product_detail.py": "56ce266fbd21b9c837915d766eb3c907cdcba1708097c47c62fa45d1f3f9ffdc"
+        }
+      },
+      "distributionTransforms": [
+        "Nexscope copyright and Apache-2.0 SPDX headers added for approved data-only distribution",
+        "Standalone CLI 0.1.2.dev8 adapter version and installation instructions; historical sourceSnapshot unchanged",
+        "Standalone CLI 0.1.2.dev9 pins; unqualified currency symbols retained as unresolved metadata without inferring an ISO code"
+      ]
+    }
+  },
+  "distributionProfile": "data-only"
+}

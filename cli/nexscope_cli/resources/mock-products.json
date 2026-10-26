@@ -1,0 +1,9 @@
+{
+  "sourceType": "mock",
+  "notice": "Fictional test products. Not live market data.",
+  "products": [
+    {"asin": "B000000001", "title": "Fictional Alpha bottle", "extractedPrice": 20.5, "currency": "USD", "rating": 4.2, "ratingScale": 5, "reviews": 80, "link": "https://example.invalid/product/B000000001"},
+    {"asin": "B000000002", "title": "Fictional Beta bottle", "extractedPrice": 23, "currency": "USD", "rating": 4.5, "ratingScale": 5, "reviews": 40, "link": "https://example.invalid/product/B000000002"},
+    {"asin": "B000000003", "title": "Fictional Gamma bottle", "currency": "USD", "link": "https://example.invalid/product/B000000003"}
+  ]
+}

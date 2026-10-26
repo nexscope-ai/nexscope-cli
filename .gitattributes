@@ -1,0 +1,15 @@
+* text=auto eol=lf
+*.png -text
+# Catalog digests cover canonical LF text, regardless of core.autocrlf.
+# Binary resources retain their original bytes.
+/cli/nexscope_cli/skills/** -text
+/cli/nexscope_cli/skills/**/*.md text eol=lf
+/cli/nexscope_cli/skills/**/*.py text eol=lf
+/cli/nexscope_cli/skills/**/*.json text eol=lf
+/cli/nexscope_cli/skills/**/*.html text eol=lf
+/cli/nexscope_cli/skills/**/*.txt text eol=lf
+/cli/nexscope_cli/catalog.json text eol=lf
+
+# Preserve reviewed lock and original third-party notice bytes.
+/cli/nexscope_cli/dependency-lock.json -text whitespace=cr-at-eol
+/third-party-notices/** -text -whitespace

@@ -1,0 +1,20 @@
+Nexscope data CLI
+Copyright 2026 Nexscope
+
+This data distribution contains the Nexscope data CLI, two bundled Amazon
+search/product-detail adapters, report templates, fictional samples and the
+offline reporting resources. These Nexscope components are licensed under the
+Apache License, Version 2.0.
+
+Third-party dependencies retain their own copyrights and licenses. Their
+reviewed notices are preserved in THIRD-PARTY-NOTICES.md and the accompanying
+third-party-notices directory. This notice does not change those licenses.
+
+The Apache license does not grant trademark rights except as described in
+Section 6. This independent CLI distribution contains no plugin entrypoint or icon.
+
+Initial CLI source was adapted from nexscope-ai/codex-nexscope-plugin,
+commit 814f28016af6b3ff57ef12093a6bb133c4fb20b9. Nexscope modified this
+distribution for standalone maintenance, evidence-checked workflow continuation,
+price field compatibility and offline dataset re-export. Historical Skill
+source revisions and hashes remain recorded in the bundled catalog.

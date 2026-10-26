@@ -1,0 +1,182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Nexscope user-owned product comparison input",
+  "description": "User product array or versioned CLI dataset. CLI additionally validates field relationships, row uniqueness, bounds and complete evidence hashes/references. Versioned inputs must travel with their original output directory.",
+  "$defs": {
+    "product": {
+      "type": "object",
+      "required": [
+        "product_id",
+        "title"
+      ],
+      "properties": {
+        "product_id": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "title": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "marketplace": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "price": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "currency": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Three uppercase letters when supplied; required with price."
+        },
+        "rating": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "rating_scale": {
+          "anyOf": [
+            {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "review_count": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "observed_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "ISO 8601 with timezone when supplied."
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "oneOf": [
+    {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 10000,
+      "items": {
+        "$ref": "#/$defs/product"
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "sourceType",
+        "inputName",
+        "inputSha256",
+        "importedAt",
+        "products"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "sourceType": {
+          "enum": [
+            "user_import",
+            "mock",
+            "remote"
+          ]
+        },
+        "inputName": {
+          "enum": [
+            "input.csv",
+            "input.json",
+            "plan.json"
+          ]
+        },
+        "inputSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "importedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "products": {
+          "type": "array",
+          "maxItems": 10000,
+          "items": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/product"
+              },
+              {
+                "required": [
+                  "source_row",
+                  "extra"
+                ],
+                "properties": {
+                  "source_row": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "extra": {
+                    "type": "object"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  ]
+}

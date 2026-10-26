@@ -1,0 +1,37 @@
+{
+  "version": "research-data-code-759d751.v1",
+  "backendRevision": "759d751b5cc43410c4f0b97014e0c4ddd9e366ce",
+  "verification": "source code and mock; no live samples",
+  "routes": {
+    "amazon-search": {
+      "research": "/api/v1/tools/research/amazon/search",
+      "skillApi": "/api/skill-api/v1/skills/amazon-search/run"
+    },
+    "amazon-product-detail": {
+      "research": "/api/v1/tools/research/amazon/product/detail",
+      "skillApi": "/api/skill-api/v1/skills/amazon-product-detail/run"
+    }
+  },
+  "response": {
+    "envelope": "ResponseData: code == 0 and data.products",
+    "reviewCount": "ratings",
+    "sourceUrl": [
+      "asinUrl",
+      "linkClean",
+      "link"
+    ],
+    "ratingScale": "unknown when absent",
+    "credits": "not response.cost; authoritative billing records",
+    "currency": "Three-letter codes can qualify prices; unqualified symbols are preserved as unresolved metadata, never inferred from marketplace."
+  },
+  "billing": {
+    "mechanism": "Server-side billing records and rules; no fixed client-side credit estimate.",
+    "fixedCredits": null,
+    "limits": "max-calls is not a monetary cap",
+    "searchEnrichment": "Not enabled in this data pilot."
+  },
+  "compatibility": {
+    "independentSkills": "NEXSCOPE_API_KEY + NEXSCOPE_PROXY_BASE unchanged",
+    "browserAccount": "OS keyring, no env fallback"
+  }
+}
