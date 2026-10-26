@@ -1,9 +1,9 @@
 # macOS acceptance handoff
 
-Date: 2026-10-26. Current local development version: `0.1.2.dev11`.
+Date: 2026-10-26. Current version: `0.1.0` (first independent version).
 The original dev9 handoff below remains historical context; see the completion
 record at the end for actual Mac results and remaining gates.
-The user has now authorized committing and pushing the verified dev11 source.
+The user has authorized source publication and selected `0.1.0` as the first version.
 Historical local/uncommitted descriptions below refer to the recorded test
 phases. PyPI, GitHub Releases and downstream plugin publication remain separate.
 Repository: <https://github.com/nexscope-ai/nexscope-cli>.
@@ -354,3 +354,22 @@ denials, offline outputs and billing receipts are under ignored
 retained for reproduction. No commit, release, deployment or plugin change was
 made. Next work remains successful live search/resume and the other independent
 release/refund/env-mode gates, without automatically spending the unused calls.
+
+### Current version: 0.1.0
+
+The user selected **0.1.0** for the first independent version. Current package,
+module, locks, paired Skill/adapter pins, README and CI agree. Historical dev
+version evidence above remains unchanged; the version change does not close
+outstanding live search/resume or other independent acceptance gates.
+
+Wheel: `dist/version-0.1.0/nexscope_cli-0.1.0-py3-none-any.whl`, SHA-256
+`5703a4c748d32759903270fb4fbeeb2b84ea5e905e3c7dd29204eb551c8a9a47`.
+Source baseline: `430461255eff13a2119486912682742e68d7582e` plus version changes.
+**PASS:** resources; actual external installed-wheel 31 regressions on each local
+Python 3.11.15/3.12.13; offline/loopback and previous-dev11 version/report retention;
+Python 3.12 real Keychain write/read, persistence across version changes and
+uninstall/reinstall, and cleanup. The numerical version moves from dev11 to 0.1.0
+by explicit user choice; install the reviewed wheel with force-reinstall when
+replacing a higher-numbered development build. No new live requests; 13/20 and
+415 credits remain the totals. Private logs are ignored in `dist/version-0.1.0/`.
+No PyPI/Release/tag/plugin publication is implied by the source push.

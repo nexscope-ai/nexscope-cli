@@ -4,8 +4,8 @@ Create product comparison reports from your own CSV or JSON, entirely offline.
 No account, API key, keyring, LLM or upload is needed. HTML, CSV and Markdown
 reports include the exact input, validated rows and evidence hashes.
 
-This is the independent CLI repository. Version **0.1.2.dev11** is a development
-candidate, not a claim of production, billing or cross-platform acceptance.
+This is the independent CLI repository. Its first version is **0.1.0**.
+Verified behavior and remaining acceptance limits are recorded in ACCEPTANCE.md.
 The published Codex plugin and independent Skills are separate distributions.
 
 ## Install and try your own data
@@ -22,7 +22,7 @@ cd nexscope-cli
 python3 -m venv .venv
 . .venv/bin/activate
 python -m pip wheel --no-deps --wheel-dir dist .
-python -m pip install --no-index --no-deps dist/nexscope_cli-0.1.2.dev11-py3-none-any.whl
+python -m pip install --no-index --no-deps dist/nexscope_cli-0.1.0-py3-none-any.whl
 ```
 
 On Windows PowerShell, create the environment with `py -3 -m venv .venv` and use
@@ -32,7 +32,7 @@ There is no need to change PowerShell's execution policy.
 If you already have the reviewed wheel, install it with:
 
 ```sh
-python -m pip install --no-index --no-deps /absolute/path/nexscope_cli-0.1.2.dev11-py3-none-any.whl
+python -m pip install --no-index --no-deps /absolute/path/nexscope_cli-0.1.0-py3-none-any.whl
 nexscope doctor --offline
 nexscope report template --format csv --out products.csv
 nexscope report describe --schema
@@ -55,12 +55,10 @@ conversion or ranking across different markets, currencies or rating scales.
 Remote currency symbols such as `$` are ambiguous. The CLI keeps the product and
 records `unresolvedCurrency`/`unresolvedPrice` alongside its raw evidence, while
 leaving comparable currency and price unknown. It never infers USD from a symbol
-or marketplace. Version `0.1.2.dev9` fixes the rejection of these valid products
-observed during real-service testing of `dev8`; successful live comparison and
-the keyword continuation remain separate acceptance gates. Version `0.1.2.dev10`
-also keeps each known fictional search candidate unchanged in mock details.
-Version `0.1.2.dev11` validates report parent directories and existing outputs
-in dry-run mode as well as during export.
+or marketplace. Known fictional search candidates retain their fields in mock
+details. Report dry-runs validate parent directories and existing outputs before
+export. Successful live keyword search and continuation remain unaccepted; see
+ACCEPTANCE.md for the exact results.
 
 Raw UTF-8 CSV/JSON inputs are limited to 10 MiB and 10,000 products. Local imports
 have no three-product limit. CSV errors use logical record numbers including the
@@ -172,7 +170,7 @@ python -m pip install --no-deps .
 python -m unittest discover -s tests -v
 python scripts/check_resources.py
 python -m pip wheel --no-deps --wheel-dir dist .
-python scripts/verify_wheel.py dist/nexscope_cli-0.1.2.dev11-py3-none-any.whl
+python scripts/verify_wheel.py dist/nexscope_cli-0.1.0-py3-none-any.whl
 ```
 
 The standard-library test suite runs with no service credentials. The wheel

@@ -9,10 +9,10 @@
         "scripts/amazon_search.py"
       ],
       "files": {
-        "SKILL.md": "69127f26a00c5bb16b347c6d6a2aabcb8988247e976cb044f6ed495b5db4b9f3",
+        "SKILL.md": "90412bcf6070a0699593b028526421d396758f1f07065c897e03541175fe710c",
         "references/api.md": "ac2f6764ddafbd4ab0e19cb5f3cfe37838ebd76879c604ad62c40a4dcd6e77ea",
-        "requirements.txt": "aae3907d16123099d1650bf8b3fb5d2f077637677684052b1995b9abaa1b3391",
-        "scripts/amazon_search.py": "ab87f2fcbc611217f3b744229c6bdd363dfd4341ddd5b9ccd6c6df87324f53d3"
+        "requirements.txt": "f2c92b444b157b26b21266f4d3ef6f5e3249771346999a7d8edd064bd215c3e9",
+        "scripts/amazon_search.py": "569ef7f00545dfba52bb5d7f1239c08ce8aa9ec3003ae361dea3c3d585bc3c2d"
       },
       "available": true,
       "sourceRevision": "742ccef80fc605842b0249864051e4f690adcabb",
@@ -29,7 +29,8 @@
       "distributionTransforms": [
         "Nexscope copyright and Apache-2.0 SPDX headers added for approved data-only distribution",
         "Standalone CLI 0.1.2.dev8 adapter version and installation instructions; historical sourceSnapshot unchanged",
-        "Standalone CLI 0.1.2.dev11 pins; unqualified currency symbols retained as unresolved metadata without inferring an ISO code"
+        "Standalone CLI 0.1.2.dev11 pins; unqualified currency symbols retained as unresolved metadata without inferring an ISO code",
+        "Standalone CLI 0.1.0 initial independent version; paired adapter pins updated"
       ]
     },
     "amazon-product-detail": {
@@ -39,10 +40,10 @@
         "scripts/amazon_product_detail.py"
       ],
       "files": {
-        "SKILL.md": "e4c5cf202d442d1d28ee67f4ab73a418dec4540dff3a2af44e8b04ed9c90fd9e",
+        "SKILL.md": "911982d386dfd2c63936f6e307f0dfc69e1489ff24d342310cbd4600146d17ff",
         "references/api.md": "2ad537d7861e650a1ec195791e7aa488614132e1305473c53af0c7a63f4d0d59",
-        "requirements.txt": "aae3907d16123099d1650bf8b3fb5d2f077637677684052b1995b9abaa1b3391",
-        "scripts/amazon_product_detail.py": "d78150f8c9c6a637ff5a9fb028335bfe697bbb5ecdd531cfc9ef055b9ac0bf00"
+        "requirements.txt": "f2c92b444b157b26b21266f4d3ef6f5e3249771346999a7d8edd064bd215c3e9",
+        "scripts/amazon_product_detail.py": "cf7eaea94865a6e7c9dc727fe5e4f8000ac91a67c8a4e4edbe618ac84b2de6e9"
       },
       "available": true,
       "sourceRevision": "742ccef80fc605842b0249864051e4f690adcabb",
@@ -59,7 +60,8 @@
       "distributionTransforms": [
         "Nexscope copyright and Apache-2.0 SPDX headers added for approved data-only distribution",
         "Standalone CLI 0.1.2.dev8 adapter version and installation instructions; historical sourceSnapshot unchanged",
-        "Standalone CLI 0.1.2.dev11 pins; unqualified currency symbols retained as unresolved metadata without inferring an ISO code"
+        "Standalone CLI 0.1.2.dev11 pins; unqualified currency symbols retained as unresolved metadata without inferring an ISO code",
+        "Standalone CLI 0.1.0 initial independent version; paired adapter pins updated"
       ]
     }
   },

@@ -1,9 +1,9 @@
-# Development candidate acceptance
+# CLI acceptance record
 
-Date: 2026-10-26, Asia/Taipei. Current local candidate: `0.1.2.dev11`.
+Date: 2026-10-26, Asia/Taipei. Current version: `0.1.0` (first independent version).
 The acceptance source baseline is `0.1.2.dev9` at
-`0252b0ec8a02ecdceb4deb691f3c3d0c12b8ed65`. This change prepares the verified
-dev11 source for the user-authorized Git push, not a package release. Historical
+`0252b0ec8a02ecdceb4deb691f3c3d0c12b8ed65`. The user selected `0.1.0` for the
+first independent version after dev11 source verification. Historical
 records below retain their original uncommitted/local-candidate context.
 
 This record covers implementation in the independent CLI repository, adapted
@@ -502,3 +502,24 @@ SHA-256 index. Original failures are retained. External `retest-codex/`,
 reproducibility. No source/runtime change or publication was needed for this
 retest. Remaining gates include live successful search/resume, positive real
 env-key isolation, full backend/refund attribution and release authorization.
+
+## First independent version: 0.1.0
+
+At the user's request, the current version is **0.1.0**, replacing the development
+version label. Package metadata, module version, dependency locks, paired Skill
+requirements/adapter pins, installation instructions and CI wheel path agree.
+Historical test versions and original failures above are preserved as recorded.
+No runtime behavior or outstanding acceptance status changed with this renumbering.
+
+Built from source baseline `430461255eff13a2119486912682742e68d7582e` plus this
+version change: `dist/version-0.1.0/nexscope_cli-0.1.0-py3-none-any.whl`, SHA-256
+`5703a4c748d32759903270fb4fbeeb2b84ea5e905e3c7dd29204eb551c8a9a47`.
+Resource checks pass. Actual external installed-wheel verification passes on
+Python 3.11.15 and 3.12.13: **31 regressions each**, offline/loopback checks and
+version-transition/report preservation against the exact prior dev11 wheel.
+Python 3.12 additionally passes hash-pinned dependencies/legacy checks and real
+Keychain write/read, version-transition/uninstall persistence and cleanup.
+This is a version transition, not a claim that 0.1.0 sorts above 0.1.2.dev11.
+No new paid call was made; cumulative usage remains 13/20 and 415 credits.
+Private transcripts are in ignored `dist/version-0.1.0/`. Source push is
+authorized; PyPI, GitHub Release assets/tags and plugin publication are separate.
