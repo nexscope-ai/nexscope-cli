@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "nexscope.evidence.v1",
+  "files": {
+    "input.json": "6763e9f37c00ee0152e255991b2833d86cafaf87240cc70e8539e8095b071f97",
+    "dataset.json": "109d46a6c7d2515bcb0da242831df01decd9a5b5bd7236d2b9c923d644addacf",
+    "report-input.json": "6169e834b752ba501aa279863c4612553d4c924db6cd9e783b3743a97fd2a6d6"
+  }
+}

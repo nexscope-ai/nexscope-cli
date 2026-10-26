@@ -15,6 +15,7 @@ from . import __version__
 from .core.datasets import DatasetError
 from .core.auth import DEFAULT_ORIGIN, MODES, origin, resolve_auth
 from .core.errors import AuthRequired, Failure
+from .core.attribution import CLIENTS, CHANNELS, ENTRYPOINTS, source as client_source
 
 ROOT = Path(__file__).parent
 
@@ -115,9 +116,19 @@ def catalog():
 
 def guide(name):
     skills = catalog()
+    if name == 'product-comparison':
+        from importlib.resources import files
+        from .capabilities.catalog import describe
+        return {'workflow': name, 'version': __version__,
+                'instructions': files('nexscope_cli.workflows').joinpath('product-comparison.md').read_text(encoding='utf-8'),
+                'contract': describe('amazon-product-detail')['pilotLimits'],
+                'ruleSource': 'nexscope_cli.workflows.compare', 'execution': 'nexscope workflow compare'}
     if name == 'core':
+        from .tools import catalog as tool_catalog
         return {'version': __version__, 'skills': {k: v['description'] for k, v in skills.items() if v.get('available', True)},
                 'unavailable': {k: v['unavailable'] for k, v in skills.items() if not v.get('available', True)},
+                'apiTools': len(tool_catalog()['tools']), 'toolDiscovery': 'nexscope tools list',
+                'workflows': {'product-comparison': 'nexscope get-skills product-comparison'},
                 'execution': 'Read get-skills <name>; use run <name> [--script path] -- <script arguments>. Never run packaged scripts directly. Auth: login, user done, poll. Credits: account, link, user done, account.'}
     if name not in skills:
         raise Failure('Unknown skill; use get-skills core.')
@@ -197,10 +208,32 @@ def main():
     commands.add_parser('get-skills').add_argument('skill', nargs='?', default='core')
     auth_parser = commands.add_parser('auth')
     auth_parser.add_argument('action', choices=['login', 'poll', 'status', 'logout'])
-    auth_parser.add_argument('--source-client', choices=['python-cli', 'codex-plugin', 'claude-code'])
-    auth_parser.add_argument('--source-channel', choices=['github', 'marketplace', 'local', 'unknown'], default='unknown')
-    auth_parser.add_argument('--source-entrypoint', choices=['cli', 'plugin', 'report'], default='cli')
+    auth_parser.add_argument('--source-client', choices=CLIENTS)
+    auth_parser.add_argument('--source-channel', choices=CHANNELS, default='unknown')
+    auth_parser.add_argument('--source-entrypoint', choices=ENTRYPOINTS, default='cli')
     commands.add_parser('account')
+    tools = commands.add_parser('tools', help='Discover the complete registered tool catalog and make explicit, evidence-backed calls.')
+    tool_actions = tools.add_subparsers(dest='tool_action', required=True)
+    for action in ('list', 'describe', 'refresh', 'call'):
+        tool = tool_actions.add_parser(action)
+        tool.add_argument('--auth-mode', choices=MODES, default='browser-account')
+        tool.add_argument('--catalog', help='Explicit versioned catalog file; defaults to the bundled snapshot.')
+        if action in ('describe', 'call'):
+            tool.add_argument('tool')
+        if action in ('list', 'describe'):
+            tool.add_argument('--live', action='store_true', help='Read the selected server catalog; does not execute a tool.')
+        if action == 'list':
+            tool.add_argument('--search', default='')
+        if action == 'refresh':
+            tool.add_argument('--out', required=True)
+        if action == 'call':
+            tool.add_argument('--input', required=True)
+            tool.add_argument('--out')
+            tool.add_argument('--allow-paid', action='store_true')
+            tool.add_argument('--allow-write', action='store_true', help='Approve the reviewed tool effects; does not replace its own preview/confirmation protocol.')
+            tool_execution = tool.add_mutually_exclusive_group(required=True)
+            tool_execution.add_argument('--dry-run', action='store_true')
+            tool_execution.add_argument('--execute', action='store_true')
     capabilities = commands.add_parser('capabilities', help='Offline, versioned pilot capability descriptions.')
     describe_capability = capabilities.add_subparsers(dest='capability_action', required=True).add_parser('describe')
     describe_capability.add_argument('capability')
@@ -272,6 +305,9 @@ def main():
         elif args.command == 'report':
             from .reports.compare import command
             value = command(args)
+        elif args.command == 'tools':
+            from .tools import command
+            value = command(args)
         elif args.command == 'capabilities':
             from .capabilities.catalog import describe
             value = describe(args.capability)
@@ -289,23 +325,32 @@ def main():
         else:
             client = Client(DEFAULT_ORIGIN if args.api_base is None else args.api_base)
             source = None
-            if args.command == 'auth' and args.source_client:
-                if args.action != 'login':
+            if args.command == 'auth':
+                if args.source_client and args.action != 'login':
                     raise Failure('Source options are supported only for auth login.')
-                source = {'version': 1, 'client': args.source_client, 'channel': args.source_channel,
-                          'campaign': 'cli-data-release', 'entrypoint': args.source_entrypoint}
+                if args.action == 'login':
+                    source = client_source(args.source_client or 'python-cli', args.source_channel, args.source_entrypoint)
             value = run(args, client) if args.command == 'run' else client.auth(args.action if args.command == 'auth' else 'status', source)
         print(json.dumps(value, ensure_ascii=False, indent=2))
-        return 1 if value.get('status') in ('REVIEW_REQUIRED', 'UNAVAILABLE', 'PARTIAL', 'FAILED', 'INSUFFICIENT_DATA') else 0
+        return 1 if value.get('status') in ('REVIEW_REQUIRED', 'UNAVAILABLE', 'PARTIAL', 'FAILED', 'INSUFFICIENT_DATA', 'OUTCOME_UNKNOWN') else 0
     except DatasetError as e:
-        print(json.dumps({'status': 'INVALID_INPUT', 'message': str(e), 'issues': e.issues}))
+        print(json.dumps({'schemaVersion': 'nexscope.error.v1', 'status': 'INVALID_INPUT',
+                          'message': str(e), 'issues': e.issues,
+                          'error': {'type': 'INVALID_INPUT', 'message': str(e),
+                                    'help': 'https://github.com/nexscope-ai/nexscope-cli/blob/main/docs/errors.md'}}))
         return 1
     except (Failure, OSError, ValueError, KeyError) as e:
-        print(json.dumps({'status': 'ERROR', 'message': str(e)}))
+        kind = getattr(e, 'kind', 'AUTH_REQUIRED' if isinstance(e, AuthRequired) else 'INVALID_INPUT')
+        print(json.dumps({'schemaVersion': 'nexscope.error.v1', 'status': 'ERROR', 'message': str(e),
+                          'error': {'type': kind, 'code': getattr(e, 'code', None), 'message': str(e),
+                                    'help': 'https://github.com/nexscope-ai/nexscope-cli/blob/main/docs/errors.md'}}))
         return 1
     except Exception as e:
         # Backend/keyring exceptions may embed secret-bearing request details.
-        print(json.dumps({'status': 'ERROR', 'message': 'Operation failed (' + type(e).__name__ + '). No automatic retry; check the credential store or saved output.'}))
+        message = 'Operation failed (' + type(e).__name__ + '). No automatic retry; check the credential store or saved output.'
+        print(json.dumps({'schemaVersion': 'nexscope.error.v1', 'status': 'ERROR', 'message': message,
+                          'error': {'type': 'OPERATION_FAILED', 'message': message,
+                                    'help': 'https://github.com/nexscope-ai/nexscope-cli/blob/main/docs/errors.md'}}))
         return 1
 
 

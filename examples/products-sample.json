@@ -1,0 +1,6 @@
+[
+  {"product_id":"SAMPLE-001","title":"Sample insulated bottle","marketplace":"own-catalog","price":19.50,"currency":"USD","rating":4.2,"rating_scale":5,"review_count":120,"source_url":"https://example.com/products/1","observed_at":"2026-01-01T00:00:00Z"},
+  {"product_id":"SAMPLE-002","title":"Sample travel bottle","marketplace":"own-catalog","price":24,"currency":"USD","rating":4.4,"rating_scale":5,"review_count":95,"source_url":"https://example.com/products/2","observed_at":"2026-01-01T00:00:00Z"},
+  {"product_id":"SAMPLE-003","title":"Sample compact bottle","marketplace":"own-catalog","price":15,"currency":"EUR","rating":8,"rating_scale":10,"review_count":50,"source_url":"https://example.com/products/3","observed_at":"2026-01-01T00:00:00Z"},
+  {"product_id":"SAMPLE-004","title":"Sample bottle with missing data","marketplace":"own-catalog"}
+]

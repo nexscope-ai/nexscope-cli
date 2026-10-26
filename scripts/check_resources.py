@@ -5,6 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 import tomllib
+import sys
 
 
 def main():
@@ -23,6 +24,21 @@ def main():
                         and any(isinstance(target, ast.Name) and target.id == '__version__' for target in node.targets))
     if not (locked_version == dependency_version == code_version == version):
         raise SystemExit('Package version files disagree.')
+    dependency = json.loads((package / 'dependency-lock.json').read_text(encoding='utf-8'))
+    for source, key in [(root / 'uv.lock', 'lockSha256'), (package / 'dependencies.lock', 'requirementsSha256')]:
+        if hashlib.sha256(source.read_bytes()).hexdigest() != dependency[key]:
+            raise SystemExit('Dependency lock digest mismatch: ' + source.name)
+    sys.path.insert(0, str(root / 'cli'))
+    from nexscope_cli.tools import catalog as tool_catalog, digest
+    tools = tool_catalog()
+    contract = json.loads((package / 'api-contract.json').read_text(encoding='utf-8'))
+    if contract['toolCatalog']['sha256'] != tools['sha256'] or contract['toolCatalog']['count'] != len(tools['tools']):
+        raise SystemExit('API contract and tool catalog disagree.')
+    if set(contract['toolBindings']) != {t['name'] for t in tools['tools']}:
+        raise SystemExit('API contract does not cover the full tool catalog.')
+    for tool in tools['tools']:
+        if contract['toolBindings'][tool['name']]['inputSchemaSha256'] != digest(tool['inputSchema']):
+            raise SystemExit('Tool binding schema digest mismatch: ' + tool['name'])
     for name, entry in catalog['skills'].items():
         for relative, expected in entry['files'].items():
             file = package / 'skills' / name / relative

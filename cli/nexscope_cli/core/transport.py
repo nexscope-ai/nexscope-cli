@@ -7,6 +7,7 @@ from urllib.request import HTTPRedirectHandler, Request, build_opener
 
 from .errors import Failure
 from .execution import MAX_RESPONSE_BYTES
+from .attribution import headers as client_headers
 
 ENDPOINTS = ('/api/v1/tools/research/amazon/search', '/api/v1/tools/research/amazon/product/detail')
 
@@ -42,7 +43,7 @@ class HttpTransport:
             raise Failure('Only registered research endpoints are allowed.')
         request = Request(context.base + endpoint, data=json.dumps(body, allow_nan=False).encode('utf-8'),
                           method='POST', headers={'Authorization': context.authorization(),
-                          'Content-Type': 'application/json', 'Accept': 'application/json'})
+                          'Content-Type': 'application/json', 'Accept': 'application/json', **client_headers()})
         try:
             response = build_opener(NoRedirect()).open(request, timeout=30)
         except HTTPError as error:

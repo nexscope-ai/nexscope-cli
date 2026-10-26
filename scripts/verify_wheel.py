@@ -45,7 +45,8 @@ def main():
                     'nexscope_cli/capabilities/plan.py', 'nexscope_cli/reports/compare.py',
                     'nexscope_cli/workflows/compare.py', 'nexscope_cli/compat/legacy.py',
                     'nexscope_cli/catalog.json', 'nexscope_cli/api-contract.json',
-                    'nexscope_cli/dependency-lock.json', 'nexscope_cli/dependencies.lock'}
+                    'nexscope_cli/dependency-lock.json', 'nexscope_cli/dependencies.lock',
+                    'nexscope_cli/tools.json', 'nexscope_cli/tools.py', 'nexscope_cli/core/mcp.py'}
         required.update('nexscope_cli/resources/' + name for name in
                         ['fields.json', 'products.schema.json', 'products-template.csv',
                          'products-sample.csv', 'products-sample.json', 'report.html', 'mock-products.json'])
@@ -76,6 +77,9 @@ def main():
         if previous:
             run([*install, previous], cwd=command, environment=environment)
         run([*install, wheel], cwd=command, environment=environment)
+        if args.with_dependencies:
+            run([python, '-I', '-m', 'pip', 'install', '--require-hashes', '--index-url', 'https://pypi.org/simple',
+                 '-r', root / 'cli' / 'nexscope_cli' / 'dependencies.lock'], cwd=command, environment=environment)
         version = run([entry, '--version'], cwd=command, environment=sentinel_env).stdout.strip()
         shutil.copytree(root / 'tests', command / 'tests', ignore=shutil.ignore_patterns('__pycache__', '*.pyc'))
         shutil.copyfile(root / 'scripts' / 'installed_checks.py', command / 'installed_checks.py')
@@ -83,8 +87,6 @@ def main():
         print(checks.stderr, end='')
         summary = json.loads(checks.stdout)
         if args.with_dependencies:
-            run([python, '-I', '-m', 'pip', 'install', '--require-hashes', '--index-url', 'https://pypi.org/simple',
-                 '-r', root / 'cli' / 'nexscope_cli' / 'dependencies.lock'], cwd=command, environment=environment)
             online_work = work / 'with-dependencies'
             online_work.mkdir()
             online = run([python, '-I', command / 'installed_checks.py', '--loopback-only', '--with-dependencies'],

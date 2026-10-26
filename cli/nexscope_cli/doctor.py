@@ -17,21 +17,25 @@ from .core.errors import Failure
 
 PROFILES = ('offline', 'independent', 'plugin')
 DEPENDENCIES = {'keyring': (25, 26), 'requests': (2, 3), 'jmespath': (1, 2),
-                'qrcode': (8, 9), 'oss2': (2, 3)}
+                'qrcode': (8, 9), 'oss2': (2, 3), 'jsonschema': (4, 5)}
 MINIMUMS = {'keyring': (25,), 'requests': (2, 32), 'jmespath': (1,),
-            'qrcode': (8,), 'oss2': (2, 19)}
+            'qrcode': (8,), 'oss2': (2, 19), 'jsonschema': (4, 23)}
 
 
 def dependency_names():
     profile = json.loads(Path(__file__).with_name('catalog.json').read_text(encoding='utf-8')).get('distributionProfile', 'full')
-    if profile not in ('data-only', 'full'):
+    if profile not in ('data-only', 'api-client', 'full'):
         raise ValueError('Unknown distribution profile.')
-    return ('keyring', 'requests') if profile == 'data-only' else tuple(DEPENDENCIES)
+    if profile == 'api-client':
+        return ('keyring', 'requests', 'jsonschema')
+    return ('keyring', 'requests') if profile == 'data-only' else tuple(name for name in DEPENDENCIES if name != 'jsonschema')
 
 
 def resources(root):
     """Check installed bytes, including the resources needed for free reports."""
     catalog = json.loads((root / 'catalog.json').read_text(encoding='utf-8'))
+    from .tools import catalog as tool_catalog
+    tool_catalog()
     count = 0
     for name, entry in catalog['skills'].items():
         for relative, digest in entry['files'].items():

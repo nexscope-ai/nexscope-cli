@@ -1,0 +1,11 @@
+{
+  "status": "INVALID_INPUT",
+  "message": "Input validation failed; no rows were silently discarded.",
+  "issues": [
+    {
+      "row": 2,
+      "field": "currency",
+      "message": "Required when price is supplied."
+    }
+  ]
+}

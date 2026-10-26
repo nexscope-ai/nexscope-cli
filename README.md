@@ -4,7 +4,11 @@ Create product comparison reports from your own CSV or JSON, entirely offline.
 No account, API key, keyring, LLM or upload is needed. HTML, CSV and Markdown
 reports include the exact input, validated rows and evidence hashes.
 
-This is the independent CLI repository. Its first version is **0.1.0**.
+This is the independent CLI repository. The current version is **0.1.1**;
+the first independent release was 0.1.0. This version includes the complete
+**565-tool MCP catalog**, searchable schemas, explicit refresh and bounded calls.
+The separately verified Amazon comparison workflow still adapts two research
+capabilities; a registered tool is not a claim of live business acceptance.
 Verified behavior and remaining acceptance limits are recorded in ACCEPTANCE.md.
 The published Codex plugin and independent Skills are separate distributions.
 
@@ -14,6 +18,22 @@ Python 3.11 or newer is required. Build the wheel from this repository, or obtai
 the exact reviewed wheel and its SHA-256 from a release of this repository.
 Do not install an unverified package just because it has the same name.
 
+Install the exact PyPI release in a new environment:
+
+```sh
+python -m pip install --index-url https://pypi.org/simple nexscope-cli==0.1.1
+nexscope --version
+nexscope doctor --offline
+nexscope tools list
+nexscope tools describe nexscope_amazon_search
+```
+
+See [the complete tool guide](docs/full-tool-catalog.md) for input schemas,
+the two authentication modes, one-call budgets, effects confirmation and results.
+Start with [public CSV/JSON examples and reports](examples/README.md),
+[migration and rollback](docs/migration.md), [errors](docs/errors.md),
+[the changelog](CHANGELOG.md) and [contribution/support](CONTRIBUTING.md).
+
 From source on macOS or Linux:
 
 ```sh
@@ -22,7 +42,7 @@ cd nexscope-cli
 python3 -m venv .venv
 . .venv/bin/activate
 python -m pip wheel --no-deps --wheel-dir dist .
-python -m pip install --no-index --no-deps dist/nexscope_cli-0.1.0-py3-none-any.whl
+python -m pip install --no-index --no-deps dist/nexscope_cli-0.1.1-py3-none-any.whl
 ```
 
 On Windows PowerShell, create the environment with `py -3 -m venv .venv` and use
@@ -32,7 +52,7 @@ There is no need to change PowerShell's execution policy.
 If you already have the reviewed wheel, install it with:
 
 ```sh
-python -m pip install --no-index --no-deps /absolute/path/nexscope_cli-0.1.0-py3-none-any.whl
+python -m pip install --no-index --no-deps /absolute/path/nexscope_cli-0.1.1-py3-none-any.whl
 nexscope doctor --offline
 nexscope report template --format csv --out products.csv
 nexscope report describe --schema
@@ -158,7 +178,8 @@ Legacy JSON business errors can still exit zero: inspect the response code/error
 Do not replace published Skills with these adapters before installation and live
 compatibility acceptance. No dependencies are auto-installed at query time.
 
-Only Amazon search/detail are adapted. Credits are unknown (`null`); response
+The comparison-specific adapter covers Amazon search/detail. Other registered
+tools use the explicit MCP `tools` command. Credits are unknown (`null`); response
 `cost` is not treated as a credit charge. Real account, balance and billing
 acceptance remain separate gates. Reports contain no telemetry or automatic
 upload. Review product data before sharing a report or its evidence.
@@ -170,7 +191,7 @@ python -m pip install --no-deps .
 python -m unittest discover -s tests -v
 python scripts/check_resources.py
 python -m pip wheel --no-deps --wheel-dir dist .
-python scripts/verify_wheel.py dist/nexscope_cli-0.1.0-py3-none-any.whl
+python scripts/verify_wheel.py dist/nexscope_cli-0.1.1-py3-none-any.whl
 ```
 
 The standard-library test suite runs with no service credentials. The wheel
@@ -209,8 +230,9 @@ second CLI copy in the published plugin.
 See [ACCEPTANCE.md](ACCEPTANCE.md) for verified scope and outstanding release gates,
 and [the macOS handoff](docs/HANDOFF-MACOS.md) for the remaining acceptance work.
 Report reproducible problems, without keys or private reports, in
-[GitHub Issues](https://github.com/nexscope-ai/nexscope-cli/issues). Nexscope is the
-maintainer; named pilot/release ownership still needs assignment before release.
+[GitHub Issues](https://github.com/nexscope-ai/nexscope-cli/issues). `nexscope-ai` is the
+maintainer; operational ownership and real-user pilot gates are recorded separately
+and must not be inferred from passing automated tests.
 
 Apache-2.0. Initial source: plugin commit
 `814f28016af6b3ff57ef12093a6bb133c4fb20b9`. Original Skill provenance remains in

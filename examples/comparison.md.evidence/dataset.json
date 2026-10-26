@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "sourceType": "user_import",
+  "inputName": "input.json",
+  "originalInputName": "products-sample.json",
+  "inputSha256": "6763e9f37c00ee0152e255991b2833d86cafaf87240cc70e8539e8095b071f97",
+  "importedAt": "2026-10-26T13:53:09.444189+00:00",
+  "products": [
+    {
+      "product_id": "SAMPLE-001",
+      "title": "Sample insulated bottle",
+      "marketplace": "own-catalog",
+      "price": "19.5",
+      "currency": "USD",
+      "rating": "4.2",
+      "rating_scale": "5",
+      "review_count": "120",
+      "source_url": "https://example.com/products/1",
+      "observed_at": "2026-01-01T00:00:00Z",
+      "source_row": 1,
+      "extra": {}
+    },
+    {
+      "product_id": "SAMPLE-002",
+      "title": "Sample travel bottle",
+      "marketplace": "own-catalog",
+      "price": "24",
+      "currency": "USD",
+      "rating": "4.4",
+      "rating_scale": "5",
+      "review_count": "95",
+      "source_url": "https://example.com/products/2",
+      "observed_at": "2026-01-01T00:00:00Z",
+      "source_row": 2,
+      "extra": {}
+    },
+    {
+      "product_id": "SAMPLE-003",
+      "title": "Sample compact bottle",
+      "marketplace": "own-catalog",
+      "price": "15",
+      "currency": "EUR",
+      "rating": "8",
+      "rating_scale": "1E+1",
+      "review_count": "50",
+      "source_url": "https://example.com/products/3",
+      "observed_at": "2026-01-01T00:00:00Z",
+      "source_row": 3,
+      "extra": {}
+    },
+    {
+      "product_id": "SAMPLE-004",
+      "title": "Sample bottle with missing data",
+      "marketplace": "own-catalog",
+      "price": null,
+      "currency": null,
+      "rating": null,
+      "rating_scale": null,
+      "review_count": null,
+      "source_url": null,
+      "observed_at": null,
+      "source_row": 4,
+      "extra": {}
+    }
+  ]
+}

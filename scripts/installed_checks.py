@@ -43,11 +43,16 @@ def offline():
             assert result.wasSuccessful(), 'Installed test suite failed'
             doctor = cli('doctor', '--offline')
             assert doctor['status'] == 'READY_LOCAL', doctor
+            catalog = cli('tools', 'list')
+            assert catalog['total'] == 565, catalog
+            cli('tools', 'describe', 'nexscope_amazon_search')
             cli('report', 'describe')
             cli('report', 'describe', '--schema')
             cli('capabilities', 'describe', 'amazon-search')
             cli('capabilities', 'describe', 'amazon-product-detail')
             cli('get-skills', 'core')
+            workflow_guide = cli('get-skills', 'product-comparison')
+            assert workflow_guide['ruleSource'] == 'nexscope_cli.workflows.compare'
             for name in ('amazon-search', 'amazon-product-detail'):
                 cli('get-skills', name)
             cli('report', 'template', '--out', 'template.csv')

@@ -4,13 +4,14 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "nexscope-cli"
-version = "0.1.0"
-description = "Offline product comparison reports and bounded Nexscope ecommerce data workflows"
+version = "0.1.1"
+description = "Complete Nexscope tool discovery, bounded API calls and offline product comparison reports"
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = ["keyring>=25,<26", "requests>=2.32,<3"]
+dependencies = ["keyring>=25,<26", "requests>=2.32,<3", "jsonschema>=4.23,<5"]
 license = "Apache-2.0"
 authors = [{name = "Nexscope"}]
+maintainers = [{name = "nexscope-ai"}]
 license-files = ["LICENSE", "NOTICE", "ASSET-NOTICES.md", "THIRD-PARTY-NOTICES.md", "third-party-notices/*/*"]
 
 [project.urls]
@@ -28,7 +29,8 @@ where = ["cli"]
 include = ["nexscope_cli", "nexscope_cli.*"]
 
 [tool.setuptools.package-data]
-nexscope_cli = ["catalog.json", "api-contract.json", "dependency-lock.json", "dependencies.lock", "skills/**/*"]
+nexscope_cli = ["catalog.json", "tools.json", "api-contract.json", "dependency-lock.json", "dependencies.lock", "skills/**/*"]
+"nexscope_cli.workflows" = ["*.md"]
 "nexscope_cli.resources" = ["*.csv", "*.json", "*.html"]
 
 [tool.setuptools.exclude-package-data]

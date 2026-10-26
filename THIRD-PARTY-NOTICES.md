@@ -25,3 +25,9 @@ These texts are evidence from reviewed package versions. Linux native-binary inv
 | secretstorage==3.5.0 ; sys_platform == 'linux' | [LICENSE](third-party-notices/secretstorage/LICENSE) |
 | urllib3==2.8.0 | [LICENSE.txt](third-party-notices/urllib3/LICENSE.txt) |
 | zipp==4.1.0 ; python_full_version < '3.12' | [LICENSE](third-party-notices/zipp/LICENSE) |
+| attrs==26.1.0 | [LICENSE](third-party-notices/attrs/LICENSE) |
+| jsonschema==4.26.0 | [COPYING](third-party-notices/jsonschema/COPYING) |
+| jsonschema-specifications==2025.9.1 | [COPYING](third-party-notices/jsonschema-specifications/COPYING) |
+| referencing==0.37.0 | [COPYING](third-party-notices/referencing/COPYING) |
+| rpds-py==2026.9.1 | [LICENSE](third-party-notices/rpds-py/LICENSE) |
+| typing-extensions==4.16.0 | [LICENSE](third-party-notices/typing-extensions/LICENSE) |

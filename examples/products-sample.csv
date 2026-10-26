@@ -1,0 +1,5 @@
+product_id,title,marketplace,price,currency,rating,rating_scale,review_count,source_url,observed_at
+SAMPLE-001,Sample insulated bottle,own-catalog,19.50,USD,4.2,5,120,https://example.com/products/1,2026-01-01T00:00:00Z
+SAMPLE-002,Sample travel bottle,own-catalog,24.00,USD,4.4,5,95,https://example.com/products/2,2026-01-01T00:00:00Z
+SAMPLE-003,Sample compact bottle,own-catalog,15.00,EUR,8,10,50,https://example.com/products/3,2026-01-01T00:00:00Z
+SAMPLE-004,Sample bottle with missing data,own-catalog,,,,,,,

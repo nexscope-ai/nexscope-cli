@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "sourceType": "user_import",
+  "formats": [
+    "UTF-8 CSV with unique headers",
+    "UTF-8 JSON array of objects",
+    "Versioned dataset.json with its complete hash-checked evidence directory"
+  ],
+  "limits": {
+    "bytes": 10485760,
+    "products": 10000,
+    "requiresAccount": false,
+    "versionedDatasetBytes": 33554432,
+    "evidenceBundleBytes": 67108864
+  },
+  "fields": {
+    "product_id": "Required non-empty string; unique within marketplace; not restricted to ASINs.",
+    "title": "Required non-empty string. Never generated or inferred.",
+    "marketplace": "Optional market or internal catalog name. Missing is unknown.",
+    "price": "Optional finite non-negative number. Requires currency.",
+    "currency": "Optional uppercase three-letter currency code. No currency conversion.",
+    "rating": "Optional finite non-negative number, no greater than rating_scale.",
+    "rating_scale": "Positive finite number, required with rating. No implicit five-point scale.",
+    "review_count": "Optional non-negative integer. Missing does not mean zero.",
+    "source_url": "Optional HTTP(S) URL without credentials or whitespace.",
+    "observed_at": "Optional ISO 8601 timestamp with timezone. Import time is recorded separately."
+  },
+  "additionalFields": "Preserved as extra metadata; no automatic header mapping.",
+  "errors": "All invalid records are reported; no report is produced until input is corrected. CSV row numbers count logical records including the header; JSON rows are one-based array positions.",
+  "provenance": "Keep the report and its .evidence directory together. It contains the exact input, input SHA-256, import time, source rows and normalized dataset. Missing source/time stays unknown. Re-export preserves the original sourceType, inputName/inputSha256, retrieval times and errors; report-input.json separately records the exact selected input hash. Hashes prove consistency, not server authorship.",
+  "samples": "Bundled inputs are invented examples, not current market data.",
+  "offline": "No authentication, network, or LLM call. Reports contain user data: review them before sharing. The optional Nexscope link opens a guide; it never refreshes data automatically."
+}
