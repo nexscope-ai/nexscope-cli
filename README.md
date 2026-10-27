@@ -1,38 +1,115 @@
 # Nexscope CLI
 
-Create product comparison reports from your own CSV or JSON, entirely offline.
-No account, API key, keyring, LLM or upload is needed. HTML, CSV and Markdown
-reports include the exact input, validated rows and evidence hashes.
+[![Nexscope CLI — Ecommerce Research. Product Images & Videos.](assets/nexscope-cli-banner-v2.png)](https://www.nexscope.ai/?co-from=githubCLI)
 
-This is the independent CLI repository. The current version is **0.1.1**;
-the first independent release was 0.1.0. This version includes the complete
-**565-tool MCP catalog**, searchable schemas, explicit refresh and bounded calls.
-The separately verified Amazon comparison workflow still adapts two research
-capabilities; a registered tool is not a claim of live business acceptance.
-Verified behavior and remaining acceptance limits are recorded in ACCEPTANCE.md.
-The published Codex plugin and independent Skills are separate distributions.
+Discover Nexscope tools, inspect their input schemas, make explicit MCP calls,
+and turn your own product data into comparison reports from the terminal.
 
-## Install and try your own data
+Built for developers and ecommerce teams working with scripts, command-line
+tools, and their own agent workflows.
 
-Python 3.11 or newer is required. Build the wheel from this repository, or obtain
-the exact reviewed wheel and its SHA-256 from a release of this repository.
-Do not install an unverified package just because it has the same name.
+## Quick start
 
-Install the exact PyPI release in a new environment:
+Requires **Python 3.11+**. Install the published version in a virtual environment:
 
 ```sh
+python -m venv .venv
+# macOS / Linux
+. .venv/bin/activate
 python -m pip install --index-url https://pypi.org/simple nexscope-cli==0.1.1
 nexscope --version
 nexscope doctor --offline
-nexscope tools list
+nexscope tools list --search amazon
 nexscope tools describe nexscope_amazon_search
 ```
 
-See [the complete tool guide](docs/full-tool-catalog.md) for input schemas,
-the two authentication modes, one-call budgets, effects confirmation and results.
-Start with [public CSV/JSON examples and reports](examples/README.md),
-[migration and rollback](docs/migration.md), [errors](docs/errors.md),
-[the changelog](CHANGELOG.md) and [contribution/support](CONTRIBUTING.md).
+On Windows PowerShell, use `py -3 -m venv .venv`, then
+`.venv\Scripts\python.exe` and `.venv\Scripts\nexscope.exe` in place of
+`python` and `nexscope`; activation is optional.
+
+Create your first report using fictional sample data:
+
+```sh
+nexscope report demo --format json --out sample.json
+nexscope report compare --input sample.json --format html --out comparison.html
+```
+
+Open `comparison.html` in your browser. Keep its sibling `.evidence` directory
+with the report. For your own data, start with
+`nexscope report template --format csv --out products.csv` and inspect
+`nexscope report describe --schema`. Use new output filenames.
+
+## What you can do
+
+Use Nexscope CLI to support product selection, competitor research, keyword
+planning, and ecommerce content creation. Start with local reports, or connect
+to Nexscope to use the online tools available to your account.
+
+### Ecommerce use cases
+
+| Your task | How Nexscope CLI helps | Access |
+| --- | --- | --- |
+| Compare products for a shortlist | Turn your own CSV/JSON product data into HTML, CSV, or Markdown reports to review prices, ratings, and other supplied fields side by side | Free and offline |
+| Research products and competitors | Inspect marketplace product-detail tools and retrieve available listing data for your research; the dedicated Amazon comparison workflow supports two or three ASINs | Online tools require authentication and applicable credits |
+| Plan listing keywords and campaigns | Explore keyword expansion, search trends, and ASIN keyword tools to inform listing content and advertising research | Online tools require authentication and applicable credits |
+| Create product images | Explore image-generation and product-marketing image tools for listing visuals, selling-point images, and campaign assets | Online creative services; model access and billing apply |
+| Create product marketing videos | Use available video-generation tools with the required product references and inputs, then retrieve the generated result | Online creative services; model access and billing apply |
+| Build your own research workflow | Use CLI commands in your scripts or agent workflows, inspect input schemas, and save results for subsequent analysis | Local preparation is free; online calls follow service access and billing rules |
+
+The image and video rows describe online tools exposed through the generic
+MCP `tools` command, not local media generation or a dedicated CLI video editor.
+For asynchronous generation, submitting a request is only the first step;
+inspect its status and use the corresponding result-retrieval tool.
+
+Version **0.1.1** bundles a snapshot of **565 registered MCP tools** across
+commerce research, advertising, SEO, patents, creative generation, result
+retrieval, and workflow helpers. Live availability depends on the connected
+server and account; catalog inclusion does not certify live acceptance.
+See the [CLI tool guide](docs/full-tool-catalog.md) for discovery, schemas,
+authentication, explicit execution, and result handling.
+
+### CLI features
+
+- **Discover:** search the bundled tool catalog and inspect input schemas offline.
+- **Preview:** validate a proposed JSON request with `--dry-run` before execution.
+- **Execute:** make one explicit MCP tool call and save its response and evidence.
+- **Report:** export your own product data without an account, API key, LLM, or upload.
+
+This CLI is distributed separately from the Nexscope Codex plugin and independent Skills.
+
+## Discover and call tools
+
+Search the bundled catalog, inspect a schema, and validate a proposed request
+before connecting to the service:
+
+```sh
+nexscope tools list --search tiktok
+nexscope tools describe nexscope_amazon_search
+```
+
+Save `{"keyword":"desk lamp"}` as `search.json`, then validate it locally:
+
+```sh
+nexscope tools call nexscope_amazon_search --input search.json --dry-run
+```
+
+For authentication, live calls, required effect flags, and catalog refresh,
+follow the [complete tool guide](docs/full-tool-catalog.md). A generic execution
+invokes one tool without automatic retries or page expansion. Asynchronous jobs
+may require a separate result-retrieval call.
+
+## Current scope
+
+The bundled catalog supports discovery and input validation; it does not mean
+every tool has passed live end-to-end acceptance. The dedicated Amazon comparison
+workflow adapts search and product details. Successful live keyword search and
+continuation remain outstanding acceptance gates. See
+[ACCEPTANCE.md](ACCEPTANCE.md) for version-specific results.
+
+The sections below retain detailed import rules, workflow behavior, connection
+instructions, and development guidance.
+
+## Install from source or a release wheel
 
 From source on macOS or Linux:
 
@@ -49,18 +126,13 @@ On Windows PowerShell, create the environment with `py -3 -m venv .venv` and use
 `.venv\Scripts\python.exe` for the Python commands; activation is optional.
 There is no need to change PowerShell's execution policy.
 
-If you already have the reviewed wheel, install it with:
+For an offline-only installation, a reviewed release wheel can be installed with
+`python -m pip install --no-index --no-deps /absolute/path/nexscope_cli-0.1.1-py3-none-any.whl`.
+The source installation above also skips runtime dependencies. Schema validation
+and online operations require the declared dependencies; use the normal PyPI
+installation for the complete CLI, or the hash-pinned profile under Connect.
 
-```sh
-python -m pip install --no-index --no-deps /absolute/path/nexscope_cli-0.1.1-py3-none-any.whl
-nexscope doctor --offline
-nexscope report template --format csv --out products.csv
-nexscope report describe --schema
-nexscope report demo --format json --out sample.json
-nexscope report compare --input sample.json --format html --out comparison.html
-nexscope report compare --input sample.json --format csv --out comparison.csv
-nexscope report compare --input sample.json --format markdown --out comparison.md
-```
+## Import and report rules
 
 Use fresh output names. Reports never overwrite files or silently fall back to
 another directory. Keep each report with its sibling `.evidence` directory.
@@ -237,3 +309,22 @@ and must not be inferred from passing automated tests.
 Apache-2.0. Initial source: plugin commit
 `814f28016af6b3ff57ef12093a6bb133c4fb20b9`. Original Skill provenance remains in
 the catalog. See `NOTICE`, `ASSET-NOTICES.md` and `THIRD-PARTY-NOTICES.md`.
+
+## Free and paid usage
+
+The CLI, local tool discovery, dry-runs, and offline reports are free.
+Online data requests use credits, with pay-as-you-go Data Credits available
+without a subscription. Online image and video generation follows the relevant
+creative-service subscription, access, and credit rules; Data-only credits do
+not cover creative generation. See [current pricing](https://www.nexscope.ai/pricing?co-from=githubCLI).
+
+## Explore more with Nexscope
+
+Find data, image, and video capabilities in the
+[Nexscope API and MCP documentation](https://www.nexscope.ai/api-docs?co-from=githubCLI),
+or [get an API key](https://www.nexscope.ai/seller/api-access?co-from=githubCLI)
+to connect your workflows. Visit [Nexscope](https://www.nexscope.ai/?co-from=githubCLI)
+for the broader platform.
+
+If the CLI is useful, star this repository and explore more
+[APIs, skills, and developer resources on GitHub](https://github.com/nexscope-ai).
