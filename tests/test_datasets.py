@@ -46,6 +46,18 @@ class DatasetTests(unittest.TestCase):
         self.assertTrue(any(item['field'] == 'currency' for item in issues))
         self.assertTrue(any('Duplicate' in item['message'] for item in issues))
 
+    def test_rating_scales_use_plain_notation(self):
+        path = self.write([{'product_id': 'A', 'title': 'A', 'rating': 8, 'rating_scale': 10},
+                           {'product_id': 'B', 'title': 'B', 'rating': 80, 'rating_scale': '100.0'},
+                           {'product_id': 'C', 'title': 'C', 'rating': 4, 'rating_scale': '5.0'}])
+        dataset, _ = read_dataset(path)
+        self.assertEqual([row['rating_scale'] for row in dataset['products']], ['10', '100', '5'])
+        report = self.root / 'scales.html'
+        compare(path, report, format='html')
+        html = report.read_text(encoding='utf-8')
+        self.assertIn('Rating scale: 10<', html)
+        self.assertNotIn('E+', html)
+
     def test_encoding_duplicate_headers_keys_and_extra_csv_columns(self):
         invalid = [('bad.json', b'\xff'), ('keys.json', b'[{"product_id":"A","product_id":"B","title":"T"}]'),
                    ('overflow.json', b'[{"product_id":"A","title":"T","extra_number":1e9999}]'),

@@ -140,7 +140,12 @@ def validate_rows(rows, *, csv_input=False, versioned=False):
                         raise InvalidOperation
                     if field == 'review_count' and number != number.to_integral_value():
                         raise InvalidOperation
-                    product[field] = str(number.normalize()) if field == 'rating_scale' else str(number)
+                    if field == 'rating_scale':
+                        # normalize() groups 5 with 5.0 but writes 10 as 1E+1; print realistic scales plainly.
+                        number = number.normalize()
+                        product[field] = format(number, 'f') if number.adjusted() < 28 else str(number)
+                    else:
+                        product[field] = str(number)
                 except (DecimalException, ValueError):
                     product[field] = None
                     issue(field, 'Expected a finite non-negative number, positive scale, or integer count as applicable.')
