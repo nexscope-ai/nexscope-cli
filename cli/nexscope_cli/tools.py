@@ -136,13 +136,18 @@ def context(args):
     return resolve_auth(args.auth_mode, base=args.api_base, credential_loader=loader)
 
 
-def list_result(value, search=''):
+def origin(value, bundled):
+    # The bundled snapshot records an internal export server; show origins only for user-selected catalogs.
+    return {} if bundled else {'source': value['source']}
+
+
+def list_result(value, search='', bundled=False):
     entries = [{'name': t['name'], 'title': t.get('title'), 'description': t.get('description', ''),
                 'readOnly': (t.get('annotations') or {}).get('readOnlyHint') is True}
                for t in value['tools'] if search.lower() in (t['name'] + ' ' + (t.get('title') or '')
                                                            + ' ' + (t.get('description') or '')).lower()]
     return {'schemaVersion': 'nexscope.tool-list.v1', 'status': 'CATALOG_READY',
-            'source': value['source'], 'catalogSha256': value['sha256'],
+            **origin(value, bundled), 'catalogSha256': value['sha256'],
             'total': len(value['tools']), 'matched': len(entries), 'tools': entries,
             'verification': 'Registered tool schemas; availability and business results depend on the selected server.'}
 
@@ -155,6 +160,7 @@ def command(args):
                 value = snapshot(session.tools(), auth.base)
         else:
             value = catalog(args.catalog)
+        bundled = args.tool_action != 'refresh' and not args.live and not args.catalog
         if args.tool_action == 'refresh':
             with Path(args.out).open('x', encoding='utf-8', newline='\n') as stream:
                 json.dump(value, stream, ensure_ascii=False, indent=2)
@@ -164,10 +170,10 @@ def command(args):
             tool = selected(value['tools'], args.tool)
             bindings = decode(files('nexscope_cli').joinpath('api-contract.json').read_bytes())['toolBindings']
             return {'schemaVersion': 'nexscope.tool-description.v1', 'status': 'REGISTERED',
-                    'catalogSha256': value['sha256'], 'source': value['source'],
+                    'catalogSha256': value['sha256'], **origin(value, bundled),
                     'tool': tool, 'bundledBinding': bindings.get(tool['name']),
                     'execution': 'Explicit --execute and --allow-paid; --allow-write unless read-only is declared. Tool-specific preview/confirmation remains mandatory.'}
-        return list_result(value, args.search)
+        return list_result(value, args.search, bundled)
     value = catalog(args.catalog)
     tool = selected(value['tools'], args.tool)
     with Path(args.input).open('rb') as stream:

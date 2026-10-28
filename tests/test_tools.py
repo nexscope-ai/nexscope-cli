@@ -195,6 +195,22 @@ class ToolTests(unittest.TestCase):
             self.assertEqual(contract['toolBindings'][tool['name']]['inputSchemaSha256'], tools.digest(tool['inputSchema']))
         self.assertEqual(contract['routes']['amazon-search']['research'], '/api/v1/tools/research/amazon/search')
 
+    def test_bundled_snapshot_hides_export_origin_but_explicit_catalog_keeps_it(self):
+        from importlib.resources import files
+        args = SimpleNamespace(tool_action='list', catalog=None, live=False, search='amazon', tool='nexscope_amazon_search')
+        self.assertNotIn('source', tools.command(args))
+        args.tool_action = 'describe'
+        self.assertNotIn('source', tools.command(args))
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'current-tools.json'
+            value = json.loads(files('nexscope_cli').joinpath('tools.json').read_text(encoding='utf-8'))
+            value['source'] = 'https://selected.example'
+            path.write_text(json.dumps(value), encoding='utf-8')
+            args.catalog = str(path)
+            self.assertEqual(tools.command(args)['source'], 'https://selected.example')
+            args.tool_action = 'list'
+            self.assertEqual(tools.command(args)['source'], 'https://selected.example')
+
     def test_shared_guide_errors_and_provenance_are_offline_and_versioned(self):
         from nexscope_cli.main import main
         from nexscope_cli import __version__
