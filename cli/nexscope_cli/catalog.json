@@ -9,10 +9,10 @@
         "scripts/amazon_search.py"
       ],
       "files": {
-        "SKILL.md": "97e315e07ddf8ff3abb7bc46c97060303b2c9ad1829849472be05e3e8aaceef3",
+        "SKILL.md": "acce36a786d6d8b3ce639488494eb23eef738a0b2e35d41f6cf268b007b3c1d4",
         "references/api.md": "ac2f6764ddafbd4ab0e19cb5f3cfe37838ebd76879c604ad62c40a4dcd6e77ea",
-        "requirements.txt": "510d291c9fd91ac35ea6276f653efeaabd8dcb47402bdb58a1ec401bb37f58af",
-        "scripts/amazon_search.py": "89ab77e33f8111b5304958e7fbd54ffde6e4a8de0090432b53433cf34cbf41d5"
+        "requirements.txt": "882ae7edb3841d21bb621530c53e7d2560f78fc9b046276925dd5a463a43d1b0",
+        "scripts/amazon_search.py": "a475231479cb61ad9d0379e69fe6499637ecd83313a4529c172a3da31b1ad100"
       },
       "available": true,
       "sourceRevision": "742ccef80fc605842b0249864051e4f690adcabb",
@@ -32,7 +32,8 @@
         "Standalone CLI 0.1.2.dev11 pins; unqualified currency symbols retained as unresolved metadata without inferring an ISO code",
         "Standalone CLI 0.1.0 initial independent version; paired adapter pins updated",
         "Standalone CLI 0.1.1 paired pins; existing adapter command and environment semantics retained",
-        "Standalone CLI 0.1.2 paired pins; skill scripts also run from the standalone binary"
+        "Standalone CLI 0.1.2 paired pins; skill scripts also run from the standalone binary",
+        "Standalone CLI 0.1.3 paired pins; adapter semantics unchanged"
       ]
     },
     "amazon-product-detail": {
@@ -42,10 +43,10 @@
         "scripts/amazon_product_detail.py"
       ],
       "files": {
-        "SKILL.md": "31694630083c29fcd99a58e8331452b54482d65c85cd1d21b742fb85fc67d772",
+        "SKILL.md": "2562085c9925f74fd9ff791d43e2c95ae875c01d71fdf69cf80ac7dd8f14911a",
         "references/api.md": "2ad537d7861e650a1ec195791e7aa488614132e1305473c53af0c7a63f4d0d59",
-        "requirements.txt": "510d291c9fd91ac35ea6276f653efeaabd8dcb47402bdb58a1ec401bb37f58af",
-        "scripts/amazon_product_detail.py": "d8fe371e00b445c6957b9c0497f7b08f94843d6ad064518bb769093bcea83505"
+        "requirements.txt": "882ae7edb3841d21bb621530c53e7d2560f78fc9b046276925dd5a463a43d1b0",
+        "scripts/amazon_product_detail.py": "ec39c755b56563db4de559b30fd3f20bab0c24681a62c29769f3675219d8fbcc"
       },
       "available": true,
       "sourceRevision": "742ccef80fc605842b0249864051e4f690adcabb",
@@ -65,7 +66,8 @@
         "Standalone CLI 0.1.2.dev11 pins; unqualified currency symbols retained as unresolved metadata without inferring an ISO code",
         "Standalone CLI 0.1.0 initial independent version; paired adapter pins updated",
         "Standalone CLI 0.1.1 paired pins; existing adapter command and environment semantics retained",
-        "Standalone CLI 0.1.2 paired pins; skill scripts also run from the standalone binary"
+        "Standalone CLI 0.1.2 paired pins; skill scripts also run from the standalone binary",
+        "Standalone CLI 0.1.3 paired pins; adapter semantics unchanged"
       ]
     }
   },

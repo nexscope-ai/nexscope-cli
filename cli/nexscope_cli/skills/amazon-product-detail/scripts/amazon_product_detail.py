@@ -5,7 +5,7 @@
 import sys
 
 INDEPENDENT_COMPAT_API = 1
-REQUIRED_VERSION = '0.1.2'
+REQUIRED_VERSION = '0.1.3'
 
 
 def main():
@@ -14,10 +14,10 @@ def main():
         from nexscope_cli.compat import COMPAT_API_VERSION
         from nexscope_cli.compat.legacy import main as run
     except ImportError:
-        print('Dependency missing: install nexscope-cli==0.1.2 from the paired local wheel using this Python interpreter. No request was sent.', file=sys.stderr)
+        print('Dependency missing: install nexscope-cli==0.1.3 from the paired local wheel using this Python interpreter. No request was sent.', file=sys.stderr)
         return 1
     if __version__ != REQUIRED_VERSION or COMPAT_API_VERSION != INDEPENDENT_COMPAT_API:
-        print('Dependency mismatch: this adapter requires nexscope-cli==0.1.2 and compatibility API 1. Install the paired wheel or restore the previous Skill directory. No request was sent.', file=sys.stderr)
+        print('Dependency mismatch: this adapter requires nexscope-cli==0.1.3 and compatibility API 1. Install the paired wheel or restore the previous Skill directory. No request was sent.', file=sys.stderr)
         return 1
     return run('amazon-product-detail')
 

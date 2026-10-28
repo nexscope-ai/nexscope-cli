@@ -1,1 +1,1 @@
-nexscope-cli==0.1.2
+nexscope-cli==0.1.3

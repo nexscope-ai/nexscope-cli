@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.1.3
+
+- `nexscope login` signs in in one step: it opens the browser and waits until
+  the connection completes (`--no-browser` only prints the link). `auth login`
+  and `auth poll` are unchanged.
+- `tools call` accepts inline `key=value` input typed from the tool schema,
+  e.g. `keyword="portable blender"`, as an alternative to `--input FILE`.
+  Without `--out`, results go to a new `<tool>-<timestamp>` folder. Paid calls
+  still require `--execute --allow-paid` and, unless read-only, `--allow-write`.
+- The README starts with three steps: install, sign in, search.
+
 ## 0.1.2
 
 - Publish standalone binaries for macOS, Linux and Windows (amd64 and arm64)
