@@ -75,6 +75,9 @@ jobs:
           "$bin" tools list --search amazon > tools.json && grep -q CATALOG_READY tools.json
           "$bin" report demo --format json --out sample.json
           "$bin" report compare --input sample.json --format html --out report.html > report.json && grep -q REPORT_READY report.json
+          # Real HTTPS through the bundled OpenSSL: catches a missing CA bundle.
+          printf 'import urllib.request\nurllib.request.urlopen("https://pypi.org/simple/", timeout=30)\n' > https_probe.py
+          NEXSCOPE_PROXY_BASE=https://pypi.org "$bin" --nexscope-runner "$PWD/https_probe.py"
       - name: Install with install.ps1 and smoke test
         if: matrix.os == 'windows'
         shell: pwsh
@@ -92,6 +95,10 @@ jobs:
           if (-not ((& $bin tools list --search amazon) -match 'CATALOG_READY')) { throw 'tools list failed' }
           & $bin report demo --format json --out sample.json
           if (-not ((& $bin report compare --input sample.json --format html --out report.html) -match 'REPORT_READY')) { throw 'report failed' }
+          Set-Content -Path https_probe.py -Value 'import urllib.request; urllib.request.urlopen("https://pypi.org/simple/", timeout=30)'
+          $env:NEXSCOPE_PROXY_BASE = 'https://pypi.org'
+          & $bin --nexscope-runner (Join-Path $env:RUNNER_TEMP 'https_probe.py')
+          if ($LASTEXITCODE -ne 0) { throw 'HTTPS probe failed' }
       - name: Install with Windows PowerShell 5.1
         if: matrix.os == 'windows'
         shell: powershell
