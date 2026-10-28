@@ -26,8 +26,8 @@ irm https://raw.githubusercontent.com/nexscope-ai/nexscope-cli/main/install.ps1 
 ```
 
 Run `sh -s -- --help` with the first command for options such as `--version` and `--prefix`.
-Standalone binaries are attached to releases from 0.1.2 onwards; for 0.1.1, use the
-Python installation below.
+Standalone binaries are attached to releases from 0.1.2 onwards; earlier versions
+install through Python as shown below.
 
 ## Quick start
 
@@ -37,7 +37,7 @@ With Python **3.11+**, you can instead install the published package in a virtua
 python -m venv .venv
 # macOS / Linux
 . .venv/bin/activate
-python -m pip install --index-url https://pypi.org/simple nexscope-cli==0.1.1
+python -m pip install --index-url https://pypi.org/simple nexscope-cli==0.1.2
 nexscope --version
 nexscope doctor --offline
 nexscope tools list --search amazon
@@ -82,7 +82,7 @@ MCP `tools` command, not local media generation or a dedicated CLI video editor.
 For asynchronous generation, submitting a request is only the first step;
 inspect its status and use the corresponding result-retrieval tool.
 
-Version **0.1.1** bundles a snapshot of **565 registered MCP tools** across
+Version **0.1.2** bundles a snapshot of **565 registered MCP tools** across
 commerce research, advertising, SEO, patents, creative generation, result
 retrieval, and workflow helpers. Live availability depends on the connected
 server and account; catalog inclusion does not certify live acceptance.
@@ -140,7 +140,7 @@ cd nexscope-cli
 python3 -m venv .venv
 . .venv/bin/activate
 python -m pip wheel --no-deps --wheel-dir dist .
-python -m pip install --no-index --no-deps dist/nexscope_cli-0.1.1-py3-none-any.whl
+python -m pip install --no-index --no-deps dist/nexscope_cli-0.1.2-py3-none-any.whl
 ```
 
 On Windows PowerShell, create the environment with `py -3 -m venv .venv` and use
@@ -148,7 +148,7 @@ On Windows PowerShell, create the environment with `py -3 -m venv .venv` and use
 There is no need to change PowerShell's execution policy.
 
 For an offline-only installation, a reviewed release wheel can be installed with
-`python -m pip install --no-index --no-deps /absolute/path/nexscope_cli-0.1.1-py3-none-any.whl`.
+`python -m pip install --no-index --no-deps /absolute/path/nexscope_cli-0.1.2-py3-none-any.whl`.
 The source installation above also skips runtime dependencies. Schema validation
 and online operations require the declared dependencies; use the normal PyPI
 installation for the complete CLI, or the hash-pinned profile under Connect.
@@ -284,7 +284,7 @@ python -m pip install --no-deps .
 python -m unittest discover -s tests -v
 python scripts/check_resources.py
 python -m pip wheel --no-deps --wheel-dir dist .
-python scripts/verify_wheel.py dist/nexscope_cli-0.1.1-py3-none-any.whl
+python scripts/verify_wheel.py dist/nexscope_cli-0.1.2-py3-none-any.whl
 ```
 
 The standard-library test suite runs with no service credentials. The wheel

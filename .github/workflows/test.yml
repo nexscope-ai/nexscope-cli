@@ -15,7 +15,7 @@ jobs:
           python-version: ${{ matrix.python }}
       - run: python scripts/check_resources.py
       - run: python -m pip wheel --no-deps --wheel-dir dist .
-      - run: python scripts/verify_wheel.py dist/nexscope_cli-0.1.1-py3-none-any.whl --with-dependencies
+      - run: python scripts/verify_wheel.py dist/nexscope_cli-0.1.2-py3-none-any.whl --with-dependencies
       - uses: actions/upload-artifact@v4
         with:
           name: wheel-${{ matrix.os }}-${{ matrix.python }}

@@ -3,7 +3,7 @@
 Install an exact reviewed version in a dedicated Python 3.11+ environment:
 
 ```sh
-python -m pip install --index-url https://pypi.org/simple --upgrade nexscope-cli==0.1.1
+python -m pip install --index-url https://pypi.org/simple --upgrade nexscope-cli==0.1.2
 nexscope --version
 nexscope doctor --offline
 ```
@@ -19,7 +19,7 @@ only the original `NEXSCOPE_API_KEY` and `NEXSCOPE_PROXY_BASE`; it neither initi
 keyring nor logs in. Switching modes is explicit, and failure never switches
 accounts. Report directories are user data and are never installer state.
 
-Bundled adapters require exactly `nexscope-cli==0.1.1`. Upgrade an independently
+Bundled adapters require exactly `nexscope-cli==0.1.2`. Upgrade an independently
 distributed Skill only together with its matching reviewed core dependency.
 This CLI release does not replace previously published standalone Skills or
 plugins. Their current distributions continue to use their own pinned resources.
