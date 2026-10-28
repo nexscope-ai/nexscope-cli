@@ -8,10 +8,9 @@ and turn your own product data into comparison reports from the terminal.
 Built for developers and ecommerce teams working with scripts, command-line
 tools, and their own agent workflows.
 
-## Install
+## Get started in three steps
 
-One command installs the standalone `nexscope` binary; no Python needed. It downloads
-the release build for your platform from GitHub Releases and verifies its SHA-256 checksum.
+### 1. Install in terminal
 
 macOS / Linux:
 
@@ -25,11 +24,33 @@ Windows (PowerShell):
 irm https://raw.githubusercontent.com/nexscope-ai/nexscope-cli/main/install.ps1 | iex
 ```
 
-Run `sh -s -- --help` with the first command for options such as `--version` and `--prefix`.
-Standalone binaries are attached to releases from 0.1.2 onwards; earlier versions
-install through Python as shown below.
+This installs the standalone `nexscope` binary (no Python needed) after verifying its
+SHA-256 checksum. On macOS and Linux, open a new terminal afterwards.
 
-## Quick start
+### 2. Sign in
+
+Connect your Nexscope account. Your browser opens; the command finishes once you approve.
+
+```sh
+nexscope login
+```
+
+### 3. Search
+
+Search Amazon. Online calls use credits, so they need explicit approval flags:
+
+```sh
+nexscope tools call nexscope_amazon_search keyword="portable blender" --execute --allow-paid --allow-write
+```
+
+Results and evidence are saved to a new folder. Replace `--execute --allow-paid --allow-write`
+with `--dry-run` to preview the request for free. Explore all 565 tools with
+`nexscope tools list --search tiktok`.
+
+Installer options such as `--version` and `--prefix`: `curl -fsSL .../install.sh | sh -s -- --help`.
+Standalone binaries are attached to releases from 0.1.2 onwards.
+
+## Quick start with Python
 
 With Python **3.11+**, you can instead install the published package in a virtual environment:
 
