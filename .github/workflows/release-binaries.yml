@@ -1,13 +1,22 @@
 name: Standalone binaries
 # Builds nexscope for six platforms and tests install.sh / install.ps1 against each build.
 # On a published release, attaches the archives and checksums.txt that the installers download.
+# A manual run with a tag builds that tag's source and attaches to its existing release.
 on:
   release:
     types: [published]
   workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing release tag to build and attach binaries to (empty = test build only)
+        required: false
+        default: ''
 
 permissions:
   contents: read
+
+env:
+  TAG: ${{ github.event_name == 'release' && github.ref_name || inputs.tag }}
 
 jobs:
   build:
@@ -28,6 +37,8 @@ jobs:
         shell: bash
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TAG || github.ref }}
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -38,8 +49,8 @@ jobs:
       - name: Build
         run: python packaging/build.py
       - name: Check release version
-        if: github.event_name == 'release'
-        run: ls dist/release/nexscope_${GITHUB_REF_NAME#v}_${{ matrix.os }}_${{ matrix.arch }}.*
+        if: env.TAG != ''
+        run: ls dist/release/nexscope_${TAG#v}_${{ matrix.os }}_${{ matrix.arch }}.*
       - name: Stage a local release mirror
         run: |
           version=$(python -c "import nexscope_cli; print(nexscope_cli.__version__)")
@@ -59,10 +70,11 @@ jobs:
           bin="$RUNNER_TEMP/nx/bin/nexscope"
           test "$("$bin" --version)" = "$VERSION"
           cd "$RUNNER_TEMP"
-          "$bin" doctor --offline | grep -q READY_LOCAL
-          "$bin" tools list --search amazon | grep -q CATALOG_READY
+          # Capture before matching: grep -q closing a pipe early would break the CLI's stdout.
+          "$bin" doctor --offline > doctor.json && grep -q READY_LOCAL doctor.json
+          "$bin" tools list --search amazon > tools.json && grep -q CATALOG_READY tools.json
           "$bin" report demo --format json --out sample.json
-          "$bin" report compare --input sample.json --format html --out report.html | grep -q REPORT_READY
+          "$bin" report compare --input sample.json --format html --out report.html > report.json && grep -q REPORT_READY report.json
       - name: Install with install.ps1 and smoke test
         if: matrix.os == 'windows'
         shell: pwsh
@@ -99,7 +111,7 @@ jobs:
           if-no-files-found: error
 
   publish:
-    if: github.event_name == 'release'
+    if: github.event_name == 'release' || inputs.tag != ''
     needs: build
     runs-on: ubuntu-latest
     permissions:
@@ -117,4 +129,4 @@ jobs:
           sha256sum nexscope_* > checksums.txt
           cat checksums.txt
           test "$(wc -l < checksums.txt)" -eq 6
-          gh release upload "$GITHUB_REF_NAME" nexscope_* checksums.txt --clobber --repo "$GITHUB_REPOSITORY"
+          gh release upload "$TAG" nexscope_* checksums.txt --clobber --repo "$GITHUB_REPOSITORY"
