@@ -7,7 +7,7 @@ Compare only within the same market, currency and rating scale. No cross-group r
 
 Collection status: IMPORTED
 
-Imported at: 2026\-10\-26T13:53:09\.444189\+00:00 (not the observation time).
+Imported at: 2026\-10\-28T03:24:07\.610894\+00:00 (not the observation time).
 
 Input SHA-256: 6763e9f37c00ee0152e255991b2833d86cafaf87240cc70e8539e8095b071f97
 
@@ -28,11 +28,11 @@ Market: own\-catalog / Currency: USD / Rating scale: 5
 
 ## Group 2
 
-Market: own\-catalog / Currency: EUR / Rating scale: 1E\+1
+Market: own\-catalog / Currency: EUR / Rating scale: 10
 
 | product_id | title | marketplace | price | currency | rating | rating_scale | review_count | source_url | observed_at | source_row | extra |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| SAMPLE\-003 | Sample compact bottle | own\-catalog | 15 | EUR | 8 | 1E\+1 | 50 | https://example\.com/products/3 | 2026\-01\-01T00:00:00Z | 3 | \{\} |
+| SAMPLE\-003 | Sample compact bottle | own\-catalog | 15 | EUR | 8 | 10 | 50 | https://example\.com/products/3 | 2026\-01\-01T00:00:00Z | 3 | \{\} |
 
 ## Group 3
 

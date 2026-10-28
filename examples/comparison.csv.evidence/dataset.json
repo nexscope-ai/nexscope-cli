@@ -4,7 +4,7 @@
   "inputName": "input.json",
   "originalInputName": "products-sample.json",
   "inputSha256": "6763e9f37c00ee0152e255991b2833d86cafaf87240cc70e8539e8095b071f97",
-  "importedAt": "2026-10-26T13:53:09.433275+00:00",
+  "importedAt": "2026-10-28T03:24:07.610325+00:00",
   "products": [
     {
       "product_id": "SAMPLE-001",
@@ -41,7 +41,7 @@
       "price": "15",
       "currency": "EUR",
       "rating": "8",
-      "rating_scale": "1E+1",
+      "rating_scale": "10",
       "review_count": "50",
       "source_url": "https://example.com/products/3",
       "observed_at": "2026-01-01T00:00:00Z",
