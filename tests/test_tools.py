@@ -1,5 +1,5 @@
 """Full-catalog and MCP regressions with an injected HTTP peer; no network."""
-from contextlib import contextmanager, redirect_stdout
+from contextlib import chdir, contextmanager, redirect_stdout
 from email.message import Message
 import importlib.util
 import io
@@ -190,11 +190,8 @@ class ToolTests(unittest.TestCase):
     @unittest.skipUnless(HAS_SCHEMA, 'Install the declared JSON Schema dependency')
     def test_inline_arguments_are_typed_and_execute_into_a_default_directory(self):
         import hashlib
-        import os
-        with tempfile.TemporaryDirectory() as directory:
-            previous = os.getcwd()
-            os.chdir(directory)
-            self.addCleanup(os.chdir, previous)
+        # chdir exits before the directory is removed; Windows cannot delete the working directory.
+        with tempfile.TemporaryDirectory() as directory, chdir(directory):
             args = SimpleNamespace(tool_action='call', catalog=None, tool='nexscope_amazon_search',
                    params=['keyword=desk lamp', 'page=2', 'includeSellerSpriteData=true'], input=None, out=None,
                    dry_run=True, auth_mode='env-api-key', api_base=None, allow_paid=True, allow_write=True)
