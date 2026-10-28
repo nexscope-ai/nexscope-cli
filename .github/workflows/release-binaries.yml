@@ -1,0 +1,120 @@
+name: Standalone binaries
+# Builds nexscope for six platforms and tests install.sh / install.ps1 against each build.
+# On a published release, attaches the archives and checksums.txt that the installers download.
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {runner: macos-15, os: darwin, arch: arm64}
+          - {runner: macos-15-intel, os: darwin, arch: amd64}
+          # Older glibc keeps the Linux binaries compatible with more distributions.
+          - {runner: ubuntu-22.04, os: linux, arch: amd64}
+          - {runner: ubuntu-22.04-arm, os: linux, arch: arm64}
+          - {runner: windows-2025, os: windows, arch: amd64}
+          - {runner: windows-11-arm, os: windows, arch: arm64}
+    runs-on: ${{ matrix.runner }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install locked dependencies and PyInstaller
+        run: |
+          python -m pip install --require-hashes -r cli/nexscope_cli/dependencies.lock -r packaging/requirements.txt
+          python -m pip install --no-deps .
+      - name: Build
+        run: python packaging/build.py
+      - name: Check release version
+        if: github.event_name == 'release'
+        run: ls dist/release/nexscope_${GITHUB_REF_NAME#v}_${{ matrix.os }}_${{ matrix.arch }}.*
+      - name: Stage a local release mirror
+        run: |
+          version=$(python -c "import nexscope_cli; print(nexscope_cli.__version__)")
+          echo "VERSION=$version" >> "$GITHUB_ENV"
+          mkdir -p mirror/v$version
+          cp dist/release/* mirror/v$version/
+          (cd mirror/v$version && python -c "import hashlib, pathlib; [print(hashlib.sha256(p.read_bytes()).hexdigest() + '  ' + p.name) for p in sorted(pathlib.Path('.').glob('nexscope_*'))]" > checksums.txt)
+      # Each install step starts its own mirror server; background processes may not outlive a step.
+      - name: Install with install.sh and smoke test
+        if: matrix.os != 'windows'
+        env:
+          NEXSCOPE_DOWNLOAD_URL: http://127.0.0.1:8765
+        run: |
+          (cd mirror && python -m http.server 8765 --bind 127.0.0.1 >/dev/null 2>&1 &)
+          sleep 2
+          sh install.sh --version "$VERSION" --prefix "$RUNNER_TEMP/nx" --no-modify-path
+          bin="$RUNNER_TEMP/nx/bin/nexscope"
+          test "$("$bin" --version)" = "$VERSION"
+          cd "$RUNNER_TEMP"
+          "$bin" doctor --offline | grep -q READY_LOCAL
+          "$bin" tools list --search amazon | grep -q CATALOG_READY
+          "$bin" report demo --format json --out sample.json
+          "$bin" report compare --input sample.json --format html --out report.html | grep -q REPORT_READY
+      - name: Install with install.ps1 and smoke test
+        if: matrix.os == 'windows'
+        shell: pwsh
+        env:
+          NEXSCOPE_DOWNLOAD_URL: http://127.0.0.1:8766
+        run: |
+          Start-Process python -ArgumentList '-m', 'http.server', '8766', '--bind', '127.0.0.1' -WorkingDirectory mirror -WindowStyle Hidden
+          Start-Sleep -Seconds 2
+          $env:NEXSCOPE_INSTALL_DIR = Join-Path $env:RUNNER_TEMP 'nx'
+          ./install.ps1 -Version $env:VERSION -NoPathUpdate
+          $bin = Join-Path $env:NEXSCOPE_INSTALL_DIR 'nexscope.exe'
+          if ((& $bin --version) -ne $env:VERSION) { throw 'version mismatch' }
+          Set-Location $env:RUNNER_TEMP
+          if (-not ((& $bin doctor --offline) -match 'READY_LOCAL')) { throw 'doctor failed' }
+          if (-not ((& $bin tools list --search amazon) -match 'CATALOG_READY')) { throw 'tools list failed' }
+          & $bin report demo --format json --out sample.json
+          if (-not ((& $bin report compare --input sample.json --format html --out report.html) -match 'REPORT_READY')) { throw 'report failed' }
+      - name: Install with Windows PowerShell 5.1
+        if: matrix.os == 'windows'
+        shell: powershell
+        env:
+          NEXSCOPE_DOWNLOAD_URL: http://127.0.0.1:8767
+        run: |
+          Start-Process python -ArgumentList '-m', 'http.server', '8767', '--bind', '127.0.0.1' -WorkingDirectory mirror -WindowStyle Hidden
+          Start-Sleep -Seconds 2
+          $env:NEXSCOPE_INSTALL_DIR = Join-Path $env:RUNNER_TEMP 'nx51'
+          $env:NEXSCOPE_VERSION = $env:VERSION
+          Get-Content -Raw ./install.ps1 | Invoke-Expression
+          if ((& (Join-Path $env:NEXSCOPE_INSTALL_DIR 'nexscope.exe') --version) -ne $env:VERSION) { throw 'version mismatch' }
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nexscope-${{ matrix.os }}-${{ matrix.arch }}
+          path: dist/release/*
+          if-no-files-found: error
+
+  publish:
+    if: github.event_name == 'release'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: release
+          merge-multiple: true
+      - name: Attach binaries and checksums to the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd release
+          sha256sum nexscope_* > checksums.txt
+          cat checksums.txt
+          test "$(wc -l < checksums.txt)" -eq 6
+          gh release upload "$GITHUB_REF_NAME" nexscope_* checksums.txt --clobber --repo "$GITHUB_REPOSITORY"
