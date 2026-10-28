@@ -8,9 +8,30 @@ and turn your own product data into comparison reports from the terminal.
 Built for developers and ecommerce teams working with scripts, command-line
 tools, and their own agent workflows.
 
+## Install
+
+One command installs the standalone `nexscope` binary; no Python needed. It downloads
+the release build for your platform from GitHub Releases and verifies its SHA-256 checksum.
+
+macOS / Linux:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/nexscope-ai/nexscope-cli/main/install.sh | sh
+```
+
+Windows (PowerShell):
+
+```powershell
+irm https://raw.githubusercontent.com/nexscope-ai/nexscope-cli/main/install.ps1 | iex
+```
+
+Run `sh -s -- --help` with the first command for options such as `--version` and `--prefix`.
+Standalone binaries are attached to releases from 0.1.2 onwards; for 0.1.1, use the
+Python installation below.
+
 ## Quick start
 
-Requires **Python 3.11+**. Install the published version in a virtual environment:
+With Python **3.11+**, you can instead install the published package in a virtual environment:
 
 ```sh
 python -m venv .venv
