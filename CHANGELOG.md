@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.4
+
+- Fix HTTPS from the standalone binaries: they now use the bundled certifi CA
+  certificates (unless `SSL_CERT_FILE` or `SSL_CERT_DIR` is set). In 0.1.3 the
+  macOS binaries failed every online request, including `nexscope login`.
+- Fix `nexscope login` to open the server's `loginUrl`; it now opens the browser
+  and waits as intended.
+- Certificate failures are reported as such instead of "Network unavailable".
+
 ## 0.1.3
 
 - `nexscope login` signs in in one step: it opens the browser and waits until

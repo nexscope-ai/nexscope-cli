@@ -14,7 +14,7 @@ python -m unittest discover -s tests -v
 python scripts/check_resources.py
 python -m build
 python -m twine check dist/*
-python scripts/verify_wheel.py dist/nexscope_cli-0.1.3-py3-none-any.whl --with-dependencies
+python scripts/verify_wheel.py dist/nexscope_cli-0.1.4-py3-none-any.whl --with-dependencies
 ```
 
 The tests use fictional data and injected/local peers. Build tools are development
