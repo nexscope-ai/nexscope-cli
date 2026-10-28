@@ -211,6 +211,12 @@ class ToolTests(unittest.TestCase):
             args.tool_action = 'list'
             self.assertEqual(tools.command(args)['source'], 'https://selected.example')
 
+    def test_skill_runs_reenter_a_standalone_binary(self):
+        from nexscope_cli.main import ROOT, launcher
+        self.assertEqual(launcher(), [sys.executable, str(ROOT / 'runner.py')])
+        with patch.object(sys, 'frozen', True, create=True):
+            self.assertEqual(launcher(), [sys.executable, '--nexscope-runner'])
+
     def test_shared_guide_errors_and_provenance_are_offline_and_versioned(self):
         from nexscope_cli.main import main
         from nexscope_cli import __version__

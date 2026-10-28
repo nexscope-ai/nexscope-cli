@@ -138,6 +138,13 @@ def guide(name):
             'execution': 'Replace python script.py with nexscope run ' + name + ' --script <listed script> -- . Relative input paths must be absolute because runs use isolated output directories.'}
 
 
+def launcher():
+    # A standalone (PyInstaller) binary has no separate interpreter; it re-enters itself in runner mode.
+    if getattr(sys, 'frozen', False):
+        return [sys.executable, '--nexscope-runner']
+    return [sys.executable, str(ROOT / 'runner.py')]
+
+
 def run(args, client):
     entry = catalog().get(args.skill)
     if not entry:
@@ -154,7 +161,7 @@ def run(args, client):
     env = context.script_environment()
     arguments = args.arguments[1:] if args.arguments[:1] == ['--'] else args.arguments
     # No automatic replay: scripts may create reports, change ads, or consume credits.
-    result = subprocess.run([sys.executable, str(ROOT / 'runner.py'), str(ROOT / 'skills' / args.skill / script), *arguments], cwd=folder, env=env, capture_output=True, text=True)
+    result = subprocess.run([*launcher(), str(ROOT / 'skills' / args.skill / script), *arguments], cwd=folder, env=env, capture_output=True, text=True)
     output = context.redact(result.stdout + result.stderr)
     (folder / 'output.txt').write_text(output)
     files = list(folder.rglob('*.json'))
