@@ -182,6 +182,10 @@ def loopback(with_dependencies=False):
                                  '--', '{"keyword":"lamp","page":8}', '--inline', '--no-cache')
                     assert legacy['status'] == 'OUTPUT_READY', legacy
                 cli('--api-base', base, 'auth', 'logout')
+                # One-step sign-in waits for the fixture to approve, then returns the account.
+                account = cli('--api-base', base, 'login', '--no-browser')
+                assert account['accountId'] == 'fixture-account' and 'apiKey' not in account
+                cli('--api-base', base, 'auth', 'logout')
             assert not store.values
             protected = [(path, auth) for path, auth, body in records if not path.endswith(('/auth/start', '/auth/poll'))]
             assert protected and all(auth == 'Bearer fixture-browser' for path, auth in protected)

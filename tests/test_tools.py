@@ -120,7 +120,7 @@ class ToolTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / 'input.json'
             path.write_text('{"action":"catalog"}', encoding='utf-8')
-            args = SimpleNamespace(tool_action='call', catalog=None, tool='nexscope_workflow_read',
+            args = SimpleNamespace(tool_action='call', catalog=None, tool='nexscope_workflow_read', params=[],
                    input=str(path), out=str(Path(directory) / 'new'), dry_run=True,
                    auth_mode='env-api-key', api_base=None)
             with patch.object(socket.socket, 'connect', side_effect=AssertionError('Network forbidden')), \
@@ -171,7 +171,7 @@ class ToolTests(unittest.TestCase):
             with self.subTest(mode=mode), tempfile.TemporaryDirectory() as directory, peer(mode) as records:
                 path = Path(directory) / 'input.json'
                 path.write_text('{"keyword":"fixture"}', encoding='utf-8')
-                args = SimpleNamespace(tool_action='call', catalog=None, tool='nexscope_amazon_search',
+                args = SimpleNamespace(tool_action='call', catalog=None, tool='nexscope_amazon_search', params=[],
                        input=str(path), out=str(Path(directory) / 'result'), dry_run=False,
                        auth_mode='env-api-key', api_base=None, allow_paid=True, allow_write=True)
                 with patch('nexscope_cli.tools.context', return_value=AuthContext('env-api-key', 'https://example.invalid', 'fixture-api-key')):
@@ -186,6 +186,65 @@ class ToolTests(unittest.TestCase):
                 self.assertNotIn('private-fixture-token', saved)
                 self.assertNotIn('private-fixture-token', json.dumps(result))
                 self.assertEqual(sum(r[0]['method'] == 'tools/call' for r in records), 1)
+
+    @unittest.skipUnless(HAS_SCHEMA, 'Install the declared JSON Schema dependency')
+    def test_inline_arguments_are_typed_and_execute_into_a_default_directory(self):
+        import hashlib
+        import os
+        with tempfile.TemporaryDirectory() as directory:
+            previous = os.getcwd()
+            os.chdir(directory)
+            self.addCleanup(os.chdir, previous)
+            args = SimpleNamespace(tool_action='call', catalog=None, tool='nexscope_amazon_search',
+                   params=['keyword=desk lamp', 'page=2', 'includeSellerSpriteData=true'], input=None, out=None,
+                   dry_run=True, auth_mode='env-api-key', api_base=None, allow_paid=True, allow_write=True)
+            expected = {'keyword': 'desk lamp', 'page': 2, 'includeSellerSpriteData': True}
+            plan = tools.command(args)
+            self.assertEqual(plan['inputSha256'], hashlib.sha256(json.dumps(expected, sort_keys=True).encode()).hexdigest())
+            args.dry_run = False
+            with peer() as records, patch('nexscope_cli.tools.context',
+                                          return_value=AuthContext('env-api-key', 'https://example.invalid', 'fixture-api-key')):
+                result = tools.command(args)
+            self.assertEqual(result['status'], 'RESULT_READY')
+            self.assertTrue(Path(result['output']).name.startswith('nexscope_amazon_search-'))
+            self.assertEqual(Path(result['output']).parent.resolve(), Path(directory).resolve())
+            call = next(r[0] for r in records if r[0]['method'] == 'tools/call')
+            self.assertEqual(call['params']['arguments'], expected)
+            for params, source in [(['page=two'], None), (['keyword'], None), ([], None), (['keyword=x'], 'input.json')]:
+                with self.subTest(params=params, source=source), self.assertRaises(Failure):
+                    tools.command(SimpleNamespace(**{**vars(args), 'params': params, 'input': source, 'dry_run': True}))
+
+    def test_login_opens_the_browser_and_waits_for_the_account(self):
+        from nexscope_cli.main import Client
+
+        class Store(dict):
+            def get_password(self, service, name): return self.get(name)
+            def set_password(self, service, name, value): self[name] = value
+            def delete_password(self, service, name): del self[name]
+
+        def client(polls):
+            value = Client.__new__(Client)
+            value.base, value.service, value.store = 'https://example.invalid', 'fixture', Store()
+            answers = {'auth/start': [{'requestId': 'r', 'pollSecret': 'p', 'expiresAt': 9999999999999,
+                                       'connectUrl': 'https://example.invalid/connect'}],
+                       'auth/poll': polls, 'account': [{'accountId': 'fixture-account'}]}
+            value.api = lambda path, body=None, authenticated=False, context=None: answers[path].pop(0)
+            return value
+
+        connected = client([{'status': 'PENDING'}, {'status': 'READY', 'apiKey': 'k'}, {}])
+        with patch('webbrowser.open') as browser, patch('time.sleep'), redirect_stdout(io.StringIO()) as stdout, \
+                patch('sys.stderr', new_callable=io.StringIO) as stderr:
+            self.assertEqual(connected.login(None)['accountId'], 'fixture-account')
+        browser.assert_called_once_with('https://example.invalid/connect')
+        self.assertIn('https://example.invalid/connect', stderr.getvalue())
+        self.assertEqual(stdout.getvalue(), '')
+        self.assertIsNotNone(connected.load('credential'))
+        self.assertIsNone(connected.load('pending'))
+        denied = client([{'status': 'DENIED'}])
+        with patch('webbrowser.open') as browser, patch('time.sleep'), patch('sys.stderr', new_callable=io.StringIO), \
+                self.assertRaises(Failure):
+            denied.login(None, open_browser=False)
+        browser.assert_not_called()
 
     def test_bindings_cover_all_schemas_and_keep_legacy_routes(self):
         from importlib.resources import files
@@ -243,7 +302,7 @@ class ToolTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / 'input.json'
             path.write_text('{"keyword":"fixture"}', encoding='utf-8')
-            args = SimpleNamespace(tool_action='call', catalog=None, tool='nexscope_amazon_search',
+            args = SimpleNamespace(tool_action='call', catalog=None, tool='nexscope_amazon_search', params=[],
                    input=str(path), out=str(Path(directory) / 'result'), dry_run=False,
                    auth_mode='env-api-key', api_base=None, allow_paid=False, allow_write=False)
             with patch('nexscope_cli.tools.context', side_effect=AssertionError('Auth forbidden')):

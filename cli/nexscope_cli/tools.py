@@ -87,6 +87,27 @@ def validation_schema(schema):
     return result
 
 
+def inline(tool, pairs):
+    """key=value arguments; numbers, booleans, arrays and objects follow the tool's input schema."""
+    properties = tool['inputSchema'].get('properties') or {}
+    arguments = {}
+    for pair in pairs:
+        key, sep, text = pair.partition('=')
+        if not sep or not key:
+            raise Failure('Use key=value arguments, e.g. keyword="desk lamp".')
+        if key in arguments:
+            raise Failure('Duplicate argument: ' + key)
+        kind = (properties.get(key) or {}).get('type')
+        if kind in ('integer', 'number', 'boolean', 'array', 'object'):
+            try:
+                arguments[key] = json.loads(text)
+            except ValueError:
+                raise Failure(f'{key} must be a JSON {kind}.') from None
+        else:
+            arguments[key] = text
+    return arguments
+
+
 def validate(tool, arguments):
     if not isinstance(arguments, dict):
         raise Failure('Tool input must be a JSON object.')
@@ -176,11 +197,17 @@ def command(args):
         return list_result(value, args.search, bundled)
     value = catalog(args.catalog)
     tool = selected(value['tools'], args.tool)
-    with Path(args.input).open('rb') as stream:
-        raw = stream.read(MAX_BYTES + 1)
-    if len(raw) > MAX_BYTES:
-        raise Failure('Tool input exceeds 32 MiB.')
-    arguments = decode(raw)
+    if bool(args.input) == bool(args.params):
+        raise Failure('Give the tool input either as key=value arguments or with --input FILE.')
+    if args.input:
+        with Path(args.input).open('rb') as stream:
+            raw = stream.read(MAX_BYTES + 1)
+        if len(raw) > MAX_BYTES:
+            raise Failure('Tool input exceeds 32 MiB.')
+        arguments = decode(raw)
+    else:
+        arguments = inline(tool, args.params)
+        raw = json.dumps(arguments, ensure_ascii=False, sort_keys=True).encode('utf-8')
     validate(tool, arguments)
     plan = {'schemaVersion': 'nexscope.tool-plan.v1', 'status': 'PLAN_READY', 'tool': tool['name'],
             'inputSha256': hashlib.sha256(raw).hexdigest(), 'contractSha256': digest(tool['inputSchema']),
@@ -196,7 +223,9 @@ def command(args):
     if not args.allow_paid or (plan['requiresWriteApproval'] and not args.allow_write):
         raise Failure('Execution requires --allow-paid and, unless declared read-only, --allow-write. Review the tool contract and any preview/confirmation requirement first.')
     if not args.out:
-        raise Failure('Execution requires --out for saved results and evidence.')
+        out = Path(f"{tool['name']}-{datetime.now().strftime('%Y%m%d-%H%M%S')}").resolve()
+        if out.exists():
+            raise Failure('Output directory already exists; wait a second or pass --out.')
     auth = context(args)
     artifacts = Artifacts(out)
     artifacts.write('plan.json', {**plan, 'origin': auth.base})

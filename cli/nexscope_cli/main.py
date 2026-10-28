@@ -109,6 +109,29 @@ class Client:
             return {'status': 'DISCONNECTED'}
         return self.api('account', authenticated=True)
 
+    def login(self, attribution, open_browser=True, timeout=600, interval=3):
+        """One-step sign-in: auth login, open the link, then poll until it completes."""
+        import time
+        import webbrowser
+        started = self.auth('login', attribution)
+        if 'connectUrl' not in started:
+            return started  # already connected: the account
+        url = started['connectUrl']
+        # Progress goes to stderr so stdout stays a single JSON result.
+        print('Open this link to connect your Nexscope account:\n  ' + url, file=sys.stderr)
+        if open_browser:
+            webbrowser.open(url)
+        print('Waiting for you to finish in the browser...', file=sys.stderr)
+        deadline = min(time.time() + timeout, int(started['expiresAt']) / 1000)
+        while time.time() < deadline:
+            time.sleep(interval)
+            value = self.auth('poll')
+            if 'accountId' in value:
+                return value
+            if value.get('status') in ('DENIED', 'AUTH_EXPIRED', 'CONNECTED'):
+                raise Failure(f"Login ended with {value['status']}; run nexscope login again.")
+        raise Failure('Login timed out; run nexscope login again.')
+
 
 def catalog():
     return json.loads((ROOT / 'catalog.json').read_text())['skills']
@@ -213,6 +236,8 @@ def main():
     doctor.add_argument('--check-output', help='Probe an existing directory with a temporary file, then remove the probe.')
     doctor.add_argument('--json', action='store_true', help='JSON is the default output format.')
     commands.add_parser('get-skills').add_argument('skill', nargs='?', default='core')
+    login_parser = commands.add_parser('login', help='Sign in: opens your browser and waits until the connection completes.')
+    login_parser.add_argument('--no-browser', action='store_true', help='Only print the link; open it yourself.')
     auth_parser = commands.add_parser('auth')
     auth_parser.add_argument('action', choices=['login', 'poll', 'status', 'logout'])
     auth_parser.add_argument('--source-client', choices=CLIENTS)
@@ -234,8 +259,9 @@ def main():
         if action == 'refresh':
             tool.add_argument('--out', required=True)
         if action == 'call':
-            tool.add_argument('--input', required=True)
-            tool.add_argument('--out')
+            tool.add_argument('params', nargs='*', metavar='key=value', help='Tool input inline, e.g. keyword="desk lamp"; typed from the tool schema.')
+            tool.add_argument('--input', help='Tool input as a JSON file, instead of key=value arguments.')
+            tool.add_argument('--out', help='New output directory; defaults to <tool>-<timestamp> in the current directory.')
             tool.add_argument('--allow-paid', action='store_true')
             tool.add_argument('--allow-write', action='store_true', help='Approve the reviewed tool effects; does not replace its own preview/confirmation protocol.')
             tool_execution = tool.add_mutually_exclusive_group(required=True)
@@ -337,7 +363,12 @@ def main():
                     raise Failure('Source options are supported only for auth login.')
                 if args.action == 'login':
                     source = client_source(args.source_client or 'python-cli', args.source_channel, args.source_entrypoint)
-            value = run(args, client) if args.command == 'run' else client.auth(args.action if args.command == 'auth' else 'status', source)
+            if args.command == 'login':
+                value = client.login(client_source('python-cli', 'unknown', 'cli'), open_browser=not args.no_browser)
+            elif args.command == 'run':
+                value = run(args, client)
+            else:
+                value = client.auth(args.action if args.command == 'auth' else 'status', source)
         print(json.dumps(value, ensure_ascii=False, indent=2))
         return 1 if value.get('status') in ('REVIEW_REQUIRED', 'UNAVAILABLE', 'PARTIAL', 'FAILED', 'INSUFFICIENT_DATA', 'OUTCOME_UNKNOWN') else 0
     except DatasetError as e:
