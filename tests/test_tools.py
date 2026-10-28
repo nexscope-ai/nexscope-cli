@@ -222,8 +222,8 @@ class ToolTests(unittest.TestCase):
         def client(polls):
             value = Client.__new__(Client)
             value.base, value.service, value.store = 'https://example.invalid', 'fixture', Store()
-            answers = {'auth/start': [{'requestId': 'r', 'pollSecret': 'p', 'expiresAt': 9999999999999,
-                                       'connectUrl': 'https://example.invalid/connect'}],
+            answers = {'auth/start': [{'requestId': 'r', 'pollSecret': 'p', 'expiresAt': '9999999999999', 'status': 'AUTH_REQUIRED',
+                                       'loginUrl': 'https://example.invalid/connect'}],
                        'auth/poll': polls, 'account': [{'accountId': 'fixture-account'}]}
             value.api = lambda path, body=None, authenticated=False, context=None: answers[path].pop(0)
             return value
@@ -242,6 +242,20 @@ class ToolTests(unittest.TestCase):
                 self.assertRaises(Failure):
             denied.login(None, open_browser=False)
         browser.assert_not_called()
+
+    def test_certificate_failures_are_named_not_reported_as_outages(self):
+        import ssl
+        from urllib.error import URLError
+        from nexscope_cli.main import Client
+        client = Client.__new__(Client)
+        client.base = 'https://example.invalid'
+        for reason, message in [(ssl.SSLCertVerificationError('fixture'), 'TLS certificate verification failed'),
+                                (OSError('fixture'), 'Network unavailable')]:
+            opener = SimpleNamespace(open=lambda request, timeout, reason=reason: (_ for _ in ()).throw(URLError(reason)))
+            with self.subTest(message=message), patch('nexscope_cli.main.build_opener', return_value=opener), \
+                    self.assertRaises(Failure) as failure:
+                client.api('auth/start', {})
+            self.assertIn(message, str(failure.exception))
 
     def test_bindings_cover_all_schemas_and_keep_legacy_routes(self):
         from importlib.resources import files

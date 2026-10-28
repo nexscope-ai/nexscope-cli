@@ -5,6 +5,7 @@ import argparse
 import csv
 import json
 from pathlib import Path
+import ssl
 import subprocess
 import sys
 import uuid
@@ -64,7 +65,10 @@ class Client:
             if e.code == 401 and authenticated:
                 raise AuthRequired('AUTH_REQUIRED: reconnect with nexscope auth login.') from None
             raise Failure(f'HTTP {e.code}; request not retried.') from None
-        except (URLError, TimeoutError):
+        except (URLError, TimeoutError) as e:
+            # A certificate failure is fixable locally, unlike an outage; say which one it is.
+            if isinstance(getattr(e, 'reason', None), ssl.SSLCertVerificationError):
+                raise Failure('TLS certificate verification failed; point SSL_CERT_FILE at a CA bundle. Request not retried.') from None
             raise Failure('Network unavailable; request not retried.') from None
         if not isinstance(result, dict):
             raise Failure('Invalid API response.')
@@ -114,9 +118,9 @@ class Client:
         import time
         import webbrowser
         started = self.auth('login', attribution)
-        if 'connectUrl' not in started:
+        if 'loginUrl' not in started:
             return started  # already connected: the account
-        url = started['connectUrl']
+        url = started['loginUrl']
         # Progress goes to stderr so stdout stays a single JSON result.
         print('Open this link to connect your Nexscope account:\n  ' + url, file=sys.stderr)
         if open_browser:

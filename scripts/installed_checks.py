@@ -109,7 +109,7 @@ def loopback(with_dependencies=False):
                 return
             if self.path.endswith('/auth/start'):
                 data = {'requestId': 'fixture-request', 'pollSecret': 'fixture-poll',
-                        'expiresAt': 9999999999999, 'connectUrl': 'https://example.invalid/fictional'}
+                        'expiresAt': '9999999999999', 'loginUrl': 'https://example.invalid/fictional', 'status': 'AUTH_REQUIRED'}
             elif self.path.endswith('/auth/poll'):
                 data = {'status': 'READY', 'apiKey': 'fixture-browser'}
             elif self.path.endswith('/account'):
