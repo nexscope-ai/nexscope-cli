@@ -44,11 +44,32 @@
   },
   "toolCatalog": {
     "resource": "tools.json",
-    "sha256": "78d244e55069b615797d329c7c41cc1d70db4d425bb98dfe33d5b9da4d55db28",
-    "count": 565,
+    "sha256": "e2e643a19b48b8ac119c33e1746d1090837e9628d74af43c7357b3db229cd69f",
+    "count": 576,
     "source": "https://test-claw-callback.nexscope.ai",
     "publicDocs": "/api/skill-api/v1/api-docs",
-    "liveContractCheck": "tools/list before each invocation; selected origin only"
+    "liveContractCheck": "tools/list before each invocation; selected origin only",
+    "incrementalUpdates": [
+      {
+        "observedAt": "2026-10-29T08:51:25.334Z",
+        "source": "https://api.nexscope.ai",
+        "scope": "11 WooCommerce tools only; existing 565 tools unchanged",
+        "productionDiscoveryCount": 556,
+        "tools": [
+          "nexscope_woocommerce_product_attribute_detail",
+          "nexscope_woocommerce_product_attribute_terms",
+          "nexscope_woocommerce_product_attributes",
+          "nexscope_woocommerce_product_brands",
+          "nexscope_woocommerce_product_categories",
+          "nexscope_woocommerce_product_collection_data",
+          "nexscope_woocommerce_product_detail",
+          "nexscope_woocommerce_product_reviews",
+          "nexscope_woocommerce_product_tags",
+          "nexscope_woocommerce_product_variations",
+          "nexscope_woocommerce_products"
+        ]
+      }
+    ]
   },
   "toolBindings": {
     "nexscope_1688_product_billboard": {
@@ -7326,6 +7347,204 @@
       "publicRequestSchemaSha256": "af505f26d1775af00f654c779f48e58cf05ff73afe21f23600e8a3d087913eb2",
       "publicResponseSchemaSha256": "8c1d8ae44d145493cfdfa5c667a9d222ae473999c8b26adcc094b901fd9892cb",
       "registeredInProductionDocs": true
+    },
+    "nexscope_woocommerce_product_attribute_detail": {
+      "transport": "POST /api/skill-api/v2/mcp tools/call",
+      "tool": "nexscope_woocommerce_product_attribute_detail",
+      "inputSchemaSha256": "29c2bf7e595f47c6f31472ce37dc88228a646a45d6840064b94b1fe551ac0224",
+      "schemaResource": "tools.json",
+      "verification": "production-public-discovery-and-schema; offline dispatch checked; no live billable acceptance",
+      "publicEndpoint": "/woocommerce/productAttributeDetail",
+      "skill": "ecommerce.woocommerce-product-attribute-detail",
+      "slug": "woocommerce-product-attribute-detail",
+      "publicRequestSchemaSha256": "29c2bf7e595f47c6f31472ce37dc88228a646a45d6840064b94b1fe551ac0224",
+      "publicResponseSchemaSha256": "a764c9977bef6ccddc10c43b030c3a45c66440381e438095c845084bfc3b9c71",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "failedRequestsRefunded": true,
+        "source": "production public API documentation"
+      }
+    },
+    "nexscope_woocommerce_product_attribute_terms": {
+      "transport": "POST /api/skill-api/v2/mcp tools/call",
+      "tool": "nexscope_woocommerce_product_attribute_terms",
+      "inputSchemaSha256": "29c2bf7e595f47c6f31472ce37dc88228a646a45d6840064b94b1fe551ac0224",
+      "schemaResource": "tools.json",
+      "verification": "production-public-discovery-and-schema; offline dispatch checked; no live billable acceptance",
+      "publicEndpoint": "/woocommerce/productAttributeTerms",
+      "skill": "ecommerce.woocommerce-product-attribute-terms",
+      "slug": "woocommerce-product-attribute-terms",
+      "publicRequestSchemaSha256": "29c2bf7e595f47c6f31472ce37dc88228a646a45d6840064b94b1fe551ac0224",
+      "publicResponseSchemaSha256": "7d7aac1a94e7164cddbb3a0f038325c08b62e4fb5cf74f24ca22a7f0ee9f1743",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "failedRequestsRefunded": true,
+        "source": "production public API documentation"
+      }
+    },
+    "nexscope_woocommerce_product_attributes": {
+      "transport": "POST /api/skill-api/v2/mcp tools/call",
+      "tool": "nexscope_woocommerce_product_attributes",
+      "inputSchemaSha256": "d37f287d53a065b9538c30c52c8a6bfb92dbe54d4db93b4410a1256eb305c9b0",
+      "schemaResource": "tools.json",
+      "verification": "production-public-discovery-and-schema; offline dispatch checked; no live billable acceptance",
+      "publicEndpoint": "/woocommerce/productAttributes",
+      "skill": "ecommerce.woocommerce-product-attributes",
+      "slug": "woocommerce-product-attributes",
+      "publicRequestSchemaSha256": "d37f287d53a065b9538c30c52c8a6bfb92dbe54d4db93b4410a1256eb305c9b0",
+      "publicResponseSchemaSha256": "9ba71ca9f4a3a194602089cf61035d82f240201f923a0f83366936dd75c82886",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "failedRequestsRefunded": true,
+        "source": "production public API documentation"
+      }
+    },
+    "nexscope_woocommerce_product_brands": {
+      "transport": "POST /api/skill-api/v2/mcp tools/call",
+      "tool": "nexscope_woocommerce_product_brands",
+      "inputSchemaSha256": "e657626184ac37800f053f55e25fb4c624cd51faae17bc7678703209b68073e2",
+      "schemaResource": "tools.json",
+      "verification": "production-public-discovery-and-schema; offline dispatch checked; no live billable acceptance",
+      "publicEndpoint": "/woocommerce/productBrands",
+      "skill": "ecommerce.woocommerce-product-brands",
+      "slug": "woocommerce-product-brands",
+      "publicRequestSchemaSha256": "e657626184ac37800f053f55e25fb4c624cd51faae17bc7678703209b68073e2",
+      "publicResponseSchemaSha256": "107629052004feaee3089ada1b0fe9f869708c5efd133850cd04ab0652de42c7",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "failedRequestsRefunded": true,
+        "source": "production public API documentation"
+      }
+    },
+    "nexscope_woocommerce_product_categories": {
+      "transport": "POST /api/skill-api/v2/mcp tools/call",
+      "tool": "nexscope_woocommerce_product_categories",
+      "inputSchemaSha256": "e657626184ac37800f053f55e25fb4c624cd51faae17bc7678703209b68073e2",
+      "schemaResource": "tools.json",
+      "verification": "production-public-discovery-and-schema; offline dispatch checked; no live billable acceptance",
+      "publicEndpoint": "/woocommerce/productCategories",
+      "skill": "ecommerce.woocommerce-product-categories",
+      "slug": "woocommerce-product-categories",
+      "publicRequestSchemaSha256": "e657626184ac37800f053f55e25fb4c624cd51faae17bc7678703209b68073e2",
+      "publicResponseSchemaSha256": "0283cb9e0c979d8eb2ce1cd932d2d7a8579900e3f634b792c085406dc5fc5085",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "failedRequestsRefunded": true,
+        "source": "production public API documentation"
+      }
+    },
+    "nexscope_woocommerce_product_collection_data": {
+      "transport": "POST /api/skill-api/v2/mcp tools/call",
+      "tool": "nexscope_woocommerce_product_collection_data",
+      "inputSchemaSha256": "fb6646168820ca7068b441d0dfd44c1fb57000644863c9dc40628f9d8b4b38e5",
+      "schemaResource": "tools.json",
+      "verification": "production-public-discovery-and-schema; offline dispatch checked; no live billable acceptance",
+      "publicEndpoint": "/woocommerce/productCollectionData",
+      "skill": "ecommerce.woocommerce-product-collection-data",
+      "slug": "woocommerce-product-collection-data",
+      "publicRequestSchemaSha256": "fb6646168820ca7068b441d0dfd44c1fb57000644863c9dc40628f9d8b4b38e5",
+      "publicResponseSchemaSha256": "1a73292d4395e2d95ddcc732371d3189f4b381b5f137ff7104ad0c635f2ba056",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "failedRequestsRefunded": true,
+        "source": "production public API documentation"
+      }
+    },
+    "nexscope_woocommerce_product_detail": {
+      "transport": "POST /api/skill-api/v2/mcp tools/call",
+      "tool": "nexscope_woocommerce_product_detail",
+      "inputSchemaSha256": "e9a44fd6125f2a30d8761b2a24b5eb120f06595dfd2d563b0e40f1ffe381a9ad",
+      "schemaResource": "tools.json",
+      "verification": "production-public-discovery-and-schema; offline dispatch checked; no live billable acceptance",
+      "publicEndpoint": "/woocommerce/productDetail",
+      "skill": "ecommerce.woocommerce-product-detail",
+      "slug": "woocommerce-product-detail",
+      "publicRequestSchemaSha256": "e9a44fd6125f2a30d8761b2a24b5eb120f06595dfd2d563b0e40f1ffe381a9ad",
+      "publicResponseSchemaSha256": "365d2d8a4f4d2db4ec949dd378bc67c9c5f01e458e438bcd1356200f8ec07076",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "failedRequestsRefunded": true,
+        "source": "production public API documentation"
+      }
+    },
+    "nexscope_woocommerce_product_reviews": {
+      "transport": "POST /api/skill-api/v2/mcp tools/call",
+      "tool": "nexscope_woocommerce_product_reviews",
+      "inputSchemaSha256": "c67dd37d31fdff4e8bfc22b4e590ff81bd7aa174d282aabb31ef9677af800487",
+      "schemaResource": "tools.json",
+      "verification": "production-public-discovery-and-schema; offline dispatch checked; no live billable acceptance",
+      "publicEndpoint": "/woocommerce/productReviews",
+      "skill": "ecommerce.woocommerce-product-reviews",
+      "slug": "woocommerce-product-reviews",
+      "publicRequestSchemaSha256": "c67dd37d31fdff4e8bfc22b4e590ff81bd7aa174d282aabb31ef9677af800487",
+      "publicResponseSchemaSha256": "557a0b47476a9e6b46ff1b02c002b6be885889e33dc5b0e708d02bdd4bce7b0b",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "failedRequestsRefunded": true,
+        "source": "production public API documentation"
+      }
+    },
+    "nexscope_woocommerce_product_tags": {
+      "transport": "POST /api/skill-api/v2/mcp tools/call",
+      "tool": "nexscope_woocommerce_product_tags",
+      "inputSchemaSha256": "e657626184ac37800f053f55e25fb4c624cd51faae17bc7678703209b68073e2",
+      "schemaResource": "tools.json",
+      "verification": "production-public-discovery-and-schema; offline dispatch checked; no live billable acceptance",
+      "publicEndpoint": "/woocommerce/productTags",
+      "skill": "ecommerce.woocommerce-product-tags",
+      "slug": "woocommerce-product-tags",
+      "publicRequestSchemaSha256": "e657626184ac37800f053f55e25fb4c624cd51faae17bc7678703209b68073e2",
+      "publicResponseSchemaSha256": "efda7027faf5a0d400ce3aca96daa45a7e1d1d163c875443d0fc424c0300ab94",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "failedRequestsRefunded": true,
+        "source": "production public API documentation"
+      }
+    },
+    "nexscope_woocommerce_product_variations": {
+      "transport": "POST /api/skill-api/v2/mcp tools/call",
+      "tool": "nexscope_woocommerce_product_variations",
+      "inputSchemaSha256": "47a65b6eaaa4a3dece9ef99d5af4c6e6f825481c1446cc8df3a442523a0655e8",
+      "schemaResource": "tools.json",
+      "verification": "production-public-discovery-and-schema; offline dispatch checked; no live billable acceptance",
+      "publicEndpoint": "/woocommerce/productVariations",
+      "skill": "ecommerce.woocommerce-product-variations",
+      "slug": "woocommerce-product-variations",
+      "publicRequestSchemaSha256": "47a65b6eaaa4a3dece9ef99d5af4c6e6f825481c1446cc8df3a442523a0655e8",
+      "publicResponseSchemaSha256": "8c5a3ee3f0136f09f7a439e4497865188033b2ca4d60ae8ff9b9ee853760c2d9",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "failedRequestsRefunded": true,
+        "source": "production public API documentation"
+      }
+    },
+    "nexscope_woocommerce_products": {
+      "transport": "POST /api/skill-api/v2/mcp tools/call",
+      "tool": "nexscope_woocommerce_products",
+      "inputSchemaSha256": "14244e031a7fcd2f6b05a10997d52371a2d49ad1174b2ad2e54860a71228e41c",
+      "schemaResource": "tools.json",
+      "verification": "production-public-discovery-and-schema; offline dispatch checked; no live billable acceptance",
+      "publicEndpoint": "/woocommerce/products",
+      "skill": "ecommerce.woocommerce-products",
+      "slug": "woocommerce-products",
+      "publicRequestSchemaSha256": "14244e031a7fcd2f6b05a10997d52371a2d49ad1174b2ad2e54860a71228e41c",
+      "publicResponseSchemaSha256": "9f7747f4cb6eb798da14457275cad16474f75cb8010a759deca00ad863d9c3b3",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "failedRequestsRefunded": true,
+        "source": "production public API documentation"
+      }
     }
   }
 }

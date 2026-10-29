@@ -2,7 +2,7 @@
   "schemaVersion": "nexscope.tools.v1",
   "source": "https://test-claw-callback.nexscope.ai",
   "fetchedAt": "2026-10-26T13:38:34.013731+00:00",
-  "sha256": "78d244e55069b615797d329c7c41cc1d70db4d425bb98dfe33d5b9da4d55db28",
+  "sha256": "e2e643a19b48b8ac119c33e1746d1090837e9628d74af43c7357b3db229cd69f",
   "tools": [
     {
       "name": "nexscope_1688_product_billboard",
@@ -46720,6 +46720,577 @@
       }
     },
     {
+      "name": "nexscope_woocommerce_product_attribute_detail",
+      "title": "WooCommerce Product Attribute Detail",
+      "description": "Anonymous read-only official Store API data. No merchant key or OAuth is required. Availability depends on the store version and configuration. Password-protected reviews remain hidden. Each request costs 10 credits. Failed requests are automatically refunded.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "storeUrl": {
+            "type": "string",
+            "description": "Public HTTPS store root or WordPress installation path.",
+            "maxLength": 2048
+          },
+          "attributeId": {
+            "type": "string",
+            "description": "Store-scoped attribute ID.",
+            "pattern": "^[1-9][0-9]{0,18}$"
+          }
+        },
+        "required": [
+          "storeUrl",
+          "attributeId"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "nexscope/billing": {
+          "consumesCredits": true,
+          "instruction": "Check current pricing before execution. Do not automatically retry a paid call."
+        },
+        "nexscope/inputExamples": [
+          {
+            "storeUrl": "https://example.com",
+            "attributeId": "1"
+          }
+        ],
+        "nexscope/examplesAreIllustrative": true
+      }
+    },
+    {
+      "name": "nexscope_woocommerce_product_attribute_terms",
+      "title": "WooCommerce Product Attribute Terms",
+      "description": "Anonymous read-only official Store API data. No merchant key or OAuth is required. Availability depends on the store version and configuration. Password-protected reviews remain hidden. Each request costs 10 credits. Failed requests are automatically refunded.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "storeUrl": {
+            "type": "string",
+            "description": "Public HTTPS store root or WordPress installation path.",
+            "maxLength": 2048
+          },
+          "attributeId": {
+            "type": "string",
+            "description": "Store-scoped attribute ID.",
+            "pattern": "^[1-9][0-9]{0,18}$"
+          }
+        },
+        "required": [
+          "storeUrl",
+          "attributeId"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "nexscope/billing": {
+          "consumesCredits": true,
+          "instruction": "Check current pricing before execution. Do not automatically retry a paid call."
+        },
+        "nexscope/inputExamples": [
+          {
+            "storeUrl": "https://example.com",
+            "attributeId": "1"
+          }
+        ],
+        "nexscope/examplesAreIllustrative": true
+      }
+    },
+    {
+      "name": "nexscope_woocommerce_product_attributes",
+      "title": "WooCommerce Product Attributes",
+      "description": "Anonymous read-only official Store API data. No merchant key or OAuth is required. Availability depends on the store version and configuration. Password-protected reviews remain hidden. Each request costs 10 credits. Failed requests are automatically refunded.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "storeUrl": {
+            "type": "string",
+            "description": "Public HTTPS store root or WordPress installation path.",
+            "maxLength": 2048
+          }
+        },
+        "required": [
+          "storeUrl"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "nexscope/billing": {
+          "consumesCredits": true,
+          "instruction": "Check current pricing before execution. Do not automatically retry a paid call."
+        },
+        "nexscope/inputExamples": [
+          {
+            "storeUrl": "https://example.com"
+          }
+        ],
+        "nexscope/examplesAreIllustrative": true
+      }
+    },
+    {
+      "name": "nexscope_woocommerce_product_brands",
+      "title": "WooCommerce Product Brands",
+      "description": "Anonymous read-only official Store API data. No merchant key or OAuth is required. Availability depends on the store version and configuration. Password-protected reviews remain hidden. Each request costs 10 credits. Failed requests are automatically refunded.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "storeUrl": {
+            "type": "string",
+            "description": "Public HTTPS store root or WordPress installation path.",
+            "maxLength": 2048
+          },
+          "pageNum": {
+            "type": "integer",
+            "description": "Page number, default 1.",
+            "maximum": 10000,
+            "minimum": 1
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "Page size, default 20, maximum 100.",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "keyword": {
+            "type": "string",
+            "description": "Search within this store; at most 200 characters.",
+            "maxLength": 200
+          },
+          "hideEmpty": {
+            "type": "boolean",
+            "description": "Hide terms without products; defaults to the store's true setting."
+          }
+        },
+        "required": [
+          "storeUrl"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "nexscope/billing": {
+          "consumesCredits": true,
+          "instruction": "Check current pricing before execution. Do not automatically retry a paid call."
+        },
+        "nexscope/inputExamples": [
+          {
+            "storeUrl": "https://example.com"
+          }
+        ],
+        "nexscope/examplesAreIllustrative": true
+      }
+    },
+    {
+      "name": "nexscope_woocommerce_product_categories",
+      "title": "WooCommerce Product Categories",
+      "description": "Anonymous read-only official Store API data. No merchant key or OAuth is required. Availability depends on the store version and configuration. Password-protected reviews remain hidden. Each request costs 10 credits. Failed requests are automatically refunded.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "storeUrl": {
+            "type": "string",
+            "description": "Public HTTPS store root or WordPress installation path.",
+            "maxLength": 2048
+          },
+          "pageNum": {
+            "type": "integer",
+            "description": "Page number, default 1.",
+            "maximum": 10000,
+            "minimum": 1
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "Page size, default 20, maximum 100.",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "keyword": {
+            "type": "string",
+            "description": "Search within this store; at most 200 characters.",
+            "maxLength": 200
+          },
+          "hideEmpty": {
+            "type": "boolean",
+            "description": "Hide terms without products; defaults to the store's true setting."
+          }
+        },
+        "required": [
+          "storeUrl"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "nexscope/billing": {
+          "consumesCredits": true,
+          "instruction": "Check current pricing before execution. Do not automatically retry a paid call."
+        },
+        "nexscope/inputExamples": [
+          {
+            "storeUrl": "https://example.com"
+          }
+        ],
+        "nexscope/examplesAreIllustrative": true
+      }
+    },
+    {
+      "name": "nexscope_woocommerce_product_collection_data",
+      "title": "WooCommerce Product Collection Data",
+      "description": "Anonymous read-only official Store API data. No merchant key or OAuth is required. Availability depends on the store version and configuration. Password-protected reviews remain hidden. Each request costs 10 credits. Failed requests are automatically refunded.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "storeUrl": {
+            "type": "string",
+            "description": "Public HTTPS store root or WordPress installation path.",
+            "maxLength": 2048
+          },
+          "keyword": {
+            "type": "string",
+            "description": "Search within this store; at most 200 characters.",
+            "maxLength": 200
+          },
+          "categoryId": {
+            "type": "string",
+            "description": "Restrict to a public product category.",
+            "pattern": "^[1-9][0-9]{0,18}$"
+          },
+          "calculatePriceRange": {
+            "type": "boolean",
+            "description": "Calculate this aggregate; default true. Unsupported store fields may be null."
+          },
+          "calculateRatingCounts": {
+            "type": "boolean",
+            "description": "Calculate this aggregate; default true. Unsupported store fields may be null."
+          },
+          "calculateStockStatusCounts": {
+            "type": "boolean",
+            "description": "Calculate this aggregate; default true. Unsupported store fields may be null."
+          },
+          "attributeTaxonomies": {
+            "type": "array",
+            "description": "Attribute taxonomies to count, using OR semantics, for example pa_color. Default empty.",
+            "maxItems": 20,
+            "items": {
+              "pattern": "^pa_[a-z0-9_-]{1,28}$",
+              "type": "string"
+            }
+          },
+          "taxonomies": {
+            "type": "array",
+            "description": "Public taxonomies to count; default empty. Store support varies.",
+            "maxItems": 20,
+            "items": {
+              "type": "string",
+              "enum": [
+                "product_cat",
+                "product_tag",
+                "product_brand"
+              ]
+            }
+          }
+        },
+        "required": [
+          "storeUrl"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "nexscope/billing": {
+          "consumesCredits": true,
+          "instruction": "Check current pricing before execution. Do not automatically retry a paid call."
+        },
+        "nexscope/inputExamples": [
+          {
+            "storeUrl": "https://example.com"
+          }
+        ],
+        "nexscope/examplesAreIllustrative": true
+      }
+    },
+    {
+      "name": "nexscope_woocommerce_product_detail",
+      "title": "WooCommerce Product Detail",
+      "description": "Search within one store, inspect a product, or retrieve a parent's SKUs using its public Store API. No store key or OAuth is required. Anonymous store pricing applies. Each request costs 10 credits. Failed requests are automatically refunded.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "storeUrl": {
+            "type": "string",
+            "description": "Public HTTPS store root or WordPress installation path, without query or fragment.",
+            "maxLength": 2048
+          },
+          "productId": {
+            "type": "string",
+            "description": "Store-scoped positive product ID, at most 19 decimal digits.",
+            "pattern": "^[1-9][0-9]{0,18}$"
+          }
+        },
+        "required": [
+          "storeUrl",
+          "productId"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "nexscope/billing": {
+          "consumesCredits": true,
+          "instruction": "Check current pricing before execution. Do not automatically retry a paid call."
+        },
+        "nexscope/inputExamples": [
+          {
+            "storeUrl": "https://example.com",
+            "productId": "34"
+          }
+        ],
+        "nexscope/examplesAreIllustrative": true
+      }
+    },
+    {
+      "name": "nexscope_woocommerce_product_reviews",
+      "title": "WooCommerce Product Reviews",
+      "description": "Anonymous read-only official Store API data. No merchant key or OAuth is required. Availability depends on the store version and configuration. Password-protected reviews remain hidden. Each request costs 10 credits. Failed requests are automatically refunded.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "storeUrl": {
+            "type": "string",
+            "description": "Public HTTPS store root or WordPress installation path.",
+            "maxLength": 2048
+          },
+          "pageNum": {
+            "type": "integer",
+            "description": "Page number, default 1.",
+            "maximum": 10000,
+            "minimum": 1
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "Page size, default 20, maximum 100.",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "productId": {
+            "type": "string",
+            "description": "Only reviews for this product. Locked products return no public reviews.",
+            "pattern": "^[1-9][0-9]{0,18}$"
+          },
+          "categoryId": {
+            "type": "string",
+            "description": "Restrict to a public product category.",
+            "pattern": "^[1-9][0-9]{0,18}$"
+          }
+        },
+        "required": [
+          "storeUrl"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "nexscope/billing": {
+          "consumesCredits": true,
+          "instruction": "Check current pricing before execution. Do not automatically retry a paid call."
+        },
+        "nexscope/inputExamples": [
+          {
+            "storeUrl": "https://example.com"
+          }
+        ],
+        "nexscope/examplesAreIllustrative": true
+      }
+    },
+    {
+      "name": "nexscope_woocommerce_product_tags",
+      "title": "WooCommerce Product Tags",
+      "description": "Anonymous read-only official Store API data. No merchant key or OAuth is required. Availability depends on the store version and configuration. Password-protected reviews remain hidden. Each request costs 10 credits. Failed requests are automatically refunded.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "storeUrl": {
+            "type": "string",
+            "description": "Public HTTPS store root or WordPress installation path.",
+            "maxLength": 2048
+          },
+          "pageNum": {
+            "type": "integer",
+            "description": "Page number, default 1.",
+            "maximum": 10000,
+            "minimum": 1
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "Page size, default 20, maximum 100.",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "keyword": {
+            "type": "string",
+            "description": "Search within this store; at most 200 characters.",
+            "maxLength": 200
+          },
+          "hideEmpty": {
+            "type": "boolean",
+            "description": "Hide terms without products; defaults to the store's true setting."
+          }
+        },
+        "required": [
+          "storeUrl"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "nexscope/billing": {
+          "consumesCredits": true,
+          "instruction": "Check current pricing before execution. Do not automatically retry a paid call."
+        },
+        "nexscope/inputExamples": [
+          {
+            "storeUrl": "https://example.com"
+          }
+        ],
+        "nexscope/examplesAreIllustrative": true
+      }
+    },
+    {
+      "name": "nexscope_woocommerce_product_variations",
+      "title": "WooCommerce Product Variations",
+      "description": "Search within one store, inspect a product, or retrieve a parent's SKUs using its public Store API. No store key or OAuth is required. Anonymous store pricing applies. Each request costs 10 credits. Failed requests are automatically refunded.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "storeUrl": {
+            "type": "string",
+            "description": "Public HTTPS store root or WordPress installation path, without query or fragment.",
+            "maxLength": 2048
+          },
+          "productId": {
+            "type": "string",
+            "description": "Store-scoped positive product ID, at most 19 decimal digits.",
+            "pattern": "^[1-9][0-9]{0,18}$"
+          },
+          "pageNum": {
+            "type": "integer",
+            "description": "Page number, default 1.",
+            "maximum": 10000,
+            "minimum": 1
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "Page size, default 20, maximum 100.",
+            "maximum": 100,
+            "minimum": 1
+          }
+        },
+        "required": [
+          "storeUrl",
+          "productId"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "nexscope/billing": {
+          "consumesCredits": true,
+          "instruction": "Check current pricing before execution. Do not automatically retry a paid call."
+        },
+        "nexscope/inputExamples": [
+          {
+            "storeUrl": "https://example.com",
+            "productId": "34"
+          }
+        ],
+        "nexscope/examplesAreIllustrative": true
+      }
+    },
+    {
+      "name": "nexscope_woocommerce_products",
+      "title": "WooCommerce Products",
+      "description": "Search within one store, inspect a product, or retrieve a parent's SKUs using its public Store API. No store key or OAuth is required. Anonymous store pricing applies. Each request costs 10 credits. Failed requests are automatically refunded.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "storeUrl": {
+            "type": "string",
+            "description": "Public HTTPS store root or WordPress installation path, without query or fragment.",
+            "maxLength": 2048
+          },
+          "keyword": {
+            "type": "string",
+            "description": "Search only within this store; at most 200 characters.",
+            "maxLength": 200
+          },
+          "pageNum": {
+            "type": "integer",
+            "description": "Page number, default 1.",
+            "maximum": 10000,
+            "minimum": 1
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "Page size, default 20, maximum 100.",
+            "maximum": 100,
+            "minimum": 1
+          }
+        },
+        "required": [
+          "storeUrl"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "openWorldHint": true
+      },
+      "_meta": {
+        "nexscope/billing": {
+          "consumesCredits": true,
+          "instruction": "Check current pricing before execution. Do not automatically retry a paid call."
+        },
+        "nexscope/inputExamples": [
+          {
+            "storeUrl": "https://example.com"
+          }
+        ],
+        "nexscope/examplesAreIllustrative": true
+      }
+    },
+    {
       "name": "nexscope_workflow",
       "title": "Nexscope workflow",
       "description": "Read, save and execute your Nexscope Research Canvas. Skill calls may spend credits.",
@@ -47462,6 +48033,27 @@
         ],
         "nexscope/examplesAreIllustrative": true
       }
+    }
+  ],
+  "incrementalUpdates": [
+    {
+      "observedAt": "2026-10-29T08:51:25.334Z",
+      "source": "https://api.nexscope.ai",
+      "scope": "11 WooCommerce tools only; existing 565 tools unchanged",
+      "productionDiscoveryCount": 556,
+      "tools": [
+        "nexscope_woocommerce_product_attribute_detail",
+        "nexscope_woocommerce_product_attribute_terms",
+        "nexscope_woocommerce_product_attributes",
+        "nexscope_woocommerce_product_brands",
+        "nexscope_woocommerce_product_categories",
+        "nexscope_woocommerce_product_collection_data",
+        "nexscope_woocommerce_product_detail",
+        "nexscope_woocommerce_product_reviews",
+        "nexscope_woocommerce_product_tags",
+        "nexscope_woocommerce_product_variations",
+        "nexscope_woocommerce_products"
+      ]
     }
   ]
 }

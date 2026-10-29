@@ -44,7 +44,7 @@ def offline():
             doctor = cli('doctor', '--offline')
             assert doctor['status'] == 'READY_LOCAL', doctor
             catalog = cli('tools', 'list')
-            assert catalog['total'] == 565, catalog
+            assert catalog['total'] == 576, catalog
             cli('tools', 'describe', 'nexscope_amazon_search')
             cli('report', 'describe')
             cli('report', 'describe', '--schema')

@@ -77,7 +77,7 @@ def peer(mode='success'):
 class ToolTests(unittest.TestCase):
     def test_complete_snapshot_has_all_tool_families(self):
         value = tools.catalog()
-        self.assertEqual(len(value['tools']), 565)
+        self.assertEqual(len(value['tools']), 576)
         self.assertEqual(value['sha256'], tools.digest(value['tools']))
         names = {t['name'] for t in value['tools']}
         for name in ('nexscope_amazon_search', 'nexscope_data_alibaba1688_invoice_apply',
@@ -85,7 +85,7 @@ class ToolTests(unittest.TestCase):
             self.assertIn(name, names)
 
     @unittest.skipUnless(HAS_SCHEMA, 'Install the declared JSON Schema dependency')
-    def test_all_565_input_schemas_validate_without_network(self):
+    def test_all_576_input_schemas_validate_without_network(self):
         from jsonschema import Draft202012Validator
         with patch.object(socket.socket, 'connect', side_effect=AssertionError('Network forbidden')):
             for tool in tools.catalog()['tools']:
@@ -129,13 +129,13 @@ class ToolTests(unittest.TestCase):
                 args.tool_action, args.live, args.search = 'list', False, 'amazon'
                 result = tools.command(args)
                 self.assertGreater(result['matched'], 2)
-                self.assertEqual(result['total'], 565)
+                self.assertEqual(result['total'], 576)
             self.assertFalse((Path(directory) / 'new').exists())
 
     def test_json_initialize_paginated_discovery_sse_result_and_budget(self):
         with peer() as records:
             with McpSession(AuthContext('env-api-key', 'https://example.invalid', 'fixture-api-key')) as session:
-                self.assertEqual(len(session.tools()), 565)
+                self.assertEqual(len(session.tools()), 576)
                 self.assertFalse(session.call('nexscope_amazon_search', {'keyword': 'fixture'})['isError'])
                 with self.assertRaises(McpFailure):
                     session.call('nexscope_amazon_search', {'keyword': 'fixture'})
@@ -149,7 +149,7 @@ class ToolTests(unittest.TestCase):
                 result = session.request('tools/call', {'name': tool['name'], 'arguments': {'fixtureIndex': index}})
                 self.assertEqual(result['structuredContent']['data']['tool'], tool['name'])
                 self.assertEqual(records[-1][0]['params']['arguments'], {'fixtureIndex': index})
-            self.assertEqual(len(records), 565)
+            self.assertEqual(len(records), 576)
 
     def test_http_failures_cursor_loops_and_disconnect_do_not_replay(self):
         for mode, kind in [('redirect', 'HTTP_ERROR'), ('forbidden', 'PERMISSION_DENIED'),

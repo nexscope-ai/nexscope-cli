@@ -1,14 +1,16 @@
 # Complete tool catalog
 
-The 0.1.1 snapshot contains **565 registered MCP tools**, exported from the
-selected server through initialized, paginated `tools/list`. It covers commerce
-research, advertising, SEO, patents, creative generation, result retrieval and
-workflow helpers. Counts are versioned snapshots, not permanent product totals.
+The current source snapshot contains **576 registered MCP tools**: the previous
+565-tool baseline plus 11 WooCommerce tools read from production public
+`tools/list` on 2026-10-29. The prior entries retain their original source;
+this additive update does not re-certify those tools or claim that all 576 are
+currently deployed in production. Production discovery returned 556 tools at
+this check. Counts are versioned snapshots, not permanent product totals.
 
-The production public HTTP manifest contained 545 entries and the test legacy
-manifest 559 at this export. The modern MCP catalog additionally exposes workflow
-helpers. Environment differences and publication timing explain these counts;
-never treat a bundled entry as proof of production deployment or live acceptance.
+Published 0.1.4 binaries and wheels retain their released snapshot. This main-branch
+change does not publish a new package or standalone binary. Use a source install
+for the updated offline snapshot, or explicitly refresh a separate catalog with
+your existing production connection as shown below.
 
 ## Discover and validate offline
 
@@ -26,6 +28,37 @@ validation supports JSON Schema composition, required groups and nested values.
 External schema references are refused. A compatibility adapter converts only
 numeric schema bounds affected by the Java Long serializer; identifiers, enums
 and input values are never converted.
+
+## WooCommerce public store data
+
+The 11 WooCommerce tools cover products, product details, variations, categories,
+tags, brands, attributes, attribute details, attribute terms, reviews and collection
+statistics. They require `storeUrl` and any resource identifiers shown by `describe`.
+A merchant secret is not required. Nexscope authentication still applies to live
+execution. Each request costs 10 credits; failed requests are automatically refunded.
+
+```sh
+nexscope tools list --search woocommerce
+nexscope tools describe nexscope_woocommerce_products
+nexscope tools call nexscope_woocommerce_products storeUrl=https://cipherskincare.com pageSize=2 --dry-run
+```
+
+These commands use the updated source snapshot and do not execute a business
+request. The server declares `readOnlyHint: false` for these paid tools; live calls
+retain the CLI's explicit `--execute --allow-paid --allow-write` requirements.
+No paid WooCommerce requests were made for this source synchronization.
+
+For an already installed release, refresh a separate catalog instead of assuming
+that pulling GitHub changes updated the installed binary:
+
+```sh
+nexscope tools refresh --out production-tools.json
+nexscope tools list --catalog production-tools.json --search woocommerce
+nexscope tools describe nexscope_woocommerce_products --catalog production-tools.json
+nexscope tools call nexscope_woocommerce_products --catalog production-tools.json storeUrl=https://cipherskincare.com pageSize=2 --dry-run
+```
+
+Refresh uses the selected authenticated connection for discovery, not tool execution.
 
 ## Select an account and make one reviewed call
 
@@ -80,9 +113,9 @@ declare one. The two packaged comparison adapters additionally map their script
 to the original research route. Missing public bindings remain unknown; the CLI
 never guesses a REST path or claims to bundle every proprietary Skill instruction.
 
-All 565 input schemas are checked, and all names/arguments are exercised through
+All 576 input schemas are checked, and all names/arguments are exercised through
 the injected MCP transport. JSON/SSE framing, pagination, redirects, scope gates,
 business errors, redaction and uncertain-result handling have regressions.
-These checks are not 565 live billable acceptance tests. The previously recorded
+These checks are not 576 live billable acceptance tests. The previously recorded
 real search `13007`, successful-search continuation and independent billing gates
 remain explicitly unaccepted until verified separately.

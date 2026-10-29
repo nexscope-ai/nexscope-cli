@@ -140,6 +140,20 @@ follow the [complete tool guide](docs/full-tool-catalog.md). A generic execution
 invokes one tool without automatic retries or page expansion. Asynchronous jobs
 may require a separate result-retrieval call.
 
+## WooCommerce source update
+
+The current `main` source snapshot adds **11 WooCommerce tools** (576 bundled
+entries total), using production schemas verified on 2026-10-29. Discover products,
+variations, categories, tags, brands, attributes, reviews and collection statistics.
+Each request costs 10 credits and failed requests are refunded. No merchant secret
+is required; live execution still needs Nexscope authentication and explicit approval.
+
+This is a source update, not a new PyPI or binary release. Existing 0.1.4 installations
+keep their published 565-tool snapshot. Use a source install or
+[refresh a separate production catalog](docs/full-tool-catalog.md#woocommerce-public-store-data).
+The retained baseline and new production entries have separate provenance; the count
+is not a claim that every bundled tool is deployed or live-tested.
+
 ## Current scope
 
 The bundled catalog supports discovery and input validation; it does not mean
