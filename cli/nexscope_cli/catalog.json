@@ -9,10 +9,10 @@
         "scripts/amazon_search.py"
       ],
       "files": {
-        "SKILL.md": "f14f5da18ddf00260346eb4dae9955a1c277741ae8953e3b4645d8a03392d1f1",
+        "SKILL.md": "171afd57179826dda5337b5ed779d5df60d1377d91d7d09c65b010733c4acbd8",
         "references/api.md": "ac2f6764ddafbd4ab0e19cb5f3cfe37838ebd76879c604ad62c40a4dcd6e77ea",
-        "requirements.txt": "2f2c8bb9d1169549e64b0cfb7f03a062e351884fb7cb241c393aee4f4e1e09e5",
-        "scripts/amazon_search.py": "f426d69c15f8c523588b3d3459d08902de59234e63ab988fae615a24619ce20d"
+        "requirements.txt": "bd18ab4f74f9f9cdcfb23ca81966a9b323d79b8abc831c331221b3966f82ff26",
+        "scripts/amazon_search.py": "a1f42c225ced73f12d54192ac3b1f0823e6472895fea73d8459da5b7b7475db6"
       },
       "available": true,
       "sourceRevision": "742ccef80fc605842b0249864051e4f690adcabb",
@@ -34,7 +34,8 @@
         "Standalone CLI 0.1.1 paired pins; existing adapter command and environment semantics retained",
         "Standalone CLI 0.1.2 paired pins; skill scripts also run from the standalone binary",
         "Standalone CLI 0.1.3 paired pins; adapter semantics unchanged",
-        "Standalone CLI 0.1.4 paired pins; adapter semantics unchanged"
+        "Standalone CLI 0.1.4 paired pins; adapter semantics unchanged",
+        "Standalone CLI 0.1.5 paired pins; adapter semantics unchanged"
       ]
     },
     "amazon-product-detail": {
@@ -44,10 +45,10 @@
         "scripts/amazon_product_detail.py"
       ],
       "files": {
-        "SKILL.md": "cc3a8d5a83cb6ff58804562fc832f4de7fc5a9481593682773973e8c32dc0b8d",
+        "SKILL.md": "acd0008035916d64ab252f7725450df1dfc1ebddd6382207da42d4c643564bc4",
         "references/api.md": "2ad537d7861e650a1ec195791e7aa488614132e1305473c53af0c7a63f4d0d59",
-        "requirements.txt": "2f2c8bb9d1169549e64b0cfb7f03a062e351884fb7cb241c393aee4f4e1e09e5",
-        "scripts/amazon_product_detail.py": "31a8a3a8f59da2497ab8be2334c1e98b12661ca5d191f3b3208407b5b981f1a4"
+        "requirements.txt": "bd18ab4f74f9f9cdcfb23ca81966a9b323d79b8abc831c331221b3966f82ff26",
+        "scripts/amazon_product_detail.py": "8c1862edc4678b5319eb9155389f70ba39b3ff67af6244a10a99ac9f29dd4d8c"
       },
       "available": true,
       "sourceRevision": "742ccef80fc605842b0249864051e4f690adcabb",
@@ -69,7 +70,8 @@
         "Standalone CLI 0.1.1 paired pins; existing adapter command and environment semantics retained",
         "Standalone CLI 0.1.2 paired pins; skill scripts also run from the standalone binary",
         "Standalone CLI 0.1.3 paired pins; adapter semantics unchanged",
-        "Standalone CLI 0.1.4 paired pins; adapter semantics unchanged"
+        "Standalone CLI 0.1.4 paired pins; adapter semantics unchanged",
+        "Standalone CLI 0.1.5 paired pins; adapter semantics unchanged"
       ]
     }
   },

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.5
+
+- Add 11 WooCommerce public store tools with production schemas, bringing the bundled snapshot to 576 entries.
+- Synchronize short API paths and schema digests; retain authentication and paid/write execution gates.
+- Update paired adapter pins and package metadata to 0.1.5 without changing adapter behavior.
+
 ## 0.1.4
 
 - Fix HTTPS from the standalone binaries: they now use the bundled certifi CA

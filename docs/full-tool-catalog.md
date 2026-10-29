@@ -7,8 +7,9 @@ this additive update does not re-certify those tools or claim that all 576 are
 currently deployed in production. Production discovery returned 556 tools at
 this check. Counts are versioned snapshots, not permanent product totals.
 
-Published 0.1.4 binaries and wheels retain their released snapshot. This main-branch
-change does not publish a new package or standalone binary. Use a source install
+Version 0.1.5 source includes the updated snapshot. Published 0.1.4 binaries and
+wheels retain their released snapshot until upgraded; a source version change alone
+does not publish artifacts. Until 0.1.5 artifacts are published, use a source install
 for the updated offline snapshot, or explicitly refresh a separate catalog with
 your existing production connection as shown below.
 

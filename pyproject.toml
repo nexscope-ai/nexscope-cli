@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "nexscope-cli"
-version = "0.1.4"
+version = "0.1.5"
 description = "Complete Nexscope tool discovery, bounded API calls and offline product comparison reports"
 readme = "README.md"
 requires-python = ">=3.11"

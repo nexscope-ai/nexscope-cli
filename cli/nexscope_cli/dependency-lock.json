@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "version": "0.1.4",
+  "version": "0.1.5",
   "distributionProfile": "api-client",
   "directRequirements": [
     "keyring>=25,<26",
     "requests>=2.32,<3",
     "jsonschema>=4.23,<5"
   ],
-  "lockSha256": "29339409e7ea42b63f2ed3646503dcb40a8ac54339d08d78e63ffe8ba47e89fb",
+  "lockSha256": "d7506758736373b1a3398d1774e283e49f940a6b9af46c94e7446e524b8a78ee",
   "requirementsSha256": "2730a107b5b8583ce5e01c5476f2b3652cad58dff17202ac5a29a6fcb84b93c6",
   "packages": [
     {
