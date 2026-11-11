@@ -1,12 +1,14 @@
 # Nexscope CLI
 
-[![Nexscope CLI — Ecommerce Research. Product Images & Videos.](assets/nexscope-cli-banner-v2.png)](https://www.nexscope.ai/?co-from=githubCLI)
+[![Nexscope CLI — Ecommerce Research. Product Images & Videos.](assets/nexscope-cli-banner-v2.png)](https://www.nexscope.ai/mcp-data?co-from=githubCLI&utm_source=github&utm_medium=referral&utm_campaign=github_mcp_launch&utm_content=nexscope-cli_readme_connect)
 
 Discover Nexscope tools, inspect their input schemas, make explicit MCP calls,
 and turn your own product data into comparison reports from the terminal.
 
 Built for developers and ecommerce teams working with scripts, command-line
 tools, and their own agent workflows.
+
+[Connect your AI agent](https://www.nexscope.ai/mcp-data?co-from=githubCLI&utm_source=github&utm_medium=referral&utm_campaign=github_mcp_launch&utm_content=nexscope-cli_readme_setup) · [Browse MCP tools](https://www.nexscope.ai/mcp?co-from=githubCLI&utm_source=github&utm_medium=referral&utm_campaign=github_mcp_launch&utm_content=nexscope-cli_readme_tools)
 
 ## Get started in three steps
 
@@ -44,7 +46,7 @@ nexscope tools call nexscope_amazon_search keyword="portable blender" --execute 
 ```
 
 Results and evidence are saved to a new folder. Replace `--execute --allow-paid --allow-write`
-with `--dry-run` to preview the request for free. Explore all 565 tools with
+with `--dry-run` to preview the request for free. Explore the tools available in your installed catalog with
 `nexscope tools list --search tiktok`.
 
 Installer options such as `--version` and `--prefix`: `curl -fsSL .../install.sh | sh -s -- --help`.
@@ -380,8 +382,8 @@ not cover creative generation. See [current pricing](https://www.nexscope.ai/pri
 Find data, image, and video capabilities in the
 [Nexscope API and MCP documentation](https://www.nexscope.ai/api-docs?co-from=githubCLI),
 or [get an API key](https://www.nexscope.ai/seller/api-access?co-from=githubCLI)
-to connect your workflows. Visit [Nexscope](https://www.nexscope.ai/?co-from=githubCLI)
-for the broader platform.
+to connect your workflows. Visit [the agent connection page](https://www.nexscope.ai/mcp-data?co-from=githubCLI&utm_source=github&utm_medium=referral&utm_campaign=github_mcp_launch&utm_content=nexscope-cli_readme_connect)
+for MCP and CLI setup options.
 
 If the CLI is useful, star this repository and explore more
 [APIs, skills, and developer resources on GitHub](https://github.com/nexscope-ai).
