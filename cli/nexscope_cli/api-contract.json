@@ -44,7 +44,7 @@
   },
   "toolCatalog": {
     "resource": "tools.json",
-    "sha256": "ba2fe89f3015555b3f667b8152aaa52b66a29fca48acca1dd35f56f60ce44652",
+    "sha256": "79ee30792e6456630cd6ba187bd4dee21161dec06ec945628af6f350c8ac45a4",
     "count": 576,
     "source": "https://test-claw-callback.nexscope.ai",
     "publicDocs": "/api/skill-api/v1/api-docs",
@@ -73,6 +73,21 @@
         "observedAt": "2026-11-16T09:57:02.631610+00:00",
         "source": "https://git.ziniao.com/nexscope/service/backend-java/-/commit/10178a62f03fe95f10247122274b27e09ad6730f",
         "scope": "Two eBay MCP input descriptions reconciled from merged backend source; not a live production discovery",
+        "coverageDiff": {
+          "before": 576,
+          "after": 576,
+          "added": [],
+          "removed": []
+        },
+        "tools": [
+          "nexscope_data_ebay_search",
+          "nexscope_ebay_search"
+        ]
+      },
+      {
+        "observedAt": "2026-11-16T13:12:14.882519+00:00",
+        "source": "https://git.ziniao.com/nexscope/service/backend-java/-/commit/058546bb3a5eabe3e577843a7be05e51f1cd037e",
+        "scope": "Two eBay MCP input schemas gained conditional keyword/categoryId guidance from merged backend source; not a live production discovery",
         "coverageDiff": {
           "before": 576,
           "after": 576,
@@ -2969,7 +2984,7 @@
     "nexscope_data_ebay_search": {
       "transport": "POST /api/skill-api/v2/mcp tools/call",
       "tool": "nexscope_data_ebay_search",
-      "inputSchemaSha256": "68eee329d2fbbb49f3d5038b37d81c0b4c4761fe72f90bc2a4be9d760804fc4f",
+      "inputSchemaSha256": "4a229fb848a3be8386837306072cd2891c7a95714d4d208d1edca83c0eafe212",
       "schemaResource": "tools.json",
       "verification": "discovery-schema-and-mock-dispatch; no live business acceptance",
       "publicEndpoint": "/ebay/search",
@@ -4516,7 +4531,7 @@
     "nexscope_ebay_search": {
       "transport": "POST /api/skill-api/v2/mcp tools/call",
       "tool": "nexscope_ebay_search",
-      "inputSchemaSha256": "35e8885ce309fc9dc3564db16015e6eac8d801a687219b59bae41a63e6f80bde",
+      "inputSchemaSha256": "626adb47665c0ef8118a5128a075ce0214ab6e130f2fd8171f6e4be14f52860c",
       "schemaResource": "tools.json",
       "verification": "discovery-schema-and-mock-dispatch; no live business acceptance",
       "publicEndpoint": "/api/skill-api/v1/skills/ebay-search/run",

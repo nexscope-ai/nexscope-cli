@@ -275,6 +275,10 @@ class ToolTests(unittest.TestCase):
             self.assertNotIn('Sold (Sold)', show_only)
             self.assertNotIn('`Sold` (Sold)', show_only)
             self.assertIn('Complete', show_only)
+            keyword = tool['inputSchema']['properties']['keyword']['description']
+            category = tool['inputSchema']['properties']['categoryId']['description']
+            self.assertIn('required unless categoryId is supplied', keyword)
+            self.assertIn('required unless keyword is supplied', category)
         self.assertEqual(catalog['incrementalUpdates'][-1]['tools'], sorted(ebay))
 
     def test_bundled_snapshot_hides_export_origin_but_explicit_catalog_keeps_it(self):
