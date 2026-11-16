@@ -44,7 +44,7 @@
   },
   "toolCatalog": {
     "resource": "tools.json",
-    "sha256": "e2e643a19b48b8ac119c33e1746d1090837e9628d74af43c7357b3db229cd69f",
+    "sha256": "ba2fe89f3015555b3f667b8152aaa52b66a29fca48acca1dd35f56f60ce44652",
     "count": 576,
     "source": "https://test-claw-callback.nexscope.ai",
     "publicDocs": "/api/skill-api/v1/api-docs",
@@ -67,6 +67,21 @@
           "nexscope_woocommerce_product_tags",
           "nexscope_woocommerce_product_variations",
           "nexscope_woocommerce_products"
+        ]
+      },
+      {
+        "observedAt": "2026-11-16T09:57:02.631610+00:00",
+        "source": "https://git.ziniao.com/nexscope/service/backend-java/-/commit/10178a62f03fe95f10247122274b27e09ad6730f",
+        "scope": "Two eBay MCP input descriptions reconciled from merged backend source; not a live production discovery",
+        "coverageDiff": {
+          "before": 576,
+          "after": 576,
+          "added": [],
+          "removed": []
+        },
+        "tools": [
+          "nexscope_data_ebay_search",
+          "nexscope_ebay_search"
         ]
       }
     ]
@@ -2954,7 +2969,7 @@
     "nexscope_data_ebay_search": {
       "transport": "POST /api/skill-api/v2/mcp tools/call",
       "tool": "nexscope_data_ebay_search",
-      "inputSchemaSha256": "c500262c6183dae7f350f8ea1fde15322e7ee53644d1cf09d6c636038a08f1ea",
+      "inputSchemaSha256": "68eee329d2fbbb49f3d5038b37d81c0b4c4761fe72f90bc2a4be9d760804fc4f",
       "schemaResource": "tools.json",
       "verification": "discovery-schema-and-mock-dispatch; no live business acceptance",
       "publicEndpoint": "/ebay/search",
@@ -4501,7 +4516,7 @@
     "nexscope_ebay_search": {
       "transport": "POST /api/skill-api/v2/mcp tools/call",
       "tool": "nexscope_ebay_search",
-      "inputSchemaSha256": "7978a100d6b2d7baba1a388294b08a2393c0f09bcad3642c3d979b36f959f4ac",
+      "inputSchemaSha256": "35e8885ce309fc9dc3564db16015e6eac8d801a687219b59bae41a63e6f80bde",
       "schemaResource": "tools.json",
       "verification": "discovery-schema-and-mock-dispatch; no live business acceptance",
       "publicEndpoint": "/api/skill-api/v1/skills/ebay-search/run",

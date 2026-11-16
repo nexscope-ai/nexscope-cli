@@ -265,6 +265,18 @@ class ToolTests(unittest.TestCase):
             self.assertEqual(contract['toolBindings'][tool['name']]['inputSchemaSha256'], tools.digest(tool['inputSchema']))
         self.assertEqual(contract['routes']['amazon-search']['research'], '/api/v1/tools/research/amazon/search')
 
+    def test_ebay_snapshot_does_not_advertise_retired_sold_filter(self):
+        catalog = tools.catalog()
+        ebay = {tool['name']: tool for tool in catalog['tools'] if tool['name'] in
+                {'nexscope_data_ebay_search', 'nexscope_ebay_search'}}
+        self.assertEqual(len(ebay), 2)
+        for tool in ebay.values():
+            show_only = tool['inputSchema']['properties']['showOnly']['description']
+            self.assertNotIn('Sold (Sold)', show_only)
+            self.assertNotIn('`Sold` (Sold)', show_only)
+            self.assertIn('Complete', show_only)
+        self.assertEqual(catalog['incrementalUpdates'][-1]['tools'], sorted(ebay))
+
     def test_bundled_snapshot_hides_export_origin_but_explicit_catalog_keeps_it(self):
         from importlib.resources import files
         args = SimpleNamespace(tool_action='list', catalog=None, live=False, search='amazon', tool='nexscope_amazon_search')
