@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.6
+
+- Align the bundled eBay search schema with the public contract: remove the retired Sold option and require a keyword or category ID.
+- Refresh discovery links and MCP onboarding.
+
 ## 0.1.5
 
 - Add 11 WooCommerce public store tools with production schemas, bringing the bundled snapshot to 576 entries.
