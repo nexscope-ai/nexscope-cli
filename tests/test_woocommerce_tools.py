@@ -29,7 +29,7 @@ class WooCommerceTools(unittest.TestCase):
         with patch.object(socket.socket, 'connect', side_effect=AssertionError('Network forbidden')), \
                 patch('nexscope_cli.tools.context', side_effect=AssertionError('Auth forbidden')):
             result = tools.command(SimpleNamespace(tool_action='list', catalog=None, live=False, search='woocommerce'))
-            self.assertEqual(result['total'], 576)
+            self.assertEqual(result['total'], 735)
             self.assertEqual(result['matched'], 11)
             for slug, route in ROUTES.items():
                 detail = tools.command(SimpleNamespace(tool_action='describe', catalog=None, live=False, tool=slug))

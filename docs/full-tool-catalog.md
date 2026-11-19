@@ -1,11 +1,13 @@
 # Complete tool catalog
 
-The current source snapshot contains **576 registered MCP tools**: the previous
-565-tool baseline plus 11 WooCommerce tools read from production public
-`tools/list` on 2026-10-29. The prior entries retain their original source;
-this additive update does not re-certify those tools or claim that all 576 are
-currently deployed in production. Production discovery returned 556 tools at
-this check. Counts are versioned snapshots, not permanent product totals.
+The current source snapshot contains **735 MCP tools**. It preserves the
+576-tool baseline and adds 159 Amazon Selling Partner API tools from the
+deployed backend contract. The production call checks covered representative
+REST and MCP operations. Discover current availability with your own connection.
+
+Amazon Seller operations use a Nexscope API key and, where required, an owned
+Seller Central connection. Successful calls cost 10 credits. Review preview
+and confirmation requirements in the linked API documentation before writes.
 
 WooCommerce has been bundled since 0.1.5. Version 0.1.6 also updates the bundled
 eBay search schema. To check current server availability, refresh a separate
@@ -112,9 +114,9 @@ declare one. The two packaged comparison adapters additionally map their script
 to the original research route. Missing public bindings remain unknown; the CLI
 never guesses a REST path or claims to bundle every proprietary Skill instruction.
 
-All 576 input schemas are checked, and all names/arguments are exercised through
+All 735 input schemas are checked, and all names/arguments are exercised through
 the injected MCP transport. JSON/SSE framing, pagination, redirects, scope gates,
 business errors, redaction and uncertain-result handling have regressions.
-These checks are not 576 live billable acceptance tests. The previously recorded
+These checks are not 735 live billable acceptance tests. The previously recorded
 real search `13007`, successful-search continuation and independent billing gates
 remain explicitly unaccepted until verified separately.

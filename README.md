@@ -144,11 +144,11 @@ may require a separate result-retrieval call.
 
 ## WooCommerce source update
 
-The current `main` source snapshot adds **11 WooCommerce tools** (576 bundled
-entries total), using production schemas verified on 2026-10-29. Discover products,
-variations, categories, tags, brands, attributes, reviews and collection statistics.
-Each request costs 10 credits and failed requests are refunded. No merchant secret
-is required; live execution still needs Nexscope authentication and explicit approval.
+The current `main` source snapshot adds **159 Amazon Selling Partner API tools**
+to the 576-tool release baseline. Search with
+`nexscope tools list --search amazon_sp_api` and use `--dry-run` before executing.
+Seller Central operations require an owned connection where documented.
+See the [tool catalog guide](docs/full-tool-catalog.md) for discovery and write approval.
 
 WooCommerce has been bundled since 0.1.5. To check current server availability,
 [refresh a separate production catalog](docs/full-tool-catalog.md#woocommerce-public-store-data).

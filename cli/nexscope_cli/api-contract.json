@@ -44,8 +44,8 @@
   },
   "toolCatalog": {
     "resource": "tools.json",
-    "sha256": "79ee30792e6456630cd6ba187bd4dee21161dec06ec945628af6f350c8ac45a4",
-    "count": 576,
+    "sha256": "aad5a2641d243df313b1daeb4506ef5fa6a38a9fe4dbaf892654c91d005c0d11",
+    "count": 735,
     "source": "https://test-claw-callback.nexscope.ai",
     "publicDocs": "/api/skill-api/v1/api-docs",
     "liveContractCheck": "tools/list before each invocation; selected origin only",
@@ -98,6 +98,12 @@
           "nexscope_data_ebay_search",
           "nexscope_ebay_search"
         ]
+      },
+      {
+        "observedAt": "2026-11-19T07:20:34.071214+00:00",
+        "source": "https://api.nexscope.ai",
+        "scope": "159 Amazon Selling Partner API tools",
+        "count": 159
       }
     ]
   },
@@ -7574,6 +7580,2550 @@
         "creditsPerRequest": 10,
         "failedRequestsRefunded": true,
         "source": "production public API documentation"
+      }
+    },
+    "nexscope_amazon_sp_api_aplus_searchcontentdocuments": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_aplus_searchcontentdocuments",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/searchContentDocuments",
+      "slug": "amazon-sp-api-aplus-searchcontentdocuments",
+      "publicRequestSchemaSha256": "994f4ca3c4eba7da58b2f0f77b35d47aa22c9ec54688a25b7c11ef2b22a25885",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_aplus_createcontentdocument": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_aplus_createcontentdocument",
+      "inputSchemaSha256": "83caeebd7f7eab2ae4ece22e14b0f5932ecae43c84c271c38211f52cbc6e4d5a",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/createContentDocument",
+      "slug": "amazon-sp-api-aplus-createcontentdocument",
+      "publicRequestSchemaSha256": "e17a5c6c914e9ff932f7cc0cec18b912abf76ea6ddf36f0ecf664890fcea3ab7",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_aplus_getcontentdocument": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_aplus_getcontentdocument",
+      "inputSchemaSha256": "251323993a5725b94caa1b584f0fa49cd9cbbea1006c39fb3db5d8242ed0a1c3",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getContentDocument",
+      "slug": "amazon-sp-api-aplus-getcontentdocument",
+      "publicRequestSchemaSha256": "c42e97b3b703e227ca3839ab3ca010e4603c6bb381a971cb3b8fed6d063ef165",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_aplus_updatecontentdocument": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_aplus_updatecontentdocument",
+      "inputSchemaSha256": "3e78177472284d53d44b996503c43d124c0ae4b24b27cdfa461239bd1e091ef9",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/updateContentDocument",
+      "slug": "amazon-sp-api-aplus-updatecontentdocument",
+      "publicRequestSchemaSha256": "5830686ad630903cf06e6dd94e523674aedb90d985765c76b9081fbba835cdc1",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_aplus_listcontentdocumentasinrelations": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_aplus_listcontentdocumentasinrelations",
+      "inputSchemaSha256": "251323993a5725b94caa1b584f0fa49cd9cbbea1006c39fb3db5d8242ed0a1c3",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/listContentDocumentAsinRelations",
+      "slug": "amazon-sp-api-aplus-listcontentdocumentasinrelations",
+      "publicRequestSchemaSha256": "09b6c4cb42fed3d263a4aefbcb2ccc043e7b3a4bf5b59371b5352cf2f52768a1",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_aplus_postcontentdocumentasinrelations": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_aplus_postcontentdocumentasinrelations",
+      "inputSchemaSha256": "3e78177472284d53d44b996503c43d124c0ae4b24b27cdfa461239bd1e091ef9",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/postContentDocumentAsinRelations",
+      "slug": "amazon-sp-api-aplus-postcontentdocumentasinrelations",
+      "publicRequestSchemaSha256": "b35b677375daf6dd3e69f3108e57f4b9637d87cf1e15db3e02f3a0c09a9f795e",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_aplus_validatecontentdocumen_9bb4b9286073": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_aplus_validatecontentdocumen_9bb4b9286073",
+      "inputSchemaSha256": "e32207659aec959f4fa1c0c4ee615bb8119263da2b861f2cee07ef22eeee3ea1",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/validateContentDocumentAsinRelations",
+      "slug": "amazon-sp-api-aplus-validatecontentdocumentasinrelations",
+      "publicRequestSchemaSha256": "b6fccbdce4caea446e4955600269ea64923b42cfab75982f48ff589fd6d329d1",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_aplus_searchcontentpublishrecords": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_aplus_searchcontentpublishrecords",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/searchContentPublishRecords",
+      "slug": "amazon-sp-api-aplus-searchcontentpublishrecords",
+      "publicRequestSchemaSha256": "fb79547659817d2e32c590510d61883e3f6339995eba9e388f96a3cb7999727d",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_aplus_postcontentdocumentapp_4ee55e29cc56": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_aplus_postcontentdocumentapp_4ee55e29cc56",
+      "inputSchemaSha256": "3e78177472284d53d44b996503c43d124c0ae4b24b27cdfa461239bd1e091ef9",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/postContentDocumentApprovalSubmission",
+      "slug": "amazon-sp-api-aplus-postcontentdocumentapprovalsubmission",
+      "publicRequestSchemaSha256": "4c7abad8521a694722f39d629ad1f30e634c3411d9dd26068fc7a52ec2766b8b",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_aplus_postcontentdocumentsus_d9bff00567fb": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_aplus_postcontentdocumentsus_d9bff00567fb",
+      "inputSchemaSha256": "3e78177472284d53d44b996503c43d124c0ae4b24b27cdfa461239bd1e091ef9",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/postContentDocumentSuspendSubmission",
+      "slug": "amazon-sp-api-aplus-postcontentdocumentsuspendsubmission",
+      "publicRequestSchemaSha256": "60cab95b4c997ae474d63206bbb2351cd6070755c4d468915e91dea951cdac7b",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_catalog_listcatalogcategories": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_catalog_listcatalogcategories",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/listCatalogCategories",
+      "slug": "amazon-sp-api-catalog-listcatalogcategories",
+      "publicRequestSchemaSha256": "4e426c091a6838dae98ea26f0468aeb104b20019aa36254aa4a826ec7cb59b9e",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_catalog_searchcatalogitems_2022_04_01": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_catalog_searchcatalogitems_2022_04_01",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/searchCatalogItemsV20220401",
+      "slug": "amazon-sp-api-catalog-searchcatalogitems-2022-04-01",
+      "publicRequestSchemaSha256": "77f0b2ce9349ca83e9cf6fd7808e635b943b0dd3115237a32722bc6582e0aade",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_catalog_searchcatalogitems_2020_12_01": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_catalog_searchcatalogitems_2020_12_01",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/searchCatalogItemsV20201201",
+      "slug": "amazon-sp-api-catalog-searchcatalogitems-2020-12-01",
+      "publicRequestSchemaSha256": "b017dba4628a40219cef6e025b5599c68defa1de94eac05174ed5a6090c8b928",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_catalog_getcatalogitem_2022_04_01": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_catalog_getcatalogitem_2022_04_01",
+      "inputSchemaSha256": "efc1c76828ee67260befe422d2a2ce2cf4b8711a71329e9c3928d74c3bb5014a",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getCatalogItemV20220401",
+      "slug": "amazon-sp-api-catalog-getcatalogitem-2022-04-01",
+      "publicRequestSchemaSha256": "4f45cf24decbbbfa3685d4ce6fa5df96801590611dda2575f89de408239e4615",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_catalog_getcatalogitem_2020_12_01": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_catalog_getcatalogitem_2020_12_01",
+      "inputSchemaSha256": "efc1c76828ee67260befe422d2a2ce2cf4b8711a71329e9c3928d74c3bb5014a",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getCatalogItemV20201201",
+      "slug": "amazon-sp-api-catalog-getcatalogitem-2020-12-01",
+      "publicRequestSchemaSha256": "12449625fced41e8a79f8947bf95f598c5b54fbb69e6c1bc85fcee4b551a3ef2",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_customer_feedback_getitemreviewtopics": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_customer_feedback_getitemreviewtopics",
+      "inputSchemaSha256": "efc1c76828ee67260befe422d2a2ce2cf4b8711a71329e9c3928d74c3bb5014a",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getItemReviewTopics",
+      "slug": "amazon-sp-api-customer-feedback-getitemreviewtopics",
+      "publicRequestSchemaSha256": "44ba85a7cc03fe99e871b617af3b3a437b9626973113d8176a2cbb8fabfbd735",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_customer_feedback_getitembrowsenode": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_customer_feedback_getitembrowsenode",
+      "inputSchemaSha256": "efc1c76828ee67260befe422d2a2ce2cf4b8711a71329e9c3928d74c3bb5014a",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getItemBrowseNode",
+      "slug": "amazon-sp-api-customer-feedback-getitembrowsenode",
+      "publicRequestSchemaSha256": "61e551106f05ef61c8ff97ca8ee3cfb2e0d5a2b83a05d2da1454fbe2199c7355",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_customer_feedback_getitemreviewtrends": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_customer_feedback_getitemreviewtrends",
+      "inputSchemaSha256": "efc1c76828ee67260befe422d2a2ce2cf4b8711a71329e9c3928d74c3bb5014a",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getItemReviewTrends",
+      "slug": "amazon-sp-api-customer-feedback-getitemreviewtrends",
+      "publicRequestSchemaSha256": "bf33dfbffed008887c151ab01e002c885779182d05465e801bafe40ac7859e40",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_customer_feedback_getbrowsen_b326f4966468": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_customer_feedback_getbrowsen_b326f4966468",
+      "inputSchemaSha256": "1ca28b60c8ecb9c45a2592a50918179323dca9f51b80c79478e8d7416ceee49e",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getBrowseNodeReviewTopics",
+      "slug": "amazon-sp-api-customer-feedback-getbrowsenodereviewtopics",
+      "publicRequestSchemaSha256": "e6c76e2470fda107cbe69ab405f3913811fc09a7308e379ab1d4b119e599c34f",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_customer_feedback_getbrowsen_09da7f5d2027": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_customer_feedback_getbrowsen_09da7f5d2027",
+      "inputSchemaSha256": "1ca28b60c8ecb9c45a2592a50918179323dca9f51b80c79478e8d7416ceee49e",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getBrowseNodeReviewTrends",
+      "slug": "amazon-sp-api-customer-feedback-getbrowsenodereviewtrends",
+      "publicRequestSchemaSha256": "4574d12c8a2b79c4581fae70cc83b8d68c2d4e97896a71bd7f9a7bd387876d02",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_customer_feedback_getbrowsen_db94aca4457a": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_customer_feedback_getbrowsen_db94aca4457a",
+      "inputSchemaSha256": "1ca28b60c8ecb9c45a2592a50918179323dca9f51b80c79478e8d7416ceee49e",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getBrowseNodeReturnTopics",
+      "slug": "amazon-sp-api-customer-feedback-getbrowsenodereturntopics",
+      "publicRequestSchemaSha256": "153f38c103bc126a02d20160548b2f082a9c25623c324ad64d356eb39a17dc15",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_customer_feedback_getbrowsen_300091668754": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_customer_feedback_getbrowsen_300091668754",
+      "inputSchemaSha256": "1ca28b60c8ecb9c45a2592a50918179323dca9f51b80c79478e8d7416ceee49e",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getBrowseNodeReturnTrends",
+      "slug": "amazon-sp-api-customer-feedback-getbrowsenodereturntrends",
+      "publicRequestSchemaSha256": "aeb21b4526107ed4c95589ae9732d123f3689bb338f4660237dc567258fb91b4",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_feeds_createfeeddocument": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_feeds_createfeeddocument",
+      "inputSchemaSha256": "82373f0d033253a24cd4cc66c62e281b7c5be5b6211a10bc909ce319fa0a736a",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/createFeedDocument",
+      "slug": "amazon-sp-api-feeds-createfeeddocument",
+      "publicRequestSchemaSha256": "4c52766ea85ccfd809c79ad5f2d599be5060ed1a4575e6039a38a92f04ceebad",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_feeds_getfeeddocument": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_feeds_getfeeddocument",
+      "inputSchemaSha256": "ca0e9a7d4a6fa44f01424baaa47bdf10ea5dea9da06ef3ae682a01ea351f975d",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getFeedDocument",
+      "slug": "amazon-sp-api-feeds-getfeeddocument",
+      "publicRequestSchemaSha256": "986e8c9b0a2c8f285c4a1c0f86b34b7816c81e34a20c7a2338a95565d9a04cda",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_feeds_createfeed": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_feeds_createfeed",
+      "inputSchemaSha256": "83caeebd7f7eab2ae4ece22e14b0f5932ecae43c84c271c38211f52cbc6e4d5a",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/createFeed",
+      "slug": "amazon-sp-api-feeds-createfeed",
+      "publicRequestSchemaSha256": "3491cdc795a117853e031fea360374f3179d860932e5fb3daa879bac8920dbc9",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_feeds_getfeeds": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_feeds_getfeeds",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getFeeds",
+      "slug": "amazon-sp-api-feeds-getfeeds",
+      "publicRequestSchemaSha256": "1a200da5b8883d3b3623022044a41d87b51ae5db46272a2dc073b8398d36db92",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_feeds_getfeed": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_feeds_getfeed",
+      "inputSchemaSha256": "aa0346dd636581bf37f255d91ff860226d7a39710945e9f047fff98f8757befb",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getFeed",
+      "slug": "amazon-sp-api-feeds-getfeed",
+      "publicRequestSchemaSha256": "d4b5f2bede9bac059e3d5a9d0d2031982d62143af8d0ce73ac6ddcf73ce7277b",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_feeds_cancelfeed": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_feeds_cancelfeed",
+      "inputSchemaSha256": "d20fba1a2b4f7396dc4f9a9b75ec3ab0df4444d7ccbba281a97f432f23023d93",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/cancelFeed",
+      "slug": "amazon-sp-api-feeds-cancelfeed",
+      "publicRequestSchemaSha256": "816c295a9a5d7ac548c338b4fffa4b3c2d7141ac0d408b96b1d378aa79195d93",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_listings_getlistingsitem": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_listings_getlistingsitem",
+      "inputSchemaSha256": "b7819a38e4bc2a026c44b135c718b638296416675b9482cd406296c10a3aa941",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getListingsItem",
+      "slug": "amazon-sp-api-listings-getlistingsitem",
+      "publicRequestSchemaSha256": "03c76d130f68a2f0167f25832361259f567bd950307802f98c09fa996e00e426",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_listings_searchlistingsitems": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_listings_searchlistingsitems",
+      "inputSchemaSha256": "18d310b61f5194ed6692412261aedfe2ab128c02cf1dacc3191cf5aaf7d46a80",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/searchListingsItems",
+      "slug": "amazon-sp-api-listings-searchlistingsitems",
+      "publicRequestSchemaSha256": "5fab0c7b3344947bb7a0ca7c6d695a31ea99dbb842739f9d322aabc26eee02e1",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_listings_patchlistingsitem": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_listings_patchlistingsitem",
+      "inputSchemaSha256": "bd7c6ec47ea62360b5f5d797c1135518f03a922a3019dec56510952636c908c8",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/patchListingsItem",
+      "slug": "amazon-sp-api-listings-patchlistingsitem",
+      "publicRequestSchemaSha256": "bda259e439e4d9fa1c95b8f4f86880ffc39af3a1eed8aef7e9dc2a40b5f68b0e",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_listings_putlistingsitem": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_listings_putlistingsitem",
+      "inputSchemaSha256": "bd7c6ec47ea62360b5f5d797c1135518f03a922a3019dec56510952636c908c8",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/putListingsItem",
+      "slug": "amazon-sp-api-listings-putlistingsitem",
+      "publicRequestSchemaSha256": "990b9fec33143d4573dffe0bb8519c6397e34c8c6440ce954ced6f63faac0a91",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_listings_deletelistingsitem": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_listings_deletelistingsitem",
+      "inputSchemaSha256": "bd7c6ec47ea62360b5f5d797c1135518f03a922a3019dec56510952636c908c8",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/deleteListingsItem",
+      "slug": "amazon-sp-api-listings-deletelistingsitem",
+      "publicRequestSchemaSha256": "5d975614ed246d02571f8e6700bcd2fcd5170f3150eb90d16b97310afb073660",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_listings_getlistingsrestrictions": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_listings_getlistingsrestrictions",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getListingsRestrictions",
+      "slug": "amazon-sp-api-listings-getlistingsrestrictions",
+      "publicRequestSchemaSha256": "a3af1af88128aa7999584feab94d7007815a62c6d2d9c48c68e2c861c75e2c12",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_product_types_searchdefiniti_bcca1638e413": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_product_types_searchdefiniti_bcca1638e413",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/searchDefinitionsProductTypes",
+      "slug": "amazon-sp-api-product-types-searchdefinitionsproducttypes",
+      "publicRequestSchemaSha256": "94d6bf6b55c42a5c0d3bd5b31f7f726993a5e830946742a428406e0d0732b057",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_product_types_getdefinitionsproducttype": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_product_types_getdefinitionsproducttype",
+      "inputSchemaSha256": "b97cd1a837cd14ad4d6f2f1e5cdf46fe696ec598bc9e864b5dce60f015d9f319",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getDefinitionsProductType",
+      "slug": "amazon-sp-api-product-types-getdefinitionsproducttype",
+      "publicRequestSchemaSha256": "b731e5895accbab1cf81f040e3b7a85a7a444fe3715208ceefd7b781eb9ddc47",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_orders_searchorders": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_orders_searchorders",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/searchOrders",
+      "slug": "amazon-sp-api-orders-searchorders",
+      "publicRequestSchemaSha256": "760c76b17415705967e7c75bcf6a2cf706c7915f202e7a4deaaf45de7473b65d",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_orders_getorder_3": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_orders_getorder_3",
+      "inputSchemaSha256": "45bebc2c9450b429454b5504f2315e19dfa2b5efe6ab4d03cabf7d35be822f8f",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getorder3",
+      "slug": "amazon-sp-api-orders-getorder-3",
+      "publicRequestSchemaSha256": "c8875be3b43b182c7f80e0eb773a77012d51be8da3e65cf077fc47ad284c28b6",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_orders_getorderbuyerinfo": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_orders_getorderbuyerinfo",
+      "inputSchemaSha256": "45bebc2c9450b429454b5504f2315e19dfa2b5efe6ab4d03cabf7d35be822f8f",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getOrderBuyerInfo",
+      "slug": "amazon-sp-api-orders-getorderbuyerinfo",
+      "publicRequestSchemaSha256": "026036564ab05a71c6f4ef786d5d29d1e1698f1822e1175549f991b13a4f8489",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_orders_getorderaddress": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_orders_getorderaddress",
+      "inputSchemaSha256": "45bebc2c9450b429454b5504f2315e19dfa2b5efe6ab4d03cabf7d35be822f8f",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getOrderAddress",
+      "slug": "amazon-sp-api-orders-getorderaddress",
+      "publicRequestSchemaSha256": "ea6a11dc6409ab17fe3f0cd1a317b882710db36a606d996009852741f0af5fbc",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_orders_getorderitems": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_orders_getorderitems",
+      "inputSchemaSha256": "45bebc2c9450b429454b5504f2315e19dfa2b5efe6ab4d03cabf7d35be822f8f",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getOrderItems",
+      "slug": "amazon-sp-api-orders-getorderitems",
+      "publicRequestSchemaSha256": "73e6dfbe787e6371b38b64451cd7fb481fb73b6e1349dcc2ec2802388fb2f68a",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_orders_getorderitemsbuyerinfo": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_orders_getorderitemsbuyerinfo",
+      "inputSchemaSha256": "45bebc2c9450b429454b5504f2315e19dfa2b5efe6ab4d03cabf7d35be822f8f",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getOrderItemsBuyerInfo",
+      "slug": "amazon-sp-api-orders-getorderitemsbuyerinfo",
+      "publicRequestSchemaSha256": "b7887d7c387ad79833124ea9313453765d859de8e81e1a3292b0975bf977a3d4",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_orders_updateshipmentstatus": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_orders_updateshipmentstatus",
+      "inputSchemaSha256": "f3a256031630cb018b5c7d1827afc4915feae664829a3e1d2ffba4e2d42d2e7c",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/updateShipmentStatus",
+      "slug": "amazon-sp-api-orders-updateshipmentstatus",
+      "publicRequestSchemaSha256": "932bb82f59aae0507cdccf87375dc7bd8047370fa92bac9aa0bc0e0c79d8e7ec",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_orders_getorderregulatedinfo": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_orders_getorderregulatedinfo",
+      "inputSchemaSha256": "45bebc2c9450b429454b5504f2315e19dfa2b5efe6ab4d03cabf7d35be822f8f",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getOrderRegulatedInfo",
+      "slug": "amazon-sp-api-orders-getorderregulatedinfo",
+      "publicRequestSchemaSha256": "73405750988f90b9f48553a07d0a172bd38de01c0d87c0638ce69a651ce5e3f9",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_orders_updateverificationstatus": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_orders_updateverificationstatus",
+      "inputSchemaSha256": "f3a256031630cb018b5c7d1827afc4915feae664829a3e1d2ffba4e2d42d2e7c",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/updateVerificationStatus",
+      "slug": "amazon-sp-api-orders-updateverificationstatus",
+      "publicRequestSchemaSha256": "47c1384e6d606eecfee423259b81d99f27140e89580c510ab95ec1c79176e97c",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_orders_confirmshipment": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_orders_confirmshipment",
+      "inputSchemaSha256": "f3a256031630cb018b5c7d1827afc4915feae664829a3e1d2ffba4e2d42d2e7c",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/confirmShipment",
+      "slug": "amazon-sp-api-orders-confirmshipment",
+      "publicRequestSchemaSha256": "7c66a413c2e324b5b52058dc938f1df57b92e64c3fa0f962b6829f97d6ce2206",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_pricing_getpricing": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_pricing_getpricing",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getPricing",
+      "slug": "amazon-sp-api-pricing-getpricing",
+      "publicRequestSchemaSha256": "fcba429f4540695dafd52589247ef1646c247a7e6bdcad5dffd3907d0a71d840",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_pricing_getcompetitivepricing": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_pricing_getcompetitivepricing",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getCompetitivePricing",
+      "slug": "amazon-sp-api-pricing-getcompetitivepricing",
+      "publicRequestSchemaSha256": "a96a695aa86440249afbb152e5f9d805c68fa9a4d3a22cee807456184f68fd86",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_pricing_getlistingoffers": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_pricing_getlistingoffers",
+      "inputSchemaSha256": "004011a22063650c1c5bd04ad330c3b5b5bb44034506b282d71bc8e7d6c5ec14",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getListingOffers",
+      "slug": "amazon-sp-api-pricing-getlistingoffers",
+      "publicRequestSchemaSha256": "726ed1d91d7288230dbb56e31f4287f994e4331becd1195b0daf754f143d6886",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_pricing_getitemoffers": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_pricing_getitemoffers",
+      "inputSchemaSha256": "a100623a50f38fa8fa3ed427946837c68320895968de8042a2e7398aa38464d4",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getItemOffers",
+      "slug": "amazon-sp-api-pricing-getitemoffers",
+      "publicRequestSchemaSha256": "7d6c3f35cfe7d1db2a9d0c2c0a69103af6362009a459e67b363ec788f4a398e0",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_pricing_getitemoffersbatch": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_pricing_getitemoffersbatch",
+      "inputSchemaSha256": "e32207659aec959f4fa1c0c4ee615bb8119263da2b861f2cee07ef22eeee3ea1",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getItemOffersBatch",
+      "slug": "amazon-sp-api-pricing-getitemoffersbatch",
+      "publicRequestSchemaSha256": "5ac8ea9d8ed92532d5a2422a05f167ab016be5f875ca6ef6102d9be16bffcf86",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_pricing_getlistingoffersbatch": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_pricing_getlistingoffersbatch",
+      "inputSchemaSha256": "e32207659aec959f4fa1c0c4ee615bb8119263da2b861f2cee07ef22eeee3ea1",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getListingOffersBatch",
+      "slug": "amazon-sp-api-pricing-getlistingoffersbatch",
+      "publicRequestSchemaSha256": "6dc235a1555d9c1782aa498e3254b4685c1739597c3b70f1261b2ca038812d7f",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_pricing_getfeaturedofferexpe_954a6e2e73a2": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_pricing_getfeaturedofferexpe_954a6e2e73a2",
+      "inputSchemaSha256": "e32207659aec959f4fa1c0c4ee615bb8119263da2b861f2cee07ef22eeee3ea1",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getFeaturedOfferExpectedPriceBatch",
+      "slug": "amazon-sp-api-pricing-getfeaturedofferexpectedpricebatch",
+      "publicRequestSchemaSha256": "d1ce667dcfd5ac826448151f829607eb6d19239194f41f64fdccd172fe5b2f13",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_pricing_getcompetitivesummary": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_pricing_getcompetitivesummary",
+      "inputSchemaSha256": "e32207659aec959f4fa1c0c4ee615bb8119263da2b861f2cee07ef22eeee3ea1",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getCompetitiveSummary",
+      "slug": "amazon-sp-api-pricing-getcompetitivesummary",
+      "publicRequestSchemaSha256": "92e0f2fc8f5ce345cca6799111aadb22c399241cdad04e7f35ef324d6278e556",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_reports_getreports": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_reports_getreports",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getReports",
+      "slug": "amazon-sp-api-reports-getreports",
+      "publicRequestSchemaSha256": "d9efa0dd9e81d09990ad43c9d4c596145854f451953c48f16ae62f73a1ee6d8e",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_reports_createreport": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_reports_createreport",
+      "inputSchemaSha256": "83caeebd7f7eab2ae4ece22e14b0f5932ecae43c84c271c38211f52cbc6e4d5a",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/createReport",
+      "slug": "amazon-sp-api-reports-createreport",
+      "publicRequestSchemaSha256": "d10f473e573bd3fef9e31923d6a60eab35f0a04d1fd10cef5621d99666c2a358",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_reports_getreport": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_reports_getreport",
+      "inputSchemaSha256": "0f1540982eee02eaef1feb0b592284ef9957876a5671b7f54465901c2fe3536a",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getReport",
+      "slug": "amazon-sp-api-reports-getreport",
+      "publicRequestSchemaSha256": "e98d9d794ab2dde0a46aa62620be155c43103c9eb8bc57cc2c1d791dd71a4e0a",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_reports_getreportdocument": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_reports_getreportdocument",
+      "inputSchemaSha256": "65f526c71718ef13b4267415e6fa7a8e2ec99064ee488a755dd05c8b39c8db59",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getReportDocument",
+      "slug": "amazon-sp-api-reports-getreportdocument",
+      "publicRequestSchemaSha256": "5fbd2e0c878c6b07871620e2356d57b6d8be0f589e098ee2af11c1780933a0b4",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_uploads_createuploaddestinat_fdd522c9493a": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_uploads_createuploaddestinat_fdd522c9493a",
+      "inputSchemaSha256": "de3d1744676496e2a78122a653e752e1cf6f1a56514b1080727134340cd9063c",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/createUploadDestinationForResource",
+      "slug": "amazon-sp-api-uploads-createuploaddestinationforresource",
+      "publicRequestSchemaSha256": "68b1d7d21a2360a29f62e3311194afee57ca176cf49c97a4fba61895c40b56ca",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_aplus_create_media": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_aplus_create_media",
+      "inputSchemaSha256": "83caeebd7f7eab2ae4ece22e14b0f5932ecae43c84c271c38211f52cbc6e4d5a",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/createMedia",
+      "slug": "amazon-sp-api-aplus-create-media",
+      "publicRequestSchemaSha256": "c86b32037c0f1a0ab11a0e8e0bcd64d05f50fd55316970beb5e33c24fc789a97",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_aplus_get_media": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_aplus_get_media",
+      "inputSchemaSha256": "ea114d664c089106ba89c766b115f0ffd0d0dfc22f5a62643047df4b22c600e6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getMedia",
+      "slug": "amazon-sp-api-aplus-get-media",
+      "publicRequestSchemaSha256": "d38fb2263cac553270300bdc1ff258fc05be7fcbf0e40fa8d8dce72f615173a6",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_eligibility_get_item_eligibility_preview": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_eligibility_get_item_eligibility_preview",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getItemEligibilityPreview",
+      "slug": "amazon-sp-api-eligibility-get-item-eligibility-preview",
+      "publicRequestSchemaSha256": "5f0f2b318cb9fd3579732631c68994700092ef5ee1f13637393ba6b0f8d50207",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inventory_get_inventory_summaries": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inventory_get_inventory_summaries",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getInventorySummaries",
+      "slug": "amazon-sp-api-inventory-get-inventory-summaries",
+      "publicRequestSchemaSha256": "59ed6cefa4253b1c1a207ea67dea7c47f18ed3cd018ffb601147ab670ea88c88",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inventory_create_inventory_item": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inventory_create_inventory_item",
+      "inputSchemaSha256": "83caeebd7f7eab2ae4ece22e14b0f5932ecae43c84c271c38211f52cbc6e4d5a",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/createInventoryItem",
+      "slug": "amazon-sp-api-inventory-create-inventory-item",
+      "publicRequestSchemaSha256": "6ece7d9d8f98246804656717d27d121f26e3e753699b911d76b9f1463ffc431c",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inventory_delete_inventory_item": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inventory_delete_inventory_item",
+      "inputSchemaSha256": "7da9bc46733018978ee5ce78ce159c321ef511cda909b35f6a94d284890509f9",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/deleteInventoryItem",
+      "slug": "amazon-sp-api-inventory-delete-inventory-item",
+      "publicRequestSchemaSha256": "7392d7ff23406573911919857f3e004cc01b290e96f101e390f02c5504a066f8",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inventory_add_inventory": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inventory_add_inventory",
+      "inputSchemaSha256": "83caeebd7f7eab2ae4ece22e14b0f5932ecae43c84c271c38211f52cbc6e4d5a",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/addInventory",
+      "slug": "amazon-sp-api-inventory-add-inventory",
+      "publicRequestSchemaSha256": "6563b57e3f35178aa8276085f988f702ff754eff2ad7b982239c9654183c25a4",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_v0_get_prep_instructions": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_v0_get_prep_instructions",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getPrepInstructions",
+      "slug": "amazon-sp-api-inbound-v0-get-prep-instructions",
+      "publicRequestSchemaSha256": "cd9b74968894abd68fe792e003e0e821a00a82660c21954bc38ef4c9a77113ee",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_v0_get_labels": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_v0_get_labels",
+      "inputSchemaSha256": "e4cd6f87854e4bacb50a9690598be486a553bd582199dc1b9a78e1945f80d30e",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getLabels",
+      "slug": "amazon-sp-api-inbound-v0-get-labels",
+      "publicRequestSchemaSha256": "7075e12a51e8b36e122fccdd003ec19d7c618ee1acb70fccde663db9be8ee4ee",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_v0_get_bill_of_lading": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_v0_get_bill_of_lading",
+      "inputSchemaSha256": "e4cd6f87854e4bacb50a9690598be486a553bd582199dc1b9a78e1945f80d30e",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getBillOfLading",
+      "slug": "amazon-sp-api-inbound-v0-get-bill-of-lading",
+      "publicRequestSchemaSha256": "d007e0299f110ed63e77463ea7cf57f71821b5d33e4dbfea4cc0d06bf9b23037",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_v0_get_shipments_v0": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_v0_get_shipments_v0",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getShipmentsV0",
+      "slug": "amazon-sp-api-inbound-v0-get-shipments-v0",
+      "publicRequestSchemaSha256": "2e4b2f8e05571e77115089fcb84ef881460a3fe0ee31dc8c87023f3c6479e70a",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_v0_get_shipment_item_5db3eda79e03": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_v0_get_shipment_item_5db3eda79e03",
+      "inputSchemaSha256": "e4cd6f87854e4bacb50a9690598be486a553bd582199dc1b9a78e1945f80d30e",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getShipmentItemsByShipmentId",
+      "slug": "amazon-sp-api-inbound-v0-get-shipment-items-by-shipment-id",
+      "publicRequestSchemaSha256": "0e28f5c2e16cf0f271a822c5c06e212739b6175a3569111246e30a726966cb91",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_v0_get_shipment_items": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_v0_get_shipment_items",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getShipmentItems",
+      "slug": "amazon-sp-api-inbound-v0-get-shipment-items",
+      "publicRequestSchemaSha256": "a0496447333bf33480818ebc66f87a72a78c8fe07619740d077aad4b0b1f9df2",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_list_inbound_plans": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_list_inbound_plans",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/listInboundPlans",
+      "slug": "amazon-sp-api-inbound-list-inbound-plans",
+      "publicRequestSchemaSha256": "51ca115876968abaac3fc8338bb4388a173b3ae584e587af55552989a053cc50",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_create_inbound_plan": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_create_inbound_plan",
+      "inputSchemaSha256": "83caeebd7f7eab2ae4ece22e14b0f5932ecae43c84c271c38211f52cbc6e4d5a",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/createInboundPlan",
+      "slug": "amazon-sp-api-inbound-create-inbound-plan",
+      "publicRequestSchemaSha256": "7590e34252ba1a340ea939b53e2b5a2af32e33d2d745e0b743e452f0b1333c0f",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_get_inbound_plan": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_get_inbound_plan",
+      "inputSchemaSha256": "54bbc968cf5ff1858b601221e56ee7cc288278cefd8f009a45a973e7db6a83ce",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getInboundPlan",
+      "slug": "amazon-sp-api-inbound-get-inbound-plan",
+      "publicRequestSchemaSha256": "f1c118a983ff9a6e9b4ba65d7c34e634894c420becb20139eb182d78a957feda",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_list_inbound_plan_boxes": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_list_inbound_plan_boxes",
+      "inputSchemaSha256": "54bbc968cf5ff1858b601221e56ee7cc288278cefd8f009a45a973e7db6a83ce",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/listInboundPlanBoxes",
+      "slug": "amazon-sp-api-inbound-list-inbound-plan-boxes",
+      "publicRequestSchemaSha256": "472634a3233ba96a86be4813b2638c3e9430b68884d02078658bb93f51a2735f",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_cancel_inbound_plan": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_cancel_inbound_plan",
+      "inputSchemaSha256": "09d2e15c7fb35af6537529827143316fe5a71940965ed436254ac73bc1167976",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/cancelInboundPlan",
+      "slug": "amazon-sp-api-inbound-cancel-inbound-plan",
+      "publicRequestSchemaSha256": "5775918e455098cbcb90f52c917d2913dc8ebf264ede6a200952787047cc52bd",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_list_inbound_plan_items": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_list_inbound_plan_items",
+      "inputSchemaSha256": "54bbc968cf5ff1858b601221e56ee7cc288278cefd8f009a45a973e7db6a83ce",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/listInboundPlanItems",
+      "slug": "amazon-sp-api-inbound-list-inbound-plan-items",
+      "publicRequestSchemaSha256": "68889eb32ea322b78b41304300466d5d84590062e835c406d42ffc17f6ef063b",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_update_inbound_plan_name": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_update_inbound_plan_name",
+      "inputSchemaSha256": "09d2e15c7fb35af6537529827143316fe5a71940965ed436254ac73bc1167976",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/updateInboundPlanName",
+      "slug": "amazon-sp-api-inbound-update-inbound-plan-name",
+      "publicRequestSchemaSha256": "21e9daa323e0f90f0abdc526958800ce5f911bdee199c1b8327dd7ebb9a744c9",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_list_packing_group_boxes": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_list_packing_group_boxes",
+      "inputSchemaSha256": "6051e6eebc0e8aef70968cb6f0eb77c23b7c9382a8193bf4ff350b2fa0985484",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/listPackingGroupBoxes",
+      "slug": "amazon-sp-api-inbound-list-packing-group-boxes",
+      "publicRequestSchemaSha256": "618b4e7ff8e653fca7d21ff48ddfabf0e9b0fa5a1b9e5962047af40d4f7d20fa",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_list_packing_group_items": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_list_packing_group_items",
+      "inputSchemaSha256": "6051e6eebc0e8aef70968cb6f0eb77c23b7c9382a8193bf4ff350b2fa0985484",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/listPackingGroupItems",
+      "slug": "amazon-sp-api-inbound-list-packing-group-items",
+      "publicRequestSchemaSha256": "4a0e86f7b49d568e0b411edcb04343f816891432c604f7a096eb2e9f281f712a",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_set_packing_information": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_set_packing_information",
+      "inputSchemaSha256": "09d2e15c7fb35af6537529827143316fe5a71940965ed436254ac73bc1167976",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/setPackingInformation",
+      "slug": "amazon-sp-api-inbound-set-packing-information",
+      "publicRequestSchemaSha256": "ade8af756a1d8bf51e5e6a9fb728ed9b4a5c1adc138fe2c304da31e1cf8cd97c",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_list_packing_options": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_list_packing_options",
+      "inputSchemaSha256": "54bbc968cf5ff1858b601221e56ee7cc288278cefd8f009a45a973e7db6a83ce",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/listPackingOptions",
+      "slug": "amazon-sp-api-inbound-list-packing-options",
+      "publicRequestSchemaSha256": "174028800710cc62c1a0299e02d1d0ee7bc66da21f2c4f73bd6a1c57aaf50716",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_generate_packing_options": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_generate_packing_options",
+      "inputSchemaSha256": "09d2e15c7fb35af6537529827143316fe5a71940965ed436254ac73bc1167976",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/generatePackingOptions",
+      "slug": "amazon-sp-api-inbound-generate-packing-options",
+      "publicRequestSchemaSha256": "9002788e369c7e46088df37a1ad190a5e0a243a53667c63ee60289241f4568b5",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_confirm_packing_option": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_confirm_packing_option",
+      "inputSchemaSha256": "8da413df96a55de2d10b396f557f485ec1a53c034da66d92c2fbea409715d215",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/confirmPackingOption",
+      "slug": "amazon-sp-api-inbound-confirm-packing-option",
+      "publicRequestSchemaSha256": "71dddd678f695654c644aed76d2c45164e2471d2327b869753b9df7358358e6b",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_list_inbound_plan_pallets": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_list_inbound_plan_pallets",
+      "inputSchemaSha256": "54bbc968cf5ff1858b601221e56ee7cc288278cefd8f009a45a973e7db6a83ce",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/listInboundPlanPallets",
+      "slug": "amazon-sp-api-inbound-list-inbound-plan-pallets",
+      "publicRequestSchemaSha256": "a9714d72c442d7ad670c9714f69e903ab9f6c972c649447ea03a1292df80e6a8",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_list_placement_options": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_list_placement_options",
+      "inputSchemaSha256": "54bbc968cf5ff1858b601221e56ee7cc288278cefd8f009a45a973e7db6a83ce",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/listPlacementOptions",
+      "slug": "amazon-sp-api-inbound-list-placement-options",
+      "publicRequestSchemaSha256": "ee3c09f5c0a2e070db8a4d7a4a9fa90f32c0b1836a9734dcda4c048933d98ac6",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_generate_placement_options": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_generate_placement_options",
+      "inputSchemaSha256": "09d2e15c7fb35af6537529827143316fe5a71940965ed436254ac73bc1167976",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/generatePlacementOptions",
+      "slug": "amazon-sp-api-inbound-generate-placement-options",
+      "publicRequestSchemaSha256": "3d4e211441c33ebbbed7c3361267104168fcdd902ca8020ace42afcac0cca9a9",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_confirm_placement_option": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_confirm_placement_option",
+      "inputSchemaSha256": "25b0f5f4c33f6b66338f9c808b6a444555d6c99fdee995db4c373cfda6f4eabf",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/confirmPlacementOption",
+      "slug": "amazon-sp-api-inbound-confirm-placement-option",
+      "publicRequestSchemaSha256": "7a07cb17a6a20821e880cb1450accbf81d46148f82d38cbdf4e5d7001bd96af3",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_get_shipment": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_get_shipment",
+      "inputSchemaSha256": "6a8dfbfb6de82e27eb12a0a7739fc548d12e0c7e2fd480dd15a65906c0067e25",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/inboundGetShipment",
+      "slug": "amazon-sp-api-inbound-get-shipment",
+      "publicRequestSchemaSha256": "ba4902fd574a84c3ca530422c2c00fd922623441ab9467b4b7a300c85bdc56f1",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_list_shipment_boxes": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_list_shipment_boxes",
+      "inputSchemaSha256": "6a8dfbfb6de82e27eb12a0a7739fc548d12e0c7e2fd480dd15a65906c0067e25",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/listShipmentBoxes",
+      "slug": "amazon-sp-api-inbound-list-shipment-boxes",
+      "publicRequestSchemaSha256": "6bca54ec5f1cc16763015bafe8b992c1f83b8d1f63ad27d376eeebd1eb3a9594",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_list_shipment_conten_898bb5b92c18": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_list_shipment_conten_898bb5b92c18",
+      "inputSchemaSha256": "6a8dfbfb6de82e27eb12a0a7739fc548d12e0c7e2fd480dd15a65906c0067e25",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/listShipmentContentUpdatePreviews",
+      "slug": "amazon-sp-api-inbound-list-shipment-content-update-previews",
+      "publicRequestSchemaSha256": "1cde8c345322a9740fbb3d09bf682a63ed521842334ff6407c0fc9d225587d95",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_generate_shipment_co_28382962a8b4": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_generate_shipment_co_28382962a8b4",
+      "inputSchemaSha256": "e5ed555acd4e01cde3c0182f98657623c8a1fc2fae958c1a822fd3905edeb5c7",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/generateShipmentContentUpdatePreviews",
+      "slug": "amazon-sp-api-inbound-generate-shipment-content-update-previews",
+      "publicRequestSchemaSha256": "cf8f47493e7edad98da7e4b952ad28393c6c7ac1e91ddbf9235e00c0edf9ad58",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_get_shipment_content_a2c8f3191c68": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_get_shipment_content_a2c8f3191c68",
+      "inputSchemaSha256": "e7d3736435141b0aab437f3ca2ed724996578a58690a3c317365cd9fa4f98958",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getShipmentContentUpdatePreview",
+      "slug": "amazon-sp-api-inbound-get-shipment-content-update-preview",
+      "publicRequestSchemaSha256": "4814a130da983959677fbe92f33fe2167ce92d9f484bbe5fc9075ee8ec54c2e7",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_confirm_shipment_con_ad9ebf6b0029": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_confirm_shipment_con_ad9ebf6b0029",
+      "inputSchemaSha256": "b36b849ec597dca29c604f0d2dee9d3508248e68369633fd44bfceac2746af88",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/confirmShipmentContentUpdatePreview",
+      "slug": "amazon-sp-api-inbound-confirm-shipment-content-update-preview",
+      "publicRequestSchemaSha256": "557d750d5b41246c960c82ed34f08458397a02b58849ab3926e45995e37145a5",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_get_delivery_challan_document": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_get_delivery_challan_document",
+      "inputSchemaSha256": "6a8dfbfb6de82e27eb12a0a7739fc548d12e0c7e2fd480dd15a65906c0067e25",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getDeliveryChallanDocument",
+      "slug": "amazon-sp-api-inbound-get-delivery-challan-document",
+      "publicRequestSchemaSha256": "7eecbf87be01adee7b340a2e9278f53b757cfaee957375def4ca119d63b42569",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_list_delivery_window_options": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_list_delivery_window_options",
+      "inputSchemaSha256": "6a8dfbfb6de82e27eb12a0a7739fc548d12e0c7e2fd480dd15a65906c0067e25",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/listDeliveryWindowOptions",
+      "slug": "amazon-sp-api-inbound-list-delivery-window-options",
+      "publicRequestSchemaSha256": "a430c5b7c644d4b5d73133b8c29fc1b69e84d74954128df6d5feca8385df9335",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_generate_delivery_window_options": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_generate_delivery_window_options",
+      "inputSchemaSha256": "e5ed555acd4e01cde3c0182f98657623c8a1fc2fae958c1a822fd3905edeb5c7",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/generateDeliveryWindowOptions",
+      "slug": "amazon-sp-api-inbound-generate-delivery-window-options",
+      "publicRequestSchemaSha256": "fb7cdbea7ece3d5498476fe3a8e99c02caeae47cb54946d043f96902885d62ab",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_confirm_delivery_window_options": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_confirm_delivery_window_options",
+      "inputSchemaSha256": "9d116a11c5eb92108e7604bf540fb546575c8901fd7d865ccf4d78d3592eeae2",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/confirmDeliveryWindowOptions",
+      "slug": "amazon-sp-api-inbound-confirm-delivery-window-options",
+      "publicRequestSchemaSha256": "5b1d8421f3d3fa8a9389c56d68351648c1164a944ba4089a601d4f114e8302d2",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_list_shipment_items": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_list_shipment_items",
+      "inputSchemaSha256": "6a8dfbfb6de82e27eb12a0a7739fc548d12e0c7e2fd480dd15a65906c0067e25",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/listShipmentItems",
+      "slug": "amazon-sp-api-inbound-list-shipment-items",
+      "publicRequestSchemaSha256": "f7be3046f0c003711e05f24d7512223bae33bcb4ae190181159e6d83e4d211aa",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_update_shipment_name": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_update_shipment_name",
+      "inputSchemaSha256": "e5ed555acd4e01cde3c0182f98657623c8a1fc2fae958c1a822fd3905edeb5c7",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/updateShipmentName",
+      "slug": "amazon-sp-api-inbound-update-shipment-name",
+      "publicRequestSchemaSha256": "37ad4ddfacc7f9ce7d0703359dc4b7e3e87e19b25ce5f945de8a19ac114e873e",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_list_shipment_pallets": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_list_shipment_pallets",
+      "inputSchemaSha256": "6a8dfbfb6de82e27eb12a0a7739fc548d12e0c7e2fd480dd15a65906c0067e25",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/listShipmentPallets",
+      "slug": "amazon-sp-api-inbound-list-shipment-pallets",
+      "publicRequestSchemaSha256": "ad7ebec40b299fe36bdc1410780c46ba9537b68632df00c9b77a99c22c674584",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_cancel_self_ship_appointment": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_cancel_self_ship_appointment",
+      "inputSchemaSha256": "e5ed555acd4e01cde3c0182f98657623c8a1fc2fae958c1a822fd3905edeb5c7",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/cancelSelfShipAppointment",
+      "slug": "amazon-sp-api-inbound-cancel-self-ship-appointment",
+      "publicRequestSchemaSha256": "6df0c1e5f9bed398eeb1c62fbc94de836f9d319c3de0a8b2fb9ea1c1f2c1e2c2",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_get_self_ship_appointment_slots": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_get_self_ship_appointment_slots",
+      "inputSchemaSha256": "6a8dfbfb6de82e27eb12a0a7739fc548d12e0c7e2fd480dd15a65906c0067e25",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getSelfShipAppointmentSlots",
+      "slug": "amazon-sp-api-inbound-get-self-ship-appointment-slots",
+      "publicRequestSchemaSha256": "e8c10c650d433a28160aea472a0895d44e6bab33c081c2ed7c5c18ac6373e8d8",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_generate_self_ship_a_b16671d5a54e": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_generate_self_ship_a_b16671d5a54e",
+      "inputSchemaSha256": "e5ed555acd4e01cde3c0182f98657623c8a1fc2fae958c1a822fd3905edeb5c7",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/generateSelfShipAppointmentSlots",
+      "slug": "amazon-sp-api-inbound-generate-self-ship-appointment-slots",
+      "publicRequestSchemaSha256": "b5e9a36789d313f551111acc58a09db984b68524c185cde2115685e9c9c4a6c6",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_schedule_self_ship_appointment": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_schedule_self_ship_appointment",
+      "inputSchemaSha256": "d3bdc2649ec9ed7e588590d3a5329126338bd6a3aadc2590454b2984168e25cc",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/scheduleSelfShipAppointment",
+      "slug": "amazon-sp-api-inbound-schedule-self-ship-appointment",
+      "publicRequestSchemaSha256": "7e0cd890e5e4fe96d9ff2415790a6399b795883109b0de8670ef7529e0212122",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_update_shipment_source_address": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_update_shipment_source_address",
+      "inputSchemaSha256": "e5ed555acd4e01cde3c0182f98657623c8a1fc2fae958c1a822fd3905edeb5c7",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/updateShipmentSourceAddress",
+      "slug": "amazon-sp-api-inbound-update-shipment-source-address",
+      "publicRequestSchemaSha256": "5fcbd0fc013be35582da842198141b9a87a4bddcc52042e8a55df384929bcaf2",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_update_shipment_tracking_details": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_update_shipment_tracking_details",
+      "inputSchemaSha256": "e5ed555acd4e01cde3c0182f98657623c8a1fc2fae958c1a822fd3905edeb5c7",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/updateShipmentTrackingDetails",
+      "slug": "amazon-sp-api-inbound-update-shipment-tracking-details",
+      "publicRequestSchemaSha256": "91a3760c2b1e1190a158ec5c59231b9fc8138891e81d45af1e25fdc879f0d847",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_list_transportation_options": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_list_transportation_options",
+      "inputSchemaSha256": "54bbc968cf5ff1858b601221e56ee7cc288278cefd8f009a45a973e7db6a83ce",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/listTransportationOptions",
+      "slug": "amazon-sp-api-inbound-list-transportation-options",
+      "publicRequestSchemaSha256": "131738c75519848b5843bbbf8649db8d45b8c2510c30f934bf73e400e457723a",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_generate_transportation_options": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_generate_transportation_options",
+      "inputSchemaSha256": "09d2e15c7fb35af6537529827143316fe5a71940965ed436254ac73bc1167976",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/generateTransportationOptions",
+      "slug": "amazon-sp-api-inbound-generate-transportation-options",
+      "publicRequestSchemaSha256": "7bd0e4c0cc6f3aca2eaf18cc8196079aa56068099199528756e8899958fd1b78",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_confirm_transportation_options": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_confirm_transportation_options",
+      "inputSchemaSha256": "09d2e15c7fb35af6537529827143316fe5a71940965ed436254ac73bc1167976",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/confirmTransportationOptions",
+      "slug": "amazon-sp-api-inbound-confirm-transportation-options",
+      "publicRequestSchemaSha256": "e5fe5ee971bf9cc69fb988bf720e38110ee2037b8b626fb59e52ea49f780838a",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_list_item_compliance_details": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_list_item_compliance_details",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/listItemComplianceDetails",
+      "slug": "amazon-sp-api-inbound-list-item-compliance-details",
+      "publicRequestSchemaSha256": "b9a522ba1815cbdbd747c3525dedee2a9e9f5e5a6817de1e4116d0303777a01e",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_update_item_compliance_details": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_update_item_compliance_details",
+      "inputSchemaSha256": "83caeebd7f7eab2ae4ece22e14b0f5932ecae43c84c271c38211f52cbc6e4d5a",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/updateItemComplianceDetails",
+      "slug": "amazon-sp-api-inbound-update-item-compliance-details",
+      "publicRequestSchemaSha256": "01435b6f40b0ed770669d5bf00c646ed0162c163c926245f0c3f2b5b1f572f95",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_create_marketplace_item_labels": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_create_marketplace_item_labels",
+      "inputSchemaSha256": "83caeebd7f7eab2ae4ece22e14b0f5932ecae43c84c271c38211f52cbc6e4d5a",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/createMarketplaceItemLabels",
+      "slug": "amazon-sp-api-inbound-create-marketplace-item-labels",
+      "publicRequestSchemaSha256": "72f09865a8574c2006c18678026782ed77560809fc62ba91f5d1c9baf1110faf",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_list_prep_details": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_list_prep_details",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/listPrepDetails",
+      "slug": "amazon-sp-api-inbound-list-prep-details",
+      "publicRequestSchemaSha256": "329d042bb0dbc5caea64252774a9266be361d6f221324391bcecf99c0e1bae37",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_set_prep_details": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_set_prep_details",
+      "inputSchemaSha256": "83caeebd7f7eab2ae4ece22e14b0f5932ecae43c84c271c38211f52cbc6e4d5a",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/setPrepDetails",
+      "slug": "amazon-sp-api-inbound-set-prep-details",
+      "publicRequestSchemaSha256": "733f013e8c920117ec008902fdeaee9902944b8e7b054b7aad770c9ad54fb2fe",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_inbound_get_inbound_operation_status": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_inbound_get_inbound_operation_status",
+      "inputSchemaSha256": "6be2584e780ad5db73c9e0a833d820d6d9c5bb38a13dd5cdae46f722243be476",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getInboundOperationStatus",
+      "slug": "amazon-sp-api-inbound-get-inbound-operation-status",
+      "publicRequestSchemaSha256": "a79220b11fb76d863bd49598b1b69a535cd8e9d6c7f3bae4b1fa9794e5e95883",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_outbound_get_fulfillment_preview": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_outbound_get_fulfillment_preview",
+      "inputSchemaSha256": "e32207659aec959f4fa1c0c4ee615bb8119263da2b861f2cee07ef22eeee3ea1",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getFulfillmentPreview",
+      "slug": "amazon-sp-api-outbound-get-fulfillment-preview",
+      "publicRequestSchemaSha256": "73b8ab5545b695aa6e14cec04e56c014c65caa38359b0f5d14371fcc1ef45215",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_outbound_delivery_offers": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_outbound_delivery_offers",
+      "inputSchemaSha256": "e32207659aec959f4fa1c0c4ee615bb8119263da2b861f2cee07ef22eeee3ea1",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/deliveryOffers",
+      "slug": "amazon-sp-api-outbound-delivery-offers",
+      "publicRequestSchemaSha256": "b65052ba6d7a973ff452131fa65c77234321428ee6f62513129c9d9a686cd2bf",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_outbound_list_all_fulfillment_orders": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_outbound_list_all_fulfillment_orders",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/listAllFulfillmentOrders",
+      "slug": "amazon-sp-api-outbound-list-all-fulfillment-orders",
+      "publicRequestSchemaSha256": "7288660cfef56bf8e613f75f2bb4b4fabaec595878cf617f82687cd8aeab3233",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_outbound_create_fulfillment_order": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_outbound_create_fulfillment_order",
+      "inputSchemaSha256": "83caeebd7f7eab2ae4ece22e14b0f5932ecae43c84c271c38211f52cbc6e4d5a",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/createFulfillmentOrder",
+      "slug": "amazon-sp-api-outbound-create-fulfillment-order",
+      "publicRequestSchemaSha256": "fb4c6bd7c989975204887e7bc7f4a3b9c507b6c2fc8ec52236b0564bdb6f3e41",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_outbound_get_package_tracking_details": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_outbound_get_package_tracking_details",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getPackageTrackingDetails",
+      "slug": "amazon-sp-api-outbound-get-package-tracking-details",
+      "publicRequestSchemaSha256": "10a8e97e6194293c34613a6c6880d0c3d6af1ad5562c33a4e5dfb769f88621de",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_outbound_list_return_reason_codes": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_outbound_list_return_reason_codes",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/listReturnReasonCodes",
+      "slug": "amazon-sp-api-outbound-list-return-reason-codes",
+      "publicRequestSchemaSha256": "da561846016e9491594d44b6e9b2f00b8b270104af6acc5e37ac68effbe42a8d",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_outbound_create_fulfillment_return": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_outbound_create_fulfillment_return",
+      "inputSchemaSha256": "75375f2d5111eaa5079ed561299821dd79f77766b9274dd7bccf4cc2a4a54125",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/createFulfillmentReturn",
+      "slug": "amazon-sp-api-outbound-create-fulfillment-return",
+      "publicRequestSchemaSha256": "ed5a3ae0471d87a30f19f0f26c4477c399f1da409ed26aa353714a8488add223",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_outbound_get_fulfillment_order": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_outbound_get_fulfillment_order",
+      "inputSchemaSha256": "a296419c4011e162f6770d848c28291de69633504baf1fcdf338f965572f62cc",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getFulfillmentOrder",
+      "slug": "amazon-sp-api-outbound-get-fulfillment-order",
+      "publicRequestSchemaSha256": "0b778a8b3a3eba224d3e8496f7972730d9b4c9f7d6b4414f919bf30e23cb1150",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_outbound_update_fulfillment_order": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_outbound_update_fulfillment_order",
+      "inputSchemaSha256": "75375f2d5111eaa5079ed561299821dd79f77766b9274dd7bccf4cc2a4a54125",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/updateFulfillmentOrder",
+      "slug": "amazon-sp-api-outbound-update-fulfillment-order",
+      "publicRequestSchemaSha256": "241683c4443a2eee3bbe3811114db6de77789bf55ac466053909bc56cfda4a9e",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_outbound_cancel_fulfillment_order": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_outbound_cancel_fulfillment_order",
+      "inputSchemaSha256": "75375f2d5111eaa5079ed561299821dd79f77766b9274dd7bccf4cc2a4a54125",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/cancelFulfillmentOrder",
+      "slug": "amazon-sp-api-outbound-cancel-fulfillment-order",
+      "publicRequestSchemaSha256": "bb1a9340779e758b3377710c42a8e4a4505f98a3f7b0f1789da4ea084a674dde",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_outbound_submit_fulfillment__ca58fff49c24": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_outbound_submit_fulfillment__ca58fff49c24",
+      "inputSchemaSha256": "75375f2d5111eaa5079ed561299821dd79f77766b9274dd7bccf4cc2a4a54125",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/submitFulfillmentOrderStatusUpdate",
+      "slug": "amazon-sp-api-outbound-submit-fulfillment-order-status-update",
+      "publicRequestSchemaSha256": "fc4f70c51189c7021af9388d7e1ab916ce142ec403b876e56ca8953f91c2e18e",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_outbound_get_features": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_outbound_get_features",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getFeatures",
+      "slug": "amazon-sp-api-outbound-get-features",
+      "publicRequestSchemaSha256": "67870065f3d21b1c63831ca9eb084347a90d700ce909ad9f035c2208de6cea9c",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_outbound_get_feature_inventory": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_outbound_get_feature_inventory",
+      "inputSchemaSha256": "5e87283fe192b3d4eaa1903993c335a913742b4994236c9c481b08fe9e8bd4b5",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getFeatureInventory",
+      "slug": "amazon-sp-api-outbound-get-feature-inventory",
+      "publicRequestSchemaSha256": "8d61811166c93dffd0c7f2ac9ce505f98a339c744f72ed040849fe3b0e236abb",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_outbound_get_feature_sku": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_outbound_get_feature_sku",
+      "inputSchemaSha256": "9d4bd441ea142586ff2df82c97347ada8fc00582c144996ab6ef7b37b3d6b80c",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getFeatureSKU",
+      "slug": "amazon-sp-api-outbound-get-feature-sku",
+      "publicRequestSchemaSha256": "a351b9de388b0380416dd6afde752a0805358b96477a113109697be09519051d",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_outbound_2026_get_order_preview": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_outbound_2026_get_order_preview",
+      "inputSchemaSha256": "e32207659aec959f4fa1c0c4ee615bb8119263da2b861f2cee07ef22eeee3ea1",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getOrderPreview",
+      "slug": "amazon-sp-api-outbound-2026-get-order-preview",
+      "publicRequestSchemaSha256": "cfd5120fdaf37d2794bf66180560792017abe5d7fb49c808fbb50286d0c3583d",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_outbound_2026_get_offers": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_outbound_2026_get_offers",
+      "inputSchemaSha256": "e32207659aec959f4fa1c0c4ee615bb8119263da2b861f2cee07ef22eeee3ea1",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getOffers",
+      "slug": "amazon-sp-api-outbound-2026-get-offers",
+      "publicRequestSchemaSha256": "cc08c7613c3e8e1dd3cc42fff79e7980f17bfc7c7d1d57e539cdbef489062892",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_outbound_2026_create_order": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_outbound_2026_create_order",
+      "inputSchemaSha256": "83caeebd7f7eab2ae4ece22e14b0f5932ecae43c84c271c38211f52cbc6e4d5a",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/createOrder",
+      "slug": "amazon-sp-api-outbound-2026-create-order",
+      "publicRequestSchemaSha256": "fd8e7a78bc01f93b43661d618f281c5179b44daf7a8b9ce93214d94e63906279",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_outbound_2026_list_orders": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_outbound_2026_list_orders",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/listOrders",
+      "slug": "amazon-sp-api-outbound-2026-list-orders",
+      "publicRequestSchemaSha256": "e668559983d3aaa2cc87ceb94c27d1352c4e9b7aab71d0a742ae912aac4890a1",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_outbound_2026_get_order": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_outbound_2026_get_order",
+      "inputSchemaSha256": "45bebc2c9450b429454b5504f2315e19dfa2b5efe6ab4d03cabf7d35be822f8f",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getOrder",
+      "slug": "amazon-sp-api-outbound-2026-get-order",
+      "publicRequestSchemaSha256": "c79c031bb6a58d5a4731502239b3b56377c829746abd319eed3e715e09a6fec6",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_outbound_2026_update_order": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_outbound_2026_update_order",
+      "inputSchemaSha256": "f3a256031630cb018b5c7d1827afc4915feae664829a3e1d2ffba4e2d42d2e7c",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/updateOrder",
+      "slug": "amazon-sp-api-outbound-2026-update-order",
+      "publicRequestSchemaSha256": "a05534d1e71af947fc730bafb3bf34fbfd14737ece10c738d325c08648cc8dac",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_outbound_2026_cancel_order": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_outbound_2026_cancel_order",
+      "inputSchemaSha256": "f3a256031630cb018b5c7d1827afc4915feae664829a3e1d2ffba4e2d42d2e7c",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/cancelOrder",
+      "slug": "amazon-sp-api-outbound-2026-cancel-order",
+      "publicRequestSchemaSha256": "955628ec84f484a9b76c3cc45e69d8ec9a68087439c3577880ade02b31ae46c3",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_outbound_2026_update_order_status": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_outbound_2026_update_order_status",
+      "inputSchemaSha256": "f3a256031630cb018b5c7d1827afc4915feae664829a3e1d2ffba4e2d42d2e7c",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/updateOrderStatus",
+      "slug": "amazon-sp-api-outbound-2026-update-order-status",
+      "publicRequestSchemaSha256": "787a4be0f9c1eb0fbb1b24a72631498879831f2ed43cf822a399acd7994a3f97",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_outbound_2026_update_package": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_outbound_2026_update_package",
+      "inputSchemaSha256": "181f98b22988d5983c54eaeb2656f52b71361e94c250b107ce6895be9a165e59",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/outbound2026UpdatePackage",
+      "slug": "amazon-sp-api-outbound-2026-update-package",
+      "publicRequestSchemaSha256": "8411cc8ce607f9b8c8a373425251d4dc5a5553f514facd5de79eb71c0f028d80",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_invoices_get_invoice_headers": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_invoices_get_invoice_headers",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getInvoiceHeaders",
+      "slug": "amazon-sp-api-invoices-get-invoice-headers",
+      "publicRequestSchemaSha256": "d395143d953d81144d8f11cfd613d6853665d81704935113bd0f2477c70f849d",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_external_fulfillment_batch_inventory": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_external_fulfillment_batch_inventory",
+      "inputSchemaSha256": "83caeebd7f7eab2ae4ece22e14b0f5932ecae43c84c271c38211f52cbc6e4d5a",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/batchInventory",
+      "slug": "amazon-sp-api-external-fulfillment-batch-inventory",
+      "publicRequestSchemaSha256": "68c12ed1817ed7bbbab29cd8a287e2edf68dbb8a81e3ee0b9db3979ca70ba341",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_external_fulfillment_get_shipments": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_external_fulfillment_get_shipments",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getShipments",
+      "slug": "amazon-sp-api-external-fulfillment-get-shipments",
+      "publicRequestSchemaSha256": "d685d37209c75488dd48fe06e932eae8068cb788ce1e8181453b2927cca4b6ca",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_external_fulfillment_get_shipment": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_external_fulfillment_get_shipment",
+      "inputSchemaSha256": "e4cd6f87854e4bacb50a9690598be486a553bd582199dc1b9a78e1945f80d30e",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/externalFulfillmentGetShipment",
+      "slug": "amazon-sp-api-external-fulfillment-get-shipment",
+      "publicRequestSchemaSha256": "de810f5737610bb9b84c757c3d61450c2d9520f88cda49b2cc3b1f1ab87f9187",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_external_fulfillment_process_shipment": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_external_fulfillment_process_shipment",
+      "inputSchemaSha256": "59b0e77e9bef98ca9baa085b49418e3efb1a415dd6cd3c2ac565b6fec3419fcd",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/processShipment",
+      "slug": "amazon-sp-api-external-fulfillment-process-shipment",
+      "publicRequestSchemaSha256": "b9e7231695e0b26bfb5945bf34455d6bc754619ca400b3ce08f7e54532c44dc9",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_external_fulfillment_create_packages": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_external_fulfillment_create_packages",
+      "inputSchemaSha256": "59b0e77e9bef98ca9baa085b49418e3efb1a415dd6cd3c2ac565b6fec3419fcd",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/createPackages",
+      "slug": "amazon-sp-api-external-fulfillment-create-packages",
+      "publicRequestSchemaSha256": "80b7b54b99631db02704fa105ba794c037baace6b6c9f76ca24fc156c3a66592",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_external_fulfillment_update_package": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_external_fulfillment_update_package",
+      "inputSchemaSha256": "4abe561e12a2d72a46458bf09a9ba570c47ce2a2552d4cb90c717bb958c2de4a",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/externalFulfillmentUpdatePackage",
+      "slug": "amazon-sp-api-external-fulfillment-update-package",
+      "publicRequestSchemaSha256": "4e6232372a04c6e119110c5b35e3fbbc7152e6fd6d8428a6dfe25628b170803e",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_external_fulfillment_update__cb240063a5f5": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_external_fulfillment_update__cb240063a5f5",
+      "inputSchemaSha256": "4abe561e12a2d72a46458bf09a9ba570c47ce2a2552d4cb90c717bb958c2de4a",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/updatePackageStatus",
+      "slug": "amazon-sp-api-external-fulfillment-update-package-status",
+      "publicRequestSchemaSha256": "e6431a71bcd195a4c6b572de4dae5b97f9c44fc12a5b48f26d655c44907e86a9",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_external_fulfillment_retriev_e8a93dbacfcd": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_external_fulfillment_retriev_e8a93dbacfcd",
+      "inputSchemaSha256": "e4cd6f87854e4bacb50a9690598be486a553bd582199dc1b9a78e1945f80d30e",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/retrieveShippingOptions",
+      "slug": "amazon-sp-api-external-fulfillment-retrieve-shipping-options",
+      "publicRequestSchemaSha256": "802baf95b7c89467e496def87562a7009a8b43736c8ba0c8a4f810bcae65f94f",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_external_fulfillment_generate_invoice": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_external_fulfillment_generate_invoice",
+      "inputSchemaSha256": "59b0e77e9bef98ca9baa085b49418e3efb1a415dd6cd3c2ac565b6fec3419fcd",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/generateInvoice",
+      "slug": "amazon-sp-api-external-fulfillment-generate-invoice",
+      "publicRequestSchemaSha256": "dfaf9dbd527023b69becd073b44b8fe5ab46f342a5f56de1305808f121d871e3",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_external_fulfillment_retrieve_invoice": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_external_fulfillment_retrieve_invoice",
+      "inputSchemaSha256": "e4cd6f87854e4bacb50a9690598be486a553bd582199dc1b9a78e1945f80d30e",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/retrieveInvoice",
+      "slug": "amazon-sp-api-external-fulfillment-retrieve-invoice",
+      "publicRequestSchemaSha256": "7eacdf310ae1bd8316b976c48a86e307ddf6c0f93e10fb77b5185c2e1b0bdba0",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_external_fulfillment_generate_ship_labels": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_external_fulfillment_generate_ship_labels",
+      "inputSchemaSha256": "59b0e77e9bef98ca9baa085b49418e3efb1a415dd6cd3c2ac565b6fec3419fcd",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/generateShipLabels",
+      "slug": "amazon-sp-api-external-fulfillment-generate-ship-labels",
+      "publicRequestSchemaSha256": "4be2cb31479a4e71d7c10040adeb2a9aca053207d6feb7557134fd02e990c522",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_external_fulfillment_list_returns": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_external_fulfillment_list_returns",
+      "inputSchemaSha256": "8981a31c580d98e093076a833e1d977ef25bf37476d44ed698dd48f0724492f6",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/listReturns",
+      "slug": "amazon-sp-api-external-fulfillment-list-returns",
+      "publicRequestSchemaSha256": "f1a6fb65dd227c25a42df998ef22c35d677c556b46958c48d3112c8899563453",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_external_fulfillment_get_return": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_external_fulfillment_get_return",
+      "inputSchemaSha256": "5727bf4e54aef1dc0d0f03f6b124a3af12780fa2c52c758b4d70adbcd4dac505",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/getReturn",
+      "slug": "amazon-sp-api-external-fulfillment-get-return",
+      "publicRequestSchemaSha256": "7aa6b35b9668f439ddc097593fa0ec12ec65789a6eb32d31fe0b5a6c90e5cdee",
+      "publicResponseSchemaSha256": "23d8be7006c2e49cf1dbc68ce2e04b2faa8bdc8c6d49344bc1608f090ec08818",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_auth_authorize": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_auth_authorize",
+      "inputSchemaSha256": "878d78cf411fec2d35f6fd24117495f012fe7d79e1d7b2565f5944e2f8784f25",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/authorize",
+      "slug": "amazon-sp-api-auth-authorize",
+      "publicRequestSchemaSha256": "b37847f5c4a78475968109c140aec9519ba48e6f3b62b3eac4c5b4c7de11b881",
+      "publicResponseSchemaSha256": "69a8f6766a686d743a9c6436a4fa6e62eed5f33a52782ea245091ee13513f94c",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_auth_list_connections": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_auth_list_connections",
+      "inputSchemaSha256": "f76863fca94493b6e25baaefc8be74d33a5a8c7415184d73cae6b10601a6b060",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/listConnections",
+      "slug": "amazon-sp-api-auth-list-connections",
+      "publicRequestSchemaSha256": "8db13d8548cd0ef632ba40613a1a2b27e8c3a4f69839efdd138d53f5e0e35c75",
+      "publicResponseSchemaSha256": "4853677cb95448a654508d58bbcd82b68fc5d5233e74731480f157be5e5ec59b",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_auth_refresh_connection": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_auth_refresh_connection",
+      "inputSchemaSha256": "f583a3f00a9b318bf24a69337ec4423f16e393cf438ac130b4c79dcf6035c055",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/refreshConnection",
+      "slug": "amazon-sp-api-auth-refresh-connection",
+      "publicRequestSchemaSha256": "9bd82fd9b116ffd72a383537f0ec2ba9bcf6e9d6c5a5eaa9742b3f819d4d5432",
+      "publicResponseSchemaSha256": "d9e98bb8d7009a1fb85273a2d7d7e06d6fb34f1fae8bab904f8adb0852e35722",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_auth_connection_status": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_auth_connection_status",
+      "inputSchemaSha256": "f583a3f00a9b318bf24a69337ec4423f16e393cf438ac130b4c79dcf6035c055",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/connectionStatus",
+      "slug": "amazon-sp-api-auth-connection-status",
+      "publicRequestSchemaSha256": "6071c4f212bc6d79d1dc3b88e9ebde1831c898026934bd6538a341f7431da09b",
+      "publicResponseSchemaSha256": "c4537d740a193cbed8667e8ec6ee3eb88e179c3358c4fd277978e68b2f2a61a3",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
+      }
+    },
+    "nexscope_amazon_sp_api_auth_disconnect": {
+      "transport": "POST /mcp tools/call",
+      "tool": "nexscope_amazon_sp_api_auth_disconnect",
+      "inputSchemaSha256": "00cb7e6efa315f0f96f27bdae3c379fd636d7f60e5c613b501f2cc80f821bde1",
+      "schemaResource": "tools.json",
+      "verification": "deployed backend contract; public docs and representative live calls verified",
+      "publicEndpoint": "/spapi/disconnect",
+      "slug": "amazon-sp-api-auth-disconnect",
+      "publicRequestSchemaSha256": "0074bb36524d3590643c1f1279976eeef109130a0ee72dad5bd85e7e61f9cc44",
+      "publicResponseSchemaSha256": "c4537d740a193cbed8667e8ec6ee3eb88e179c3358c4fd277978e68b2f2a61a3",
+      "registeredInProductionDocs": true,
+      "billing": {
+        "creditsPerRequest": 10,
+        "source": "production public documentation and representative account ledger checks"
       }
     }
   }

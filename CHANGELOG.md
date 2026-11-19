@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Add all 159 Amazon Selling Partner API tools to offline discovery and validation.
+
 ## 0.1.6
 
 - Align the bundled eBay search schema with the public contract: remove the retired Sold option and require a keyword or category ID.
